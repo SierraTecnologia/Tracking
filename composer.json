@@ -1,0 +1,58 @@
+{
+    "name": "sierratecnologia/tracking",
+    "description": "Tracking",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ricardo Rebello Sierra",
+            "email": "contato@ricardosierra.com.br"
+        }
+    ],
+    "require": {
+        "php": "^7.3.0",
+        "sierratecnologia/populate": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tracking\\": "src/"
+        }
+    },
+    "bin": ["bin/observador"],
+    "scripts": {
+        "post-install-cmd": [],
+        "post-update-cmd": [],
+        "post-create-project-cmd": []
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../Informate",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../Populate",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../Population",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tracking\\TrackingProvider"
+            ]
+        }
+    }
+}
