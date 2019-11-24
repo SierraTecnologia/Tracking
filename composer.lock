@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "c0d3854164ba04ed3097c19499ccd1c07ce91794"
+                "reference": "392273617e34c9ac848dac87165acd3eabae429c"
             },
             "require": {
                 "php": "^7.3.0"
@@ -56,7 +56,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "b36ce3452a65c6bde1e7f3d3260afa9cda06fc5a"
+                "reference": "53d3152c35b59467a1c15d430c9991119dd47d82"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master"
