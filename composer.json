@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": "^7.3.0",
-        "sierratecnologia/populate": "dev-master"
+        "sierratecnologia/population": "dev-master"
     },
     "autoload": {
         "psr-4": {
@@ -27,13 +27,6 @@
         {
             "type": "path",
             "url": "../Informate",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "../Populate",
             "options": {
                 "symlink": true
             }

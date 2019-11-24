@@ -1,0 +1,103 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "65d8f0a1de5252f229e44f01eb16e0e2",
+    "packages": [
+        {
+            "name": "sierratecnologia/informate",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../Informate",
+                "reference": "c0d3854164ba04ed3097c19499ccd1c07ce91794"
+            },
+            "require": {
+                "php": "^7.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Informate\\InformateProvider"
+                    ],
+                    "dont-discover": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Informate\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-install-cmd": [],
+                "post-update-cmd": [],
+                "post-create-project-cmd": []
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ricardo Rebello Sierra",
+                    "email": "contato@ricardosierra.com.br"
+                }
+            ],
+            "description": "informate",
+            "transport-options": {
+                "symlink": true
+            }
+        },
+        {
+            "name": "sierratecnologia/population",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../Population",
+                "reference": "b36ce3452a65c6bde1e7f3d3260afa9cda06fc5a"
+            },
+            "require": {
+                "sierratecnologia/informate": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Population\\PopulationProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Population\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-install-cmd": [],
+                "post-update-cmd": [],
+                "post-create-project-cmd": []
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Population",
+            "transport-options": {
+                "symlink": true
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "sierratecnologia/population": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^7.3.0"
+    },
+    "platform-dev": []
+}
