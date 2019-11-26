@@ -10,6 +10,10 @@
     ],
     "require": {
         "php": "^7.3.0",
+        "phpmetrics/phpmetrics": "*",
+        "markrogoyski/math-php": "*",
+        "php-ai/php-ml": "^0.8.0",
+        "rokde/laravel-slow-query-logger": "*",
         "sierratecnologia/audit": "dev-master"
     },
     "autoload": {
