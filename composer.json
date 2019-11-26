@@ -17,7 +17,6 @@
             "Tracking\\": "src/"
         }
     },
-    "bin": ["bin/observador"],
     "scripts": {
         "post-install-cmd": [],
         "post-update-cmd": [],
