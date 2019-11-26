@@ -4,8 +4,109 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65d8f0a1de5252f229e44f01eb16e0e2",
+    "content-hash": "6b3c24461ace67ba26054a57d74cdc8b",
     "packages": [
+        {
+            "name": "kassner/log-parser",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kassner/log-parser.git",
+                "reference": "ea846b7edf24a421c5484902b2501c9c8e065796"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kassner/log-parser/zipball/ea846b7edf24a421c5484902b2501c9c8e065796",
+                "reference": "ea846b7edf24a421c5484902b2501c9c8e065796",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.11",
+                "phpmd/phpmd": "~2.1",
+                "phpunit/phpunit": "~4.4",
+                "sebastian/phpcpd": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kassner": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Rafael Kassner",
+                    "email": "kassner@gmail.com",
+                    "homepage": "http://www.kassner.com.br/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Log Parser Library",
+            "homepage": "http://github.com/kassner/log-parser",
+            "keywords": [
+                "apache",
+                "format",
+                "log",
+                "log-format",
+                "nginx",
+                "parser"
+            ],
+            "time": "2019-02-04T07:43:30+00:00"
+        },
+        {
+            "name": "sierratecnologia/audit",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../Audit",
+                "reference": "89bfd7188907df0535b4e73d90d264894b06f864"
+            },
+            "require": {
+                "kassner/log-parser": "*",
+                "php": "^7.3.0",
+                "sierratecnologia/population": "dev-master"
+            },
+            "bin": [
+                "bin/observador"
+            ],
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Audit\\AuditProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Audit\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-install-cmd": [],
+                "post-update-cmd": [],
+                "post-create-project-cmd": []
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ricardo Rebello Sierra",
+                    "email": "contato@ricardosierra.com.br"
+                }
+            ],
+            "description": "Audit",
+            "transport-options": {
+                "symlink": true
+            }
+        },
         {
             "name": "sierratecnologia/informate",
             "version": "dev-master",
@@ -92,7 +193,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "sierratecnologia/population": 20
+        "sierratecnologia/audit": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
