@@ -56,7 +56,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "53d3152c35b59467a1c15d430c9991119dd47d82"
+                "reference": "de175863f9b6d9af4cb1f651e7c51db8d6885d0b"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master"

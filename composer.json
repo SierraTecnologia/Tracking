@@ -26,14 +26,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../Informate",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "../Population",
+            "url": "../**",
             "options": {
                 "symlink": true
             }

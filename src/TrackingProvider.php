@@ -9,12 +9,9 @@ use Illuminate\Support\ServiceProvider;
 class TrackingProvider extends ServiceProvider
 {
     public static $providers = [
-        // \Tracking\Providers\TrackingEventServiceProvider::class,
-        // \Tracking\Providers\TrackingServiceProvider::class,
-        // \Tracking\Providers\TrackingRouteProvider::class,
-
-        // \Tracking\TrackingProvider::class,
-        // \Casa\CasaProvider::class,
+        \Tracking\Providers\TrackingEventServiceProvider::class,
+        \Tracking\Providers\TrackingServiceProvider::class,
+        \Tracking\Providers\TrackingRouteProvider::class,
     ];
 
     /**
@@ -22,20 +19,9 @@ class TrackingProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->publishes([
-        //     __DIR__.'/Publishes/resources/tools' => base_path('resources/tools'),
-        //     __DIR__.'/Publishes/app/Services' => app_path('Services'),
-        //     __DIR__.'/Publishes/public/js' => base_path('public/js'),
-        //     __DIR__.'/Publishes/public/css' => base_path('public/css'),
-        //     __DIR__.'/Publishes/public/img' => base_path('public/img'),
-        //     __DIR__.'/Publishes/config' => base_path('config'),
-        //     __DIR__.'/Publishes/routes' => base_path('routes'),
-        //     __DIR__.'/Publishes/app/Controllers' => app_path('Http/Controllers/Tracking'),
-        // ]);
-
-        // $this->publishes([
-        //     __DIR__.'../resources/views' => base_path('resources/views/vendor/Tracking'),
-        // ], 'SierraTecnologia Tracking');
+        $this->publishes([
+            __DIR__.'../resources/views' => base_path('resources/views/vendor/tracking'),
+        ], 'SierraTecnologia Tracking');
     }
 
     /**
@@ -45,14 +31,8 @@ class TrackingProvider extends ServiceProvider
     {
         $this->setProviders();
 
-        // // View namespace
-        // $this->loadViewsFrom(__DIR__.'/Views', 'Tracking');
-
-        // if (is_dir(base_path('resources/Tracking'))) {
-        //     $this->app->view->addNamespace('Tracking-frontend', base_path('resources/Tracking'));
-        // } else {
-        //     $this->app->view->addNamespace('Tracking-frontend', __DIR__.'/Publishes/resources/Tracking');
-        // }
+        // View namespace
+        $this->loadViewsFrom(__DIR__.'../resources/views', 'tracking');
 
         $this->loadMigrationsFrom(__DIR__.'/Migrations');
 
