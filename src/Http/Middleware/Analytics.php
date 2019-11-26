@@ -1,6 +1,6 @@
 <?php
 
-namespace SiObject\Http\Middleware;
+namespace Tracking\Http\Middleware;
 
 use Closure;
 use Siravel\Services\System\AnalyticsService;

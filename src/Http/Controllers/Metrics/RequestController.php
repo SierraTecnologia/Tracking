@@ -1,10 +1,10 @@
 <?php
 
-namespace Siravel\Http\Controllers\System\Metrics;
+namespace Tracking\Http\Controllers\System\Metrics;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Siravel\Models\Metrics\LarametricsRequest;
+use Tracking\Models\Metrics\LarametricsRequest;
 
 class RequestController extends Controller
 {

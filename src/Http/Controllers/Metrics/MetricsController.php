@@ -1,13 +1,13 @@
 <?php
 
-namespace Siravel\Http\Controllers\System\Metrics;
+namespace Tracking\Http\Controllers\System\Metrics;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Siravel\Providers\Metrics\LogParser;
-use Siravel\Models\Metrics\LarametricsLog;
-use Siravel\Models\Metrics\LarametricsModel;
-use Siravel\Models\Metrics\LarametricsRequest;
+use Tracking\Providers\Metrics\LogParser;
+use Tracking\Models\Metrics\LarametricsLog;
+use Tracking\Models\Metrics\LarametricsModel;
+use Tracking\Models\Metrics\LarametricsRequest;
 
 class MetricsController extends Controller
 {

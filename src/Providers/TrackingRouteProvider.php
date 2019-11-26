@@ -4,7 +4,7 @@ namespace Tracking\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
-use SiObject\Http\Middleware\Analytics;
+use Tracking\Http\Middleware\Analytics;
 use Tracking\Http\Middleware\isAjax;
 
 class TrackingRouteProvider extends ServiceProvider

@@ -1,11 +1,11 @@
 <?php
 
-namespace Siravel\Http\Controllers\System\Metrics;
+namespace Tracking\Http\Controllers\System\Metrics;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Siravel\Providers\Metrics\LogParser;
-use Siravel\Models\Metrics\LarametricsModel;
+use Tracking\Providers\Metrics\LogParser;
+use Tracking\Models\Metrics\LarametricsModel;
 use DB;
 use Carbon\Carbon;
 

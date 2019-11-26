@@ -12,6 +12,8 @@ class TrackingProvider extends ServiceProvider
         \Tracking\Providers\TrackingEventServiceProvider::class,
         \Tracking\Providers\TrackingServiceProvider::class,
         \Tracking\Providers\TrackingRouteProvider::class,
+
+        \Audit\AuditProvider::class,
     ];
 
     /**

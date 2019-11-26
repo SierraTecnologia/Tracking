@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": "^7.3.0",
-        "sierratecnologia/population": "dev-master"
+        "sierratecnologia/audit": "dev-master"
     },
     "autoload": {
         "psr-4": {
