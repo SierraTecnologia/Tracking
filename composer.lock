@@ -855,7 +855,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "497c6cd4b9d8b04ada77e8c7eadc3fdb3e8d24aa"
+                "reference": "91e1918c17d5c3ae4fe56d8350ed2f8a8ffd54cf"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -1040,7 +1040,7 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v5.0.0",
+            "version": "v5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
