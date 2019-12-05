@@ -4,7 +4,7 @@ namespace Tracking\Services;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
-use Tracking\Models\System\Analytics;
+use Tracking\Models\Analytics;
 
 class AnalyticsService
 {

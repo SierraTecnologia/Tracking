@@ -3,7 +3,7 @@
 namespace Tracking\Http\Middleware;
 
 use Closure;
-use Siravel\Services\System\AnalyticsService;
+use Tracking\Services\AnalyticsService;
 
 class Analytics
 {
