@@ -855,7 +855,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "ec1d84a8018d700c0873e633882a589ce0ebfada"
+                "reference": "066eb9007f1f1d0ce37852d7aa943c8a0851f96c"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -904,7 +904,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "68e28225224fea3f7266a288242fa2bd0bc037e8"
+                "reference": "9e7d9d78eea1019aa18be8612df3c6a44a732c7f"
             },
             "require": {
                 "php": "^7.3.0"
@@ -948,7 +948,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "9ab43dc3e01f04663391e37d20e9e66ed218ce9a"
+                "reference": "1c6b14dd87c70c691c19892c29000538cfb2bdce"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master"
