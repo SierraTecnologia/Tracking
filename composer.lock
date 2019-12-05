@@ -855,7 +855,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "ef28535ffff4e02c0c496bd18b1d61be8cbb0b18"
+                "reference": "3aa7fe1a6198766c8488ba775a5e94af03bc60f7"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -948,7 +948,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "60581983827ce63968e8f9ce19491df336554c19"
+                "reference": "7c5efe4b34f0bc09ba1c9c694984e418096cdec6"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master"
