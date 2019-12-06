@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
-use Siravel\Models\Metrics\LarametricsLog;
+use Informate\Models\Metrics\LarametricsLog;
 
 class LogWritten extends Notification implements ShouldQueue
 {

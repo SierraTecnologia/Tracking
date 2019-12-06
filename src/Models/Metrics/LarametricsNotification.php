@@ -1,6 +1,6 @@
 <?php
 
-namespace Siravel\Models\Features\Metrics;
+namespace Informate\Models\Features\Metrics;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;

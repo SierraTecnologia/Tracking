@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
-use Siravel\Models\Metrics\LarametricsRequest;
+use Informate\Models\Metrics\LarametricsRequest;
 
 class RouteRequested extends Notification implements ShouldQueue
 {
