@@ -15,6 +15,11 @@ class TrackingProvider extends ServiceProvider
         \Tracking\Providers\TrackingRouteProvider::class,
 
         \Audit\AuditProvider::class,
+
+        /**
+         * Externos
+         */
+        Aschmelyun\Larametrics\LarametricsServiceProvider::class,
     ];
 
     /**

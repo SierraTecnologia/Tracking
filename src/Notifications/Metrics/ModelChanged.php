@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
-use Informate\Models\Metrics\LarametricsModel;
+use Tracking\Models\Metrics\LarametricsModel;
 
 class ModelChanged extends Notification implements ShouldQueue
 {

@@ -14,7 +14,8 @@
         "markrogoyski/math-php": "*",
         "php-ai/php-ml": "^0.8.0",
         "rokde/laravel-slow-query-logger": "*",
-        "sierratecnologia/audit": "dev-master"
+        "sierratecnologia/audit": "dev-master",
+        "aschmelyun/larametrics": "^1.1"
     },
     "autoload": {
         "psr-4": {

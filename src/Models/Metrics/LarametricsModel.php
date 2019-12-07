@@ -1,6 +1,6 @@
 <?php
 
-namespace Population\Models\Features\Metrics;
+namespace Tracking\Models\Metrics;
 
 use Illuminate\Database\Eloquent\Model;
 
