@@ -1,6 +1,6 @@
 <?php
 
-namespace Informate\Models\Features\Metrics;
+namespace Population\Models\Features\Metrics;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
