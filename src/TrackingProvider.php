@@ -10,8 +10,6 @@ use Illuminate\Support\Collection;
 class TrackingProvider extends ServiceProvider
 {
     public static $providers = [
-        \Tracking\Providers\TrackingEventServiceProvider::class,
-        \Tracking\Providers\TrackingServiceProvider::class,
         \Tracking\Providers\TrackingRouteProvider::class,
 
         \Audit\AuditProvider::class,
@@ -19,7 +17,7 @@ class TrackingProvider extends ServiceProvider
         /**
          * Externos
          */
-        Aschmelyun\Larametrics\LarametricsServiceProvider::class,
+        \Aschmelyun\Larametrics\LarametricsServiceProvider::class,
     ];
 
     /**

@@ -3,7 +3,6 @@
 Route::group(['middleware' => ['web']], function () {  
     // Route::group(['middleware' => ['siravel-analytics']], function () {
     Route::group(['as' => 'tracking.'], function () {
-        Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 
         Route::group(['namespace' => 'Metrics'], function () {
