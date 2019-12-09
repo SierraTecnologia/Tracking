@@ -1,7 +1,7 @@
 <?php
 namespace Finder\Spider\Traits;
 
-use Finder\Spider\Abstracts\MetricManager;
+use Tracking\Abstracts\MetricManager;
 
 use Informate\Models\Entytys\Digital\Midia\File;
 use Informate\Models\Entytys\Digital\Internet\ComputerFile;

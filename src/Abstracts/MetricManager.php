@@ -1,7 +1,7 @@
 <?php
 namespace Finder\Spider\Abstracts;
 
-use Finder\Spider\Traits\MetricManagerTrait;
+use Tracking\Traits\MetricManagerTrait;
 use Finder\Helps\DebugHelper;
 
 /**
