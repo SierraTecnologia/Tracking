@@ -1,12 +1,10 @@
 <?php
-namespace Finder\Spider\Traits;
+namespace Tracking\Traits;
 
 use Tracking\Abstracts\MetricManager;
 
 use Informate\Models\Entytys\Digital\Midia\File;
 use Informate\Models\Entytys\Digital\Internet\ComputerFile;
-
-use Finder\Helps\DebugHelper;
 
 /**
  * Outputs events information to the console.
@@ -22,7 +20,6 @@ trait MetricManagerTrait
      */
     protected function run()
     {
-        DebugHelper::debug('Run MetricManager!');
         return true;
     }
 
