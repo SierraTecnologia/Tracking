@@ -9,8 +9,6 @@ use Illuminate\Support\Collection;
 use Spatie\LaravelAnalytics\LaravelAnalyticsFacade;
 use Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider;
 use Sitec\Laracogs\LaracogsProvider;
-use Laravel\Dusk\DuskServiceProvider;
-use Barryvdh\Debugbar\ServiceProvider as DebugService;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Schema;
 use Route;
