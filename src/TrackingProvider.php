@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Collection;
-use Spatie\LaravelAnalytics\LaravelAnalyticsFacade;
-use Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider;
-use Sitec\Laracogs\LaracogsProvider;
+// use Sitec\Laracogs\LaracogsProvider;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Schema;
 use Route;
@@ -18,7 +16,9 @@ class TrackingProvider extends ServiceProvider
     public static $aliasProviders = [
         'Horizon' => \Laravel\Horizon\Horizon::class,
 
-        'LaravelAnalytics' => LaravelAnalyticsFacade::class,
+        'LaravelAnalytics' => \Spatie\LaravelAnalytics\LaravelAnalyticsFacade::class,
+
+        
         /*
          * Log and Monitoring 
          */
@@ -34,6 +34,7 @@ class TrackingProvider extends ServiceProvider
         /**
          * Externos
          */
+        \Spatie\Analytics\AnalyticsServiceProvider::class,
         \Aschmelyun\Larametrics\LarametricsServiceProvider::class,
         \Laravel\Horizon\HorizonServiceProvider::class,
     ];
@@ -249,7 +250,7 @@ class TrackingProvider extends ServiceProvider
         return __DIR__.'/../publishes/'.$folder;
     }
 
-    private function getDistPath($folder)
+    private function getDistPath($folder = '')
     {
         return __DIR__.'/../dist/'.$folder;
     }

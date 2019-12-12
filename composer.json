@@ -17,7 +17,8 @@
         "sierratecnologia/audit": "dev-master",
         "aschmelyun/larametrics": "^1.1",
         "wnx/laravel-stats": "*",
-        "laravel/horizon": ">=3.4.4"
+        "laravel/horizon": ">=3.4.4",
+        "spatie/laravel-analytics": "^3.7"
     },
     "autoload": {
         "psr-4": {
