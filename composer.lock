@@ -2706,7 +2706,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "532a82352fdc9236203694ba4dbb2ce9d6ce0d81"
+                "reference": "d1817f87dfc46ba9ce5b0b461c06a8f535bef79d"
             },
             "require": {
                 "kassner/log-parser": "*",
