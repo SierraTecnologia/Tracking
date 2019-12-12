@@ -13,6 +13,7 @@ use Laravel\Dusk\DuskServiceProvider;
 use Barryvdh\Debugbar\ServiceProvider as DebugService;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Schema;
+use Route;
 
 class TrackingProvider extends ServiceProvider
 {
@@ -69,7 +70,7 @@ class TrackingProvider extends ServiceProvider
 
         Route::middleware(['nova', Authorize::class])
                 ->prefix('nova-vendor/beyondcode/tinker-tool')
-                ->group(__DIR__.'/../routes/api.php');
+                ->group(__DIR__.'/Routes/api.php');
     }
 
     /**
