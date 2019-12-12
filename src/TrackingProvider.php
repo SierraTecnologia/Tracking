@@ -188,12 +188,12 @@ class TrackingProvider extends ServiceProvider
             $this->getPublishesPath('config/larametrics.php') => config_path('larametrics.php'),
             $this->getPublishesPath('config/slow-query-logger.php') => config_path('slow-query-logger.php'),
             $this->getPublishesPath('config/stats.php') => config_path('stats.php')
-        ], 'config');
+        ], 'sitec-config');
 
         // Publish tracking css and js to public directory
         $this->publishes([
             $this->getDistPath() => public_path('assets/tracking')
-        ], 'assets');
+        ], 'sitec-assets');
 
 
 
@@ -201,7 +201,7 @@ class TrackingProvider extends ServiceProvider
         $this->publishes([
             $this->getPublishesPath('public/horizon') => public_path('vendor/horizon'),
             $this->getPublishesPath('public/larametrics') => public_path('vendor/larametrics')
-        ], 'public');
+        ], 'sitec-public');
 
 
         $this->loadViews();
@@ -216,7 +216,7 @@ class TrackingProvider extends ServiceProvider
         $this->loadViewsFrom($viewsPath, 'tracking');
         $this->publishes([
             $viewsPath => base_path('resources/views/vendor/tracking'),
-        ], 'views');
+        ], 'sitec-views');
 
 
         // // Publish lanaguage files
