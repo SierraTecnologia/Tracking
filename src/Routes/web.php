@@ -4,7 +4,7 @@ Route::group(['middleware' => ['web']], function () {
     // Route::group(['middleware' => ['siravel-analytics']], function () {
     Route::group(['as' => 'tracking.'], function () {
 
-
+        Route::get('analytics', 'AnalyticsController@index');
     });
 
     Route::group(['namespace' => 'Metrics'], function () {

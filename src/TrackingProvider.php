@@ -18,6 +18,7 @@ class TrackingProvider extends ServiceProvider
     public static $aliasProviders = [
         'Horizon' => \Laravel\Horizon\Horizon::class,
 
+        'LaravelAnalytics' => LaravelAnalyticsFacade::class,
         /*
          * Log and Monitoring 
          */
