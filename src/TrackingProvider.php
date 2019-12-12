@@ -6,9 +6,26 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Collection;
+use Spatie\LaravelAnalytics\LaravelAnalyticsFacade;
+use Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider;
+use Sitec\Laracogs\LaracogsProvider;
+use Laravel\Dusk\DuskServiceProvider;
+use Barryvdh\Debugbar\ServiceProvider as DebugService;
+use Illuminate\Foundation\AliasLoader;
+use Illuminate\Support\Facades\Schema;
 
 class TrackingProvider extends ServiceProvider
 {
+    public static $aliasProviders = [
+        'Horizon' => \Laravel\Horizon\Horizon::class,
+
+        /*
+         * Log and Monitoring 
+         */
+        'Sentry' => \Sentry\Laravel\Facade::class,
+        'Debugbar' => \Barryvdh\Debugbar\Facade::class,
+    ];
+
     public static $providers = [
         \Tracking\Providers\TrackingRouteProvider::class,
 
@@ -18,6 +35,7 @@ class TrackingProvider extends ServiceProvider
          * Externos
          */
         \Aschmelyun\Larametrics\LarametricsServiceProvider::class,
+        \Laravel\Horizon\HorizonServiceProvider::class,
     ];
 
     /**
@@ -25,9 +43,33 @@ class TrackingProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(191);
+
         $this->publishes([
-            __DIR__.'../resources/views' => base_path('resources/views/vendor/tracking'),
-        ], 'SierraTecnologia Tracking');
+            $this->getResourcesPath('views') => base_path('resources/views/vendor/tracking'),
+        ], 'tracking');
+        
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'tinker-tool');
+
+        $this->app->booted(function () {
+            $this->routes();
+        });
+    }
+
+    /**
+     * Register the tool's routes.
+     *
+     * @return void
+     */
+    protected function routes()
+    {
+        if ($this->app->routesAreCached()) {
+            return;
+        }
+
+        Route::middleware(['nova', Authorize::class])
+                ->prefix('nova-vendor/beyondcode/tinker-tool')
+                ->group(__DIR__.'/../routes/api.php');
     }
 
     /**
@@ -38,7 +80,7 @@ class TrackingProvider extends ServiceProvider
         $this->setProviders();
 
         // View namespace
-        $this->loadViewsFrom(__DIR__.'../resources/views', 'tracking');
+        $this->loadViewsFrom($this->getResourcesPath('views'), 'tracking');
 
         $this->loadMigrationsFrom(__DIR__.'/Migrations');
 
@@ -54,11 +96,48 @@ class TrackingProvider extends ServiceProvider
         $this->commands([]);
     }
 
+    /**
+     * Configs Paths
+     */
+    private function getResourcesPath($folder)
+    {
+        return __DIR__.'/../resources/'.$folder;
+    }
+
+    private function getPublishesPath($folder)
+    {
+        return __DIR__.'/../publishes/'.$folder;
+    }
+
+    private function getDistPath($folder)
+    {
+        return __DIR__.'/../dist/'.$folder;
+    }
+
+    /**
+     * Load Alias and Providers
+     */
     private function setProviders()
     {
+        $this->setDependencesAlias();
         (new Collection(self::$providers))->map(function ($provider) {
             $this->app->register($provider);
         });
-    }
 
+        // Incluindo Debug
+        if ($this->app->environment('local', 'testing')) {
+            $this->app->register(DuskServiceProvider::class);
+        }
+        
+        if ($this->app->environment('local')) {
+            $this->app->register(DebugService::class);
+        }
+    }
+    private function setDependencesAlias()
+    {
+        $loader = AliasLoader::getInstance();
+        (new Collection(self::$aliasProviders))->map(function ($class, $alias) use ($loader) {
+            $loader->alias($alias, $class);
+        });
+    }
 }
