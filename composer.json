@@ -15,9 +15,8 @@
         "php-ai/php-ml": "^0.8.0",
         "rokde/laravel-slow-query-logger": "*",
         "sierratecnologia/audit": "dev-master",
-        "laravel/tinker": "^1.0",
         "aschmelyun/larametrics": "^1.1",
-        "laravel/telescope": "^2.0",
+        "wnx/laravel-stats": "*",
         "laravel/horizon": ">=3.4.4"
     },
     "autoload": {
