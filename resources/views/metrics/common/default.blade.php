@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+@extends('layouts.app')
 
-<head>
-    @include('larametrics::common.partials.head')
-</head>
+<!-- @section('css')
+    <link rel="stylesheet" href="{{ asset('dist/css/vendor.css')}} ">
+@stop
 
-<body class="larametrics">
+@section('js')
+    @parent
+    <script type="text/javascript">
+        var _token = '{!! csrf_token() !!}';
+        var _url = '{!! url("/") !!}';
+    </script>
+    <script src="{{ asset('dist/js/vendor.js')}}"></script>
+    @stack('javascript')
+    @yield('javascript')
+@stop -->
+
+@section('content')
+
     <div class="page">
         <div class="page-main">
             @include('larametrics::common.partials.header')
@@ -23,6 +34,4 @@
         </div>
         @include('larametrics::common.partials.footer')
     </div>
-</body>
-
-</html>
+@endsection
