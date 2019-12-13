@@ -27,7 +27,14 @@ class TrackingProvider extends ServiceProvider
     ];
 
     public static $providers = [
-        \Tracking\Providers\TrackingRouteProvider::class,
+        /**
+         * Configuracoes
+         */
+        \Tracking\Providers\HorizonServiceProvider::class,
+        
+        /**
+         * 
+         */
 
         \Audit\AuditProvider::class,
 
@@ -80,6 +87,17 @@ class TrackingProvider extends ServiceProvider
         Route::middleware(['nova', Authorize::class])
                 ->prefix('nova-vendor/beyondcode/tinker-tool')
                 ->group(__DIR__.'/Routes/api.php');
+
+
+        /**
+         * Facilitador Routes
+         */
+        // $router->middleware('siravel-analytics', Analytics::class);
+        Route::group([
+            'namespace' => '\Tracking\Http\Controllers',
+        ], function ($router) {
+            require __DIR__.'/Routes/web.php';
+        });
     }
 
     /**

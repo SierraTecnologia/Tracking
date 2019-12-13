@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace Tracking\Http\Controllers;
 
 use Tracking\Services\AnalyticsService;
 use Illuminate\Support\Facades\Schema;

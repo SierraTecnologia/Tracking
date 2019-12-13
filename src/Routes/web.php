@@ -2,75 +2,78 @@
 
 Route::group(['middleware' => ['web']], function () {  
     // Route::group(['middleware' => ['siravel-analytics']], function () {
-    Route::group(['as' => 'tracking.'], function () {
 
-        Route::get('analytics', 'AnalyticsController@index');
-    });
+    Route::prefix('tracking')->group(function () {
+        Route::group(['as' => 'tracking.'], function () {
 
-    Route::group(['namespace' => 'Metrics'], function () {
-        Route::group(['as' => 'larametrics::'], function () {
+            Route::get('analytics', 'AnalyticsController@index');
+        });
 
-            // dashboard routes
-            Route::get('/metrics', [
-                'as' => 'metrics.index',
-                'uses' => 'MetricsController@index',
-            ]);
+        Route::group(['namespace' => 'Metrics'], function () {
+            Route::group(['as' => 'larametrics::'], function () {
 
-            // logs routes
-            Route::get('/metrics/logs', [
-                'as' => 'logs.index',
-                'uses' => 'LogController@index',
-            ]);
+                // dashboard routes
+                Route::get('/metrics', [
+                    'as' => 'metrics.index',
+                    'uses' => 'MetricsController@index',
+                ]);
 
-            Route::get('/metrics/logs/{log}', [
-                'as' => 'logs.show',
-                'uses' => 'LogController@show',
-            ]);
+                // logs routes
+                Route::get('/metrics/logs', [
+                    'as' => 'logs.index',
+                    'uses' => 'LogController@index',
+                ]);
 
-            // models routes
-            Route::get('/metrics/models', [
-                'as' => 'models.index',
-                'uses' => 'ModelController@index',
-            ]);
+                Route::get('/metrics/logs/{log}', [
+                    'as' => 'logs.show',
+                    'uses' => 'LogController@show',
+                ]);
 
-            Route::get('/metrics/models/{model}', [
-                'as' => 'models.show',
-                'uses' => 'ModelController@show',
-            ]);
+                // models routes
+                Route::get('/metrics/models', [
+                    'as' => 'models.index',
+                    'uses' => 'ModelController@index',
+                ]);
 
-            Route::get('/metrics/models/{model}/revert', [
-                'as' => 'models.revert',
-                'uses' => 'ModelController@revert',
-            ]);
+                Route::get('/metrics/models/{model}', [
+                    'as' => 'models.show',
+                    'uses' => 'ModelController@show',
+                ]);
 
-            // performance routes
-            Route::get('/metrics/performance', [
-                'as' => 'performance.index',
-                'uses' => 'PerformanceController@index',
-            ]);
+                Route::get('/metrics/models/{model}/revert', [
+                    'as' => 'models.revert',
+                    'uses' => 'ModelController@revert',
+                ]);
 
-            // request routes
-            Route::get('/metrics/requests', [
-                'as' => 'requests.index',
-                'uses' => 'RequestController@index',
-            ]);
+                // performance routes
+                Route::get('/metrics/performance', [
+                    'as' => 'performance.index',
+                    'uses' => 'PerformanceController@index',
+                ]);
 
-            Route::get('/metrics/requests/{request}', [
-                'as' => 'requests.show',
-                'uses' => 'RequestController@show',
-            ]);
+                // request routes
+                Route::get('/metrics/requests', [
+                    'as' => 'requests.index',
+                    'uses' => 'RequestController@index',
+                ]);
 
-            // notifications routes
-            Route::get('/metrics/notifications', [
-                'as' => 'notifications.index',
-                'uses' => 'NotificationController@index',
-            ]);
+                Route::get('/metrics/requests/{request}', [
+                    'as' => 'requests.show',
+                    'uses' => 'RequestController@show',
+                ]);
 
-            Route::post('/metrics/notifications/edit', [
-                'as' => 'notifications.update',
-                'uses' => 'NotificationController@update',
-            ]);
+                // notifications routes
+                Route::get('/metrics/notifications', [
+                    'as' => 'notifications.index',
+                    'uses' => 'NotificationController@index',
+                ]);
 
+                Route::post('/metrics/notifications/edit', [
+                    'as' => 'notifications.update',
+                    'uses' => 'NotificationController@update',
+                ]);
+
+            });
         });
     });
-});    
+});
