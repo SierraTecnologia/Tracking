@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Tracking\Models\Statistics;
 
 use Illuminate\Database\Eloquent\Model;
-use SierraTecnologia\Cacheable\CacheableEloquent;
-use SierraTecnologia\Support\Traits\ValidatingTrait;
+use Support\Cacheable\CacheableEloquent;
+use Support\Traits\ValidatingTrait;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Path extends Model
