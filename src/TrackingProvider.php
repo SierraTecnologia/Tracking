@@ -10,9 +10,37 @@ use Illuminate\Support\Collection;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Schema;
 use Route;
+use Illuminate\Routing\Router;
+use Tracking\Models\Statistics\Path;
+use Tracking\Models\Statistics\Agent;
+use Tracking\Models\Statistics\Datum;
+use Tracking\Models\Statistics\Geoip;
+use Tracking\Models\Statistics\Route as RouteBase;
+use Tracking\Models\Statistics\Device;
+use Tracking\Models\Statistics\Request;
+use Tracking\Models\Statistics\Platform;
+use SierraTecnologia\Support\Traits\ConsoleTools;
+use Tracking\Console\Commands\MigrateCommand;
+use Tracking\Console\Commands\PublishCommand;
+use Tracking\Http\Middleware\TrackStatistics;
+use Tracking\Http\Middleware\Analytics;
+use Tracking\Console\Commands\RollbackCommand;
 
 class TrackingProvider extends ServiceProvider
 {
+    use ConsoleTools;
+
+    /**
+     * The commands to be registered.
+     *
+     * @var array
+     */
+    protected $commands = [
+        MigrateCommand::class => 'command.tracking.statistics.migrate',
+        PublishCommand::class => 'command.tracking.statistics.publish',
+        RollbackCommand::class => 'command.tracking.statistics.rollback',
+    ];
+
     public static $aliasProviders = [
         'Horizon' => \Laravel\Horizon\Horizon::class,
 
@@ -49,8 +77,13 @@ class TrackingProvider extends ServiceProvider
     /**
      * Alias the services in the boot.
      */
-    public function boot()
+    public function boot(Router $router)
     {
+        // Push middleware to web group
+        $router->pushMiddlewareToGroup('web', TrackStatistics::class);
+        $router->pushMiddlewareToGroup('web', Analytics::class);
+
+
         // Register configs, migrations, etc
         $this->registerDirectories();
 
@@ -111,6 +144,8 @@ class TrackingProvider extends ServiceProvider
         $this->mergeConfigFrom($this->getPublishesPath('config/horizon.php'), 'horizon');
         $this->mergeConfigFrom($this->getPublishesPath('config/larametrics.php'), 'larametrics');
         $this->mergeConfigFrom($this->getPublishesPath('config/stats.php'), 'stats');
+        // Merge config
+        $this->mergeConfigFrom($this->getPublishesPath('config/tracking/statistics.php'), 'tracking.statistics');
 
         // Register external packages
         $this->setProviders();
@@ -121,11 +156,37 @@ class TrackingProvider extends ServiceProvider
 
         /*
         |--------------------------------------------------------------------------
-        | Register the Commands
+        | statistics
         |--------------------------------------------------------------------------
         */
 
-        $this->commands([]);
+        // Bind eloquent models to IoC container
+        $this->app->singleton('tracking.statistics.datum', $datumModel = $this->app['config']['tracking.statistics.models.datum']);
+        $datumModel === Datum::class || $this->app->alias('tracking.statistics.datum', Datum::class);
+
+        $this->app->singleton('tracking.statistics.request', $requestModel = $this->app['config']['tracking.statistics.models.request']);
+        $requestModel === Request::class || $this->app->alias('tracking.statistics.request', Request::class);
+
+        $this->app->singleton('tracking.statistics.agent', $agentModel = $this->app['config']['tracking.statistics.models.agent']);
+        $agentModel === Agent::class || $this->app->alias('tracking.statistics.agent', Agent::class);
+
+        $this->app->singleton('tracking.statistics.geoip', $geoipModel = $this->app['config']['tracking.statistics.models.geoip']);
+        $geoipModel === Geoip::class || $this->app->alias('tracking.statistics.geoip', Geoip::class);
+
+        $this->app->singleton('tracking.statistics.route', $routeModel = $this->app['config']['tracking.statistics.models.route']);
+        $routeModel === RouteBase::class || $this->app->alias('tracking.statistics.route', RouteBase::class);
+
+        $this->app->singleton('tracking.statistics.device', $deviceModel = $this->app['config']['tracking.statistics.models.device']);
+        $deviceModel === Device::class || $this->app->alias('tracking.statistics.device', Device::class);
+
+        $this->app->singleton('tracking.statistics.platform', $platformModel = $this->app['config']['tracking.statistics.models.platform']);
+        $platformModel === Platform::class || $this->app->alias('tracking.statistics.platform', Platform::class);
+
+        $this->app->singleton('tracking.statistics.path', $pathModel = $this->app['config']['tracking.statistics.models.path']);
+        $pathModel === Path::class || $this->app->alias('tracking.statistics.path', Path::class);
+
+        // Register console commands
+        ! $this->app->runningInConsole() || $this->registerCommands();
     }
 
     /**
@@ -197,6 +258,11 @@ class TrackingProvider extends ServiceProvider
      */
     public function registerDirectories()
     {
+        // @todo Nao usado mais. Avaliar
+        // // Publish Resources
+        // ! $this->app->runningInConsole() || $this->publishesConfig('sierratecnologia/laravel-statistics');
+        // ! $this->app->runningInConsole() || $this->publishesMigrations('sierratecnologia/laravel-statistics');
+
         // Publish config files
         $this->publishes([
             // Paths

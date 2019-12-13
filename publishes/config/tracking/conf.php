@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Configuration
  */
@@ -12,4 +15,5 @@ return [
     */
 
     'analytics' => 'internal',   // google, internal
+
 ];
