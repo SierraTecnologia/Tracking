@@ -2408,16 +2408,16 @@
         },
         {
             "name": "laravel/telescope",
-            "version": "v2.1.1",
+            "version": "v2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/telescope.git",
-                "reference": "05af183b914b6f8dca890eadb3edccbbc3ce887b"
+                "reference": "a4d11d6dcc16fab19c75faa1fcfa0a688dfa2bd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/05af183b914b6f8dca890eadb3edccbbc3ce887b",
-                "reference": "05af183b914b6f8dca890eadb3edccbbc3ce887b",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/a4d11d6dcc16fab19c75faa1fcfa0a688dfa2bd8",
+                "reference": "a4d11d6dcc16fab19c75faa1fcfa0a688dfa2bd8",
                 "shasum": ""
             },
             "require": {
@@ -2425,15 +2425,16 @@
                 "laravel/framework": "~5.8.0|^6.0|^7.0",
                 "moontoast/math": "^1.1",
                 "php": "^7.1.3",
-                "symfony/var-dumper": "^4.1"
+                "symfony/var-dumper": "^4.1|^5.0"
             },
             "require-dev": {
+                "ext-gd": "*",
                 "orchestra/testbench": "^3.8|^4.0|^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -2466,7 +2467,7 @@
                 "laravel",
                 "monitoring"
             ],
-            "time": "2019-11-23T16:51:14+00:00"
+            "time": "2019-12-13T14:44:09+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4835,7 +4836,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "8e607a1257be41f8b0d196e1fdf968929ce77320"
+                "reference": "1e2d6d06f599a8b62d0058a90954763ec980dee3"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -4975,7 +4976,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "d16aaccd983897f298905d322326879c47af9a24"
+                "reference": "fc3db65d7f62b041414a68d59d1b74579d255231"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -5020,7 +5021,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "f74e3dd8d8522cf85165e156b02c763d6feb2d85"
+                "reference": "391d5f3d65fd05eca447f6056a1558eb96eb8bf5"
             },
             "require": {
                 "barryvdh/laravel-debugbar": "*",
@@ -5122,7 +5123,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "db4980bf4969e11b89eaaaa0c6bac9f63c46f384"
+                "reference": "bf65193dcabb66541e7b3af3a74c162e919912e6"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master"
