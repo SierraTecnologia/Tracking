@@ -12,13 +12,8 @@ use Tracking\Models\Metrics\LarametricsRequest;
 class MetricsController extends Controller
 {
     
-    public function __construct()
-    {
-        dd('oi');
-    }
     public function index()
     {
-        dd('oi');
         $requests = LarametricsRequest::orderBy('created_at', 'desc')
             ->limit(10)
             ->get();
