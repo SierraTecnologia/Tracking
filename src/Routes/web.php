@@ -6,7 +6,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::prefix('tracking')->group(function () {
         Route::group(['as' => 'tracking.'], function () {
 
-            Route::get('analytics', 'AnalyticsController@index');
+            Route::get('analytics', 'AnalyticsController@index')->name('analytics');
         });
 
         Route::group(['namespace' => 'Metrics'], function () {
