@@ -35,7 +35,7 @@ class CreateMetricsAnalysersTables extends Migration
 		Schema::create(config('app.db-prefix', '').'metrics', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
-			$table->string('text', 255)->nullable();
+			$table->longText('text')->nullable();
 			// $table->string('tatuageable_id');
 			// $table->string('tatuageable_type', 255);
 			$table->timestamps();
@@ -45,7 +45,7 @@ class CreateMetricsAnalysersTables extends Migration
 		Schema::create(config('app.db-prefix', '').'metric_analyses', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
-			$table->string('text', 255)->nullable();
+			$table->longText('text')->nullable();
 			// $table->string('tatuageable_id');
 			// $table->string('tatuageable_type', 255);
 			$table->timestamps();
@@ -55,7 +55,7 @@ class CreateMetricsAnalysersTables extends Migration
 		Schema::create(config('app.db-prefix', '').'metric_analyse_results', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
-			$table->string('text', 255)->nullable();
+			$table->longText('text')->nullable();
 			// $table->string('tatuageable_id');
 			// $table->string('tatuageable_type', 255);
 			$table->timestamps();
