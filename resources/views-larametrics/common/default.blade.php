@@ -1,19 +1,22 @@
 @extends('layouts.app')
 
-<!-- @section('css')
-    <link rel="stylesheet" href="{{ asset('dist/css/vendor.css')}} ">
+@section('css')
+    <!-- Dashboard Core -->
+    <link href="/vendor/larametrics/css/tabler.css" rel="stylesheet" />
 @stop
 
 @section('js')
     @parent
-    <script type="text/javascript">
-        var _token = '{!! csrf_token() !!}';
-        var _url = '{!! url("/") !!}';
-    </script>
-    <script src="{{ asset('dist/js/vendor.js')}}"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/d3@5.5.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/c3@0.6.6/c3.min.js"></script>
+
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
     @stack('javascript')
     @yield('javascript')
-@stop -->
+@stop
 
 @section('content')
 

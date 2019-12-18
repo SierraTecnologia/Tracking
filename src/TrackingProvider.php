@@ -276,13 +276,7 @@ class TrackingProvider extends ServiceProvider
 
         // Publish tracking css and js to public directory
         $this->publishes([
-            $this->getDistPath() => public_path('assets/tracking')
-        ], ['public',  'sitec', 'sitec-public']);
-
-
-
-        // Publish tracking css and js to public directory
-        $this->publishes([
+            $this->getDistPath() => public_path('assets/tracking'),
             $this->getPublishesPath('public/horizon') => public_path('vendor/horizon'),
             $this->getPublishesPath('public/larametrics') => public_path('vendor/larametrics')
         ], ['public',  'sitec', 'sitec-public']);
@@ -300,7 +294,13 @@ class TrackingProvider extends ServiceProvider
         $this->loadViewsFrom($viewsPath, 'tracking');
         $this->publishes([
             $viewsPath => base_path('resources/views/vendor/tracking'),
-        ], ['views',  'sitec', 'sitec-views']);
+        ], ['views',  'sitec', 'sitec-views', 'tracking-views']);
+
+        $viewsPath = $this->getResourcesPath('views-larametrics');
+        $this->loadViewsFrom($viewsPath, 'larametrics');
+        $this->publishes([
+            $viewsPath => base_path('resources/views/vendor/larametrics'),
+        ], ['views',  'sitec', 'sitec-views', 'tracking-views']);
 
 
         // // Publish lanaguage files
