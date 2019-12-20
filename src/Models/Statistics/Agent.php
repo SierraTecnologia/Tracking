@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Tracking\Models\Statistics;
 
 use Illuminate\Database\Eloquent\Model;
-use Support\Cacheable\CacheableEloquent;
-use Support\Traits\ValidatingTrait;
+use Support\Recursos\Cacheable\CacheableEloquent;
+use Support\ClassesHelpers\Traits\Models\ValidatingTrait;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Agent extends Model

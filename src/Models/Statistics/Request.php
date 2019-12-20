@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Tracking\Models\Statistics;
 
 use Illuminate\Database\Eloquent\Model;
-use Support\Cacheable\CacheableEloquent;
+use Support\Recursos\Cacheable\CacheableEloquent;
 use Illuminate\Database\Eloquent\Builder;
-use Support\Traits\ValidatingTrait;
+use Support\ClassesHelpers\Traits\Models\ValidatingTrait;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
