@@ -4840,7 +4840,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "ce5aff5c010ac9d8ebe8ac7cdc5bed9e991df7ff"
+                "reference": "178b078cea38980d2aa5c14136fd06bc0e401dd3"
             },
             "require": {
                 "kassner/log-parser": "*",
