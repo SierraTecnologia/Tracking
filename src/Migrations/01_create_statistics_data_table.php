@@ -15,18 +15,18 @@ class CreateStatisticsDataTable extends Migration
      */
     public function up(): void
     {
-        Schema::create(config('tracking.statistics.tables.data'), function (Blueprint $table) {
-            // Columns
-            $table->increments('id');
-            $table->string('session_id');
-            $table->nullableMorphs('user');
-            $table->integer('status_code');
-            $table->text('uri');
-            $table->string('method');
-            $table->{$this->jsonable()}('server');
-            $table->{$this->jsonable()}('input')->nullable();
-            $table->timestamp('created_at')->nullable();
-        });
+        // Schema::create(config('tracking.statistics.tables.data'), function (Blueprint $table) {
+        //     // Columns
+        //     $table->increments('id');
+        //     $table->string('session_id');
+        //     $table->nullableMorphs('user');
+        //     $table->integer('status_code');
+        //     $table->text('uri');
+        //     $table->string('method');
+        //     $table->{$this->jsonable()}('server');
+        //     $table->{$this->jsonable()}('input')->nullable();
+        //     $table->timestamp('created_at')->nullable();
+        // });
     }
 
     /**
