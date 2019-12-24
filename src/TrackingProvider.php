@@ -101,9 +101,10 @@ class TrackingProvider extends ServiceProvider
         // $this->app['events']->listen('eloquent.*',
         //     'Tracking\Observers\Changes');
 
-        $this->app->booted(function () {
-            $this->routes();
-        });
+        // // COloquei no register pq nao tava reconhecendo as rotas para o adminlte
+        // $this->app->booted(function () {
+        //     $this->routes();
+        // });
     }
 
     /**
@@ -149,6 +150,7 @@ class TrackingProvider extends ServiceProvider
         
         // Register external packages
         $this->setProviders();
+        $this->routes();
         $this->loadMigrationsFrom(__DIR__.'/Migrations');
 
         // // Configs

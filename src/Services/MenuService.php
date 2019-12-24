@@ -10,7 +10,7 @@ class MenuService
         $tracking = [];
         $tracking[] = [
             'text'        => 'Analytics',
-            'url'         => route('tracking.analytics'),
+            'route'       => 'tracking.analytics',
             'icon'        => 'dashboard',
             'icon_color'  => 'blue',
             'label_color' => 'success',
@@ -18,7 +18,7 @@ class MenuService
         ];
         $tracking[] = [
             'text'        => 'Metrics',
-            'url'         => route('larametrics::metrics.index'),
+            'route'       => 'larametrics::metrics.index',
             'icon'        => 'dashboard',
             'icon_color'  => 'blue',
             'label_color' => 'success',
