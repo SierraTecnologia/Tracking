@@ -15,15 +15,6 @@ class CreateStatisticsAgentsTable extends Migration
      */
     public function up(): void
     {
-        Schema::create(config('tracking.statistics.tables.agents'), function (Blueprint $table) {
-            // Columns
-            $table->increments('id');
-            $table->string('name');
-            $table->string('kind');
-            $table->string('family');
-            $table->string('version')->nullable();
-            $table->integer('count')->unsigned()->default(0);
-        });
     }
 
     /**

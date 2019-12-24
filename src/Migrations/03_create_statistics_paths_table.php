@@ -15,19 +15,6 @@ class CreateStatisticsPathsTable extends Migration
      */
     public function up(): void
     {
-        Schema::create(config('tracking.statistics.tables.paths'), function (Blueprint $table) {
-            // Columns
-            $table->increments('id');
-            $table->string('host');
-            $table->string('locale');
-            $table->string('path');
-            $table->string('method');
-            $table->{$this->jsonable()}('parameters')->nullable();
-            $table->integer('count')->unsigned()->default(0);
-
-            // Indexes
-            $table->unique(['host', 'path', 'method', 'locale']);
-        });
     }
 
     /**

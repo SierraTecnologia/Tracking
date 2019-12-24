@@ -15,14 +15,6 @@ class CreateStatisticsDevicesTable extends Migration
      */
     public function up(): void
     {
-        Schema::create(config('tracking.statistics.tables.devices'), function (Blueprint $table) {
-            // Columns
-            $table->increments('id');
-            $table->string('family');
-            $table->string('model')->nullable();
-            $table->string('brand')->nullable();
-            $table->integer('count')->unsigned()->default(0);
-        });
     }
 
     /**

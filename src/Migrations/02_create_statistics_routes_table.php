@@ -15,19 +15,6 @@ class CreateStatisticsRoutesTable extends Migration
      */
     public function up(): void
     {
-        Schema::create(config('tracking.statistics.tables.routes'), function (Blueprint $table) {
-            // Columns
-            $table->increments('id');
-            $table->string('name');
-            $table->string('path');
-            $table->string('action');
-            $table->string('middleware')->nullable();
-            $table->{$this->jsonable()}('parameters')->nullable();
-            $table->integer('count')->unsigned()->default(0);
-
-            // Indexes
-            $table->unique('name');
-        });
     }
 
     /**
@@ -37,7 +24,6 @@ class CreateStatisticsRoutesTable extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(config('tracking.statistics.tables.routes'));
     }
 
     /**
