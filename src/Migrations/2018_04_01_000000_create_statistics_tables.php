@@ -147,8 +147,13 @@ class CreateStatisticsTables extends Migration
 
 
 
+        Schema::dropIfExists(config('tracking.statistics.tables.geoips'));
+        Schema::dropIfExists(config('tracking.statistics.tables.platforms'));
+        Schema::dropIfExists(config('tracking.statistics.tables.devices'));
 
 
+        Schema::dropIfExists(config('tracking.statistics.tables.agents'));
+        Schema::dropIfExists(config('tracking.statistics.tables.paths'));
         Schema::dropIfExists(config('tracking.statistics.tables.routes'));
         Schema::dropIfExists(config('tracking.statistics.tables.data'));
     }

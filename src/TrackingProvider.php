@@ -141,12 +141,12 @@ class TrackingProvider extends ServiceProvider
         // Merge own configs into user configs 
         $this->mergeConfigFrom($this->getPublishesPath('config/tracking/analytics.php'), 'tracking.analytics');
         $this->mergeConfigFrom($this->getPublishesPath('config/tracking/conf.php'), 'tracking.conf');
+        $this->mergeConfigFrom($this->getPublishesPath('config/tracking/statistics.php'), 'tracking.statistics');
+
         $this->mergeConfigFrom($this->getPublishesPath('config/horizon.php'), 'horizon');
         $this->mergeConfigFrom($this->getPublishesPath('config/larametrics.php'), 'larametrics');
         $this->mergeConfigFrom($this->getPublishesPath('config/stats.php'), 'stats');
-        // Merge config
-        $this->mergeConfigFrom($this->getPublishesPath('config/tracking/statistics.php'), 'tracking.statistics');
-
+        
         // Register external packages
         $this->setProviders();
         $this->loadMigrationsFrom(__DIR__.'/Migrations');
@@ -189,24 +189,6 @@ class TrackingProvider extends ServiceProvider
         ! $this->app->runningInConsole() || $this->registerCommands();
     }
 
-    /**
-     * Delegate events to Decoy observers
-     *
-     * @return void
-     */
-    protected function delegateAdminObservers()
-    {
-        $this->app['events']->listen('eloquent.saving:*',
-            '\Tracking\Observers\Localize');
-        $this->app['events']->listen('eloquent.saving:*',
-            '\Tracking\Observers\Encoding@onSaving');
-        $this->app['events']->listen('eloquent.saved:*',
-            '\Tracking\Observers\ManyToManyChecklist');
-        $this->app['events']->listen('eloquent.deleted:*',
-            '\Tracking\Observers\Encoding@onDeleted');
-        $this->app['events']->listen('tracking::model.validating:*',
-            '\Tracking\Observers\ValidateExistingFiles@onValidating');
-    }
 
     /**
      * Register middlewares
