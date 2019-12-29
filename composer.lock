@@ -4840,7 +4840,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "0991f284abe8dccd61bc88bfb37ae5e098542d7b"
+                "reference": "f6cb74efa04c3f42839f7c8de1f2becf178901c7"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -5025,7 +5025,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "f227cd8446bac136e23037899599d37ce86facff"
+                "reference": "6bcf1bcc9c9b62e2a531d4fb1589f24c0308176b"
             },
             "require": {
                 "barryvdh/laravel-debugbar": "*",
@@ -5131,7 +5131,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "9d0b065a29865237fe58d9c29c01cd8c5bf992cc"
+                "reference": "ac1af2fbb523f4c53d1a2a918d11840f5bd6b391"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master"
