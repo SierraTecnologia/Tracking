@@ -3,8 +3,8 @@ namespace Tracking\Traits;
 
 use Tracking\Abstracts\MetricManager;
 
-use Informate\Models\Entytys\Digital\Midia\File;
-use Informate\Models\Entytys\Digital\Internet\ComputerFile;
+use Population\Models\Entytys\Digital\Midia\File;
+use Population\Models\Entytys\Digital\Internet\ComputerFile;
 
 /**
  * Outputs events information to the console.
