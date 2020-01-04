@@ -5357,7 +5357,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "4d987dfa75e01125e0e6cb842715be9244806105"
+                "reference": "13aade9765009cf28f6485bc0fd020e3c89653c7"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -5497,7 +5497,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "27222eff221776a05c2b54ae7bdf9c6b46f09775"
+                "reference": "d6986a97ebb694c2f0fda0fe9205cb5f57454a1c"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -5542,7 +5542,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "d83e824f59ef773e3d147509c79c1e9118e20b8b"
+                "reference": "cef8023a26276b05a508a179d821a52299f69a3e"
             },
             "require": {
                 "barryvdh/laravel-debugbar": "*",
@@ -5649,10 +5649,11 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "3542ce94e5918a0cd8da23139ab298ec421951b8"
+                "reference": "f4fb815dfcf0a37cf86fd37d85cefca27a3d11b9"
             },
             "require": {
-                "sierratecnologia/informate": "dev-master"
+                "sierratecnologia/informate": "dev-master",
+                "symfony/security-core": "^5.0"
             },
             "type": "library",
             "extra": {
@@ -7318,6 +7319,79 @@
                 "url"
             ],
             "time": "2019-12-12T12:53:52+00:00"
+        },
+        {
+            "name": "symfony/security-core",
+            "version": "v5.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/security-core.git",
+                "reference": "4fa0454de2fab0f6c2e9990976d8872b16a0e0a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/security-core/zipball/4fa0454de2fab0f6c2e9990976d8872b16a0e0a9",
+                "reference": "4fa0454de2fab0f6c2e9990976d8872b16a0e0a9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.5",
+                "symfony/event-dispatcher-contracts": "^1.1|^2",
+                "symfony/service-contracts": "^1.1.6|^2"
+            },
+            "conflict": {
+                "symfony/event-dispatcher": "<4.4",
+                "symfony/ldap": "<4.4",
+                "symfony/security-guard": "<4.4"
+            },
+            "require-dev": {
+                "psr/container": "^1.0",
+                "psr/log": "~1.0",
+                "symfony/event-dispatcher": "^4.4|^5.0",
+                "symfony/expression-language": "^4.4|^5.0",
+                "symfony/http-foundation": "^4.4|^5.0",
+                "symfony/ldap": "^4.4|^5.0",
+                "symfony/validator": "^4.4|^5.0"
+            },
+            "suggest": {
+                "psr/container-implementation": "To instantiate the Security class",
+                "symfony/event-dispatcher": "",
+                "symfony/expression-language": "For using the expression voter",
+                "symfony/http-foundation": "",
+                "symfony/ldap": "For using LDAP integration",
+                "symfony/validator": "For using the user password constraint"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Security\\Core\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Security Component - Core Library",
+            "homepage": "https://symfony.com",
+            "time": "2019-12-16T11:08:25+00:00"
         },
         {
             "name": "symfony/service-contracts",
