@@ -13,5 +13,5 @@ class Metrics extends Model
         'data',
     ];
 
-    public static $rules = [];
+    public $rules = [];
 }

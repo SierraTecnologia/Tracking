@@ -14,5 +14,5 @@ class Analytics extends Model
         'data',
     ];
 
-    public static $rules = [];
+    public $rules = [];
 }
