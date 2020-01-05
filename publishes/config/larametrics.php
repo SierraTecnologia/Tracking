@@ -13,7 +13,7 @@ return [
     |
     */
     'modelsWatched' => [
-        'App\Models\User'
+        config('sitec.core.models.user', \App\Models\User::class)
     ],
 
     /*
