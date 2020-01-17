@@ -75,6 +75,32 @@ class TrackingProvider extends ServiceProvider
     ];
 
     /**
+     * Rotas do Menu
+     */
+    public static $menuItens = [
+        'System' => [
+            'Metrics' => [
+                [
+                    'text'        => 'Analytics',
+                    'route'       => 'tracking.analytics',
+                    'icon'        => 'dashboard',
+                    'icon_color'  => 'blue',
+                    'label_color' => 'success',
+                    // 'access' => \App\Models\Role::$ADMIN
+                ],
+                [
+                    'text'        => 'Metrics',
+                    'route'       => 'larametrics::metrics.index',
+                    'icon'        => 'dashboard',
+                    'icon_color'  => 'blue',
+                    'label_color' => 'success',
+                    // 'access' => \App\Models\Role::$ADMIN
+                ],
+            ],
+        ],
+    ];
+
+    /**
      * Alias the services in the boot.
      */
     public function boot(Router $router)
