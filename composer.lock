@@ -58,16 +58,16 @@
         },
         {
             "name": "aschmelyun/larametrics",
-            "version": "v1.2",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aschmelyun/larametrics.git",
-                "reference": "b7d48c59aa527aeb3ea80309b5120f44b66467c2"
+                "reference": "b7966907f30436dccc7270db997a49663b454b86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aschmelyun/larametrics/zipball/b7d48c59aa527aeb3ea80309b5120f44b66467c2",
-                "reference": "b7d48c59aa527aeb3ea80309b5120f44b66467c2",
+                "url": "https://api.github.com/repos/aschmelyun/larametrics/zipball/b7966907f30436dccc7270db997a49663b454b86",
+                "reference": "b7966907f30436dccc7270db997a49663b454b86",
                 "shasum": ""
             },
             "require": {
@@ -104,7 +104,7 @@
                 }
             ],
             "description": "A self-hosted metrics and notifications platform for Laravel apps",
-            "time": "2020-01-12T04:21:20+00:00"
+            "time": "2020-01-23T18:30:37+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
