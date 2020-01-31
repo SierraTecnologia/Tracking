@@ -2013,16 +2013,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.123",
+            "version": "v0.124",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "a8c3c7563729ecb98a9ed66f675366527bcbad4d"
+                "reference": "7bdd526abda4d802e973816cd7b4f3f3bc75fa03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/a8c3c7563729ecb98a9ed66f675366527bcbad4d",
-                "reference": "a8c3c7563729ecb98a9ed66f675366527bcbad4d",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/7bdd526abda4d802e973816cd7b4f3f3bc75fa03",
+                "reference": "7bdd526abda4d802e973816cd7b4f3f3bc75fa03",
                 "shasum": ""
             },
             "require": {
@@ -2046,7 +2046,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2020-01-19T00:24:13+00:00"
+            "time": "2020-01-25T00:24:16+00:00"
         },
         {
             "name": "google/auth",
@@ -5423,7 +5423,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "87be71ed8dc6ac0d1d14072a4306fe1df1512f03"
+                "reference": "6d5c185caab5be491b2980d03ca54e3a57b728e0"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -5715,7 +5715,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "39250488695f800de1713f00a8d136d7b4012dda"
+                "reference": "f980e4297d984a1b36695a2e555158edbfde3ce4"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master",
