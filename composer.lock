@@ -547,16 +547,16 @@
         },
         {
             "name": "composer/spdx-licenses",
-            "version": "1.5.2",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/spdx-licenses.git",
-                "reference": "7ac1e6aec371357df067f8a688c3d6974df68fa5"
+                "reference": "0c3e51e1880ca149682332770e25977c70cf9dae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/7ac1e6aec371357df067f8a688c3d6974df68fa5",
-                "reference": "7ac1e6aec371357df067f8a688c3d6974df68fa5",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/0c3e51e1880ca149682332770e25977c70cf9dae",
+                "reference": "0c3e51e1880ca149682332770e25977c70cf9dae",
                 "shasum": ""
             },
             "require": {
@@ -603,7 +603,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2019-07-29T10:31:59+00:00"
+            "time": "2020-02-14T07:44:31+00:00"
         },
         {
             "name": "composer/xdebug-handler",
@@ -2665,16 +2665,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.36",
+            "version": "v5.8.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "ccf857af50897eda43ceaf12e318cf214e0e4e95"
+                "reference": "ce08aaee3a0b8bb58b459b2decf7f25ba7b10fa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/ccf857af50897eda43ceaf12e318cf214e0e4e95",
-                "reference": "ccf857af50897eda43ceaf12e318cf214e0e4e95",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ce08aaee3a0b8bb58b459b2decf7f25ba7b10fa4",
+                "reference": "ce08aaee3a0b8bb58b459b2decf7f25ba7b10fa4",
                 "shasum": ""
             },
             "require": {
@@ -2809,7 +2809,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-12-17T16:00:14+00:00"
+            "time": "2020-02-14T14:29:11+00:00"
         },
         {
             "name": "laravel/helpers",
@@ -2866,16 +2866,16 @@
         },
         {
             "name": "laravel/horizon",
-            "version": "v3.6.1",
+            "version": "v3.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "56d25493d1d994a30ae0a20002428d6fd64b567f"
+                "reference": "f0295eec1fb96d0adace50aac01c3984877c034c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/56d25493d1d994a30ae0a20002428d6fd64b567f",
-                "reference": "56d25493d1d994a30ae0a20002428d6fd64b567f",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/f0295eec1fb96d0adace50aac01c3984877c034c",
+                "reference": "f0295eec1fb96d0adace50aac01c3984877c034c",
                 "shasum": ""
             },
             "require": {
@@ -2931,7 +2931,7 @@
                 "laravel",
                 "queue"
             ],
-            "time": "2020-02-12T14:13:07+00:00"
+            "time": "2020-02-14T15:17:05+00:00"
         },
         {
             "name": "laravel/telescope",
@@ -5379,16 +5379,16 @@
         },
         {
             "name": "seld/phar-utils",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/phar-utils.git",
-                "reference": "84715761c35808076b00908a20317a3a8a67d17e"
+                "reference": "8800503d56b9867d43d9c303b9cbcc26016e82f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/84715761c35808076b00908a20317a3a8a67d17e",
-                "reference": "84715761c35808076b00908a20317a3a8a67d17e",
+                "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/8800503d56b9867d43d9c303b9cbcc26016e82f0",
+                "reference": "8800503d56b9867d43d9c303b9cbcc26016e82f0",
                 "shasum": ""
             },
             "require": {
@@ -5417,9 +5417,9 @@
             ],
             "description": "PHAR file format utilities, for when PHP phars you up",
             "keywords": [
-                "phra"
+                "phar"
             ],
-            "time": "2020-01-13T10:41:09+00:00"
+            "time": "2020-02-14T15:25:33+00:00"
         },
         {
             "name": "sierratecnologia/audit",
@@ -5427,7 +5427,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "552cb712d4c24d993a9ab9c9c08ee0a5f9128ec9"
+                "reference": "cd1e69f260a33ccbd25ba44003e3dd4d3c450d56"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -5567,7 +5567,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "5ebf798212fd747c3b2d7fa778700a2eccd2e32d"
+                "reference": "c58b0c8962f30baac6a0ff6c8a9a6ac0734e7e4b"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -5612,7 +5612,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "87148f054bc0b992f439a4617f4173dd5dad7828"
+                "reference": "3e4c83c95e7e6d42648a3ea992774ca502322d22"
             },
             "require": {
                 "barryvdh/laravel-debugbar": "*",
@@ -5719,7 +5719,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "eab2ba11e31fb1d3713821d09baf53cd51963f3a"
+                "reference": "7175eb1382fc4460e55a17a8d4b72c1307bf9de2"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master",
