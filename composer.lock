@@ -5479,7 +5479,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "e3b0f7201483a97a50e54ad4d92a9a3d2369b18b"
+                "reference": "98c60256e226743830e46889efde664247a24833"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -5664,7 +5664,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "ebbf88f51e2e6b88e32721c44ff6539c815f446a"
+                "reference": "cd93fcf093cc8e0d18fc052169208e970d120bf1"
             },
             "require": {
                 "barryvdh/laravel-debugbar": "*",
@@ -5692,6 +5692,7 @@
                 "spatie/laravel-schemaless-attributes": "^1.6.0",
                 "spatie/laravel-sluggable": "^2.2",
                 "spatie/laravel-translatable": "^4.2",
+                "symfony/inflector": "^5.0",
                 "venturecraft/revisionable": "^1.30",
                 "watson/validating": "^3.3.0"
             },
@@ -5771,7 +5772,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "8c959185e07a7f904e71b9c4056cfb167baadf8f"
+                "reference": "c210b33ce3a2aebf3abe3a1941c040a5cb929d71"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master",
@@ -6903,6 +6904,64 @@
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
             "time": "2020-01-31T12:45:06+00:00"
+        },
+        {
+            "name": "symfony/inflector",
+            "version": "v5.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/inflector.git",
+                "reference": "e375603b6bd12e8e3aec3fc1b640ac18a4ef4cb2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/inflector/zipball/e375603b6bd12e8e3aec3fc1b640ac18a4ef4cb2",
+                "reference": "e375603b6bd12e8e3aec3fc1b640ac18a4ef4cb2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.5",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Inflector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Inflector Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "inflection",
+                "pluralize",
+                "singularize",
+                "string",
+                "symfony",
+                "words"
+            ],
+            "time": "2020-01-04T14:08:26+00:00"
         },
         {
             "name": "symfony/mime",
