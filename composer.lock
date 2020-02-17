@@ -2017,16 +2017,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.126",
+            "version": "v0.127",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "d296c140b9157b7f4fdf7bae125bf9ce16eeeabd"
+                "reference": "19eacad739807e522891bf3f911ffab4a4c29869"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/d296c140b9157b7f4fdf7bae125bf9ce16eeeabd",
-                "reference": "d296c140b9157b7f4fdf7bae125bf9ce16eeeabd",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/19eacad739807e522891bf3f911ffab4a4c29869",
+                "reference": "19eacad739807e522891bf3f911ffab4a4c29869",
                 "shasum": ""
             },
             "require": {
@@ -2050,7 +2050,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2020-02-10T00:24:16+00:00"
+            "time": "2020-02-17T00:24:19+00:00"
         },
         {
             "name": "google/auth",
@@ -5479,7 +5479,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "ef25d52bb2982391acb7784624dc013a283fff5e"
+                "reference": "74361043a3226e6189763958d718e7bd4a94bdb3"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -5619,7 +5619,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "7bc526890c4795715f4ece948cb5755a6fd286f7"
+                "reference": "4573c4d61add4ba02467b10fb29d8134d6ae5683"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -5664,7 +5664,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "6629e6cbd9e47daea8a2e6ab674e035da65f5662"
+                "reference": "ebbf88f51e2e6b88e32721c44ff6539c815f446a"
             },
             "require": {
                 "barryvdh/laravel-debugbar": "*",
@@ -5771,7 +5771,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "0cc87e57de940fc2d782f7960706faef05a6162f"
+                "reference": "44c804dfdd8d6444bfb0a026ed8ec1f6f1f178de"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master",
