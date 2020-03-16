@@ -5484,7 +5484,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "e536f37eb283425eb1153de44314b6876c4eb9c0"
+                "reference": "d09e186425d2d1ed8a990474ef5dc3c621e1be2c"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -5624,7 +5624,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "197c3437ba81716a8a2f91c9283f91f94f935e77"
+                "reference": "bba2424e032d9f02c825be0867aeec1538023315"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -5669,12 +5669,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SierraTecnologia/laravel-support.git",
-                "reference": "b6e3b166841bff5ad3ae3e66ff12fa475e28793e"
+                "reference": "d905cb2184395638c5af1f8c5660dbb9e90987de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SierraTecnologia/laravel-support/zipball/b6e3b166841bff5ad3ae3e66ff12fa475e28793e",
-                "reference": "b6e3b166841bff5ad3ae3e66ff12fa475e28793e",
+                "url": "https://api.github.com/repos/SierraTecnologia/laravel-support/zipball/d905cb2184395638c5af1f8c5660dbb9e90987de",
+                "reference": "d905cb2184395638c5af1f8c5660dbb9e90987de",
                 "shasum": ""
             },
             "require": {
@@ -5758,7 +5758,7 @@
                 "trait",
                 "validator"
             ],
-            "time": "2020-03-05T04:52:31+00:00"
+            "time": "2020-03-15T09:17:50+00:00"
         },
         {
             "name": "sierratecnologia/population",
@@ -5766,7 +5766,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "54dd8eecbec9044a6646c2345c5120de059aa900"
+                "reference": "b4408e388cb6c7a80517f467ae9f2abd298615b8"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master",
