@@ -4963,16 +4963,16 @@
         },
         {
             "name": "rap2hpoutre/laravel-log-viewer",
-            "version": "v1.5.2",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
-                "reference": "337bb72d2af6b0de9b3128e77f13c1ff262bc962"
+                "reference": "02023f590b84d11be8716a8c07146c128f9e7b42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/337bb72d2af6b0de9b3128e77f13c1ff262bc962",
-                "reference": "337bb72d2af6b0de9b3128e77f13c1ff262bc962",
+                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/02023f590b84d11be8716a8c07146c128f9e7b42",
+                "reference": "02023f590b84d11be8716a8c07146c128f9e7b42",
                 "shasum": ""
             },
             "require": {
@@ -5018,7 +5018,7 @@
                 "logging",
                 "lumen"
             ],
-            "time": "2020-04-23T19:44:47+00:00"
+            "time": "2020-04-27T06:40:08+00:00"
         },
         {
             "name": "ricardosierra/changelog",
@@ -5138,7 +5138,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Translation",
-                "reference": "ed53238b4004778c871af2da46fd96933e67ec1d"
+                "reference": "48928399e4355295b7723de10363b516e5aa2a56"
             },
             "archive": {
                 "exclude": [
@@ -5496,7 +5496,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "794b97f22d11764684a67d1f6ee7640f3899a7d7"
+                "reference": "4f1963a505222d3f499db5526fecc3e1be6bcdc2"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -5636,7 +5636,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "bfb55fae60138029cddc6a767cbc17a22cae0059"
+                "reference": "857dc8c04b8e08adf5bcb5b56b3bceea1e650277"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -5681,7 +5681,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "32936bd72926c24831e7a3567e8c3253ba3bfd60"
+                "reference": "a1fa28aed36626470c005d53c7991221ca0fd5c2"
             },
             "require": {
                 "barryvdh/laravel-debugbar": "*",
@@ -5789,7 +5789,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "17522ad210a9e2de3f091d60c08e82e7832ac1a6"
+                "reference": "33097d6f169dd9ce79f65e8ae7330c1f6fab20c2"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master",
