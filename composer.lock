@@ -1956,16 +1956,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.132",
+            "version": "v0.133",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "317c8555eaea64a38594d9e617b59547cea45f3e"
+                "reference": "dd53c4a23a5c4d868e409585e30ab31da278b5d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/317c8555eaea64a38594d9e617b59547cea45f3e",
-                "reference": "317c8555eaea64a38594d9e617b59547cea45f3e",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/dd53c4a23a5c4d868e409585e30ab31da278b5d2",
+                "reference": "dd53c4a23a5c4d868e409585e30ab31da278b5d2",
                 "shasum": ""
             },
             "require": {
@@ -1989,7 +1989,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2020-04-22T00:25:30+00:00"
+            "time": "2020-05-03T00:24:28+00:00"
         },
         {
             "name": "google/auth",
@@ -5367,7 +5367,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "b356f746c5258e08ba27e36be5b593ab3fd0d417"
+                "reference": "257372eeeaae78a1d36a53a4173a9c91131f9164"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -5507,7 +5507,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "f59fa3706e5580ca29aa8fc58b3174ba6bae93fa"
+                "reference": "79c914736550a4e2ec2d86cb137a91bf0bd2f17c"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -5552,7 +5552,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "92fe347079b3dd17d5cc9b9ebec16e280f1229b7"
+                "reference": "9760361d88ba107aa2637d91720520f3544a3ee1"
             },
             "require": {
                 "cviebrock/eloquent-sluggable": "~4.0",
@@ -5661,7 +5661,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "8d02db911e036c5485325b5f3c97669b879edc14"
+                "reference": "b319bce9426b70e5c695c014b69bba628139cf54"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master",
