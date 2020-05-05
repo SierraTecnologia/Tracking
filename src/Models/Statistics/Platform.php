@@ -6,7 +6,7 @@ namespace Tracking\Models\Statistics;
 
 use Illuminate\Database\Eloquent\Model;
 use Support\Recursos\Cacheable\CacheableEloquent;
-use Support\ClassesHelpers\Traits\Models\ValidatingTrait;
+use Support\Helpers\Traits\Models\ValidatingTrait;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Platform extends Model

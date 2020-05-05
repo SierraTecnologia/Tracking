@@ -19,7 +19,7 @@ use Tracking\Models\Statistics\Route as RouteBase;
 use Tracking\Models\Statistics\Device;
 use Tracking\Models\Statistics\Request;
 use Tracking\Models\Statistics\Platform;
-use Support\ClassesHelpers\Traits\Models\ConsoleTools;
+use Support\Helpers\Traits\Models\ConsoleTools;
 use Tracking\Console\Commands\MigrateCommand;
 use Tracking\Console\Commands\PublishCommand;
 use Tracking\Http\Middleware\TrackStatistics;

@@ -7,7 +7,7 @@ namespace Tracking\Models\Statistics;
 use Illuminate\Database\Eloquent\Model;
 use Support\Recursos\Cacheable\CacheableEloquent;
 use Illuminate\Database\Eloquent\Builder;
-use Support\ClassesHelpers\Traits\Models\ValidatingTrait;
+use Support\Helpers\Traits\Models\ValidatingTrait;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Datum extends Model
