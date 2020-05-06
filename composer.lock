@@ -338,16 +338,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.10.5",
+            "version": "1.10.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "7a4d5b6aa30d2118af27c04f5e897b57156ccfa9"
+                "reference": "be81b9c4735362c26876bdbfd3b5bc7e7f711c88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/7a4d5b6aa30d2118af27c04f5e897b57156ccfa9",
-                "reference": "7a4d5b6aa30d2118af27c04f5e897b57156ccfa9",
+                "url": "https://api.github.com/repos/composer/composer/zipball/be81b9c4735362c26876bdbfd3b5bc7e7f711c88",
+                "reference": "be81b9c4735362c26876bdbfd3b5bc7e7f711c88",
                 "shasum": ""
             },
             "require": {
@@ -366,7 +366,8 @@
                 "symfony/process": "^2.7 || ^3.0 || ^4.0 || ^5.0"
             },
             "conflict": {
-                "symfony/console": "2.8.38"
+                "symfony/console": "2.8.38",
+                "symfony/phpunit-bridge": "3.4.40"
             },
             "require-dev": {
                 "phpspec/prophecy": "^1.10",
@@ -414,7 +415,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2020-04-10T09:44:22+00:00"
+            "time": "2020-05-06T08:28:10+00:00"
         },
         {
             "name": "composer/semver",
@@ -3332,16 +3333,16 @@
         },
         {
             "name": "maxmind/web-service-common",
-            "version": "v0.6.0",
+            "version": "v0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maxmind/web-service-common-php.git",
-                "reference": "40c928bb0194c45088b369a17f9baef9c3fc7460"
+                "reference": "74c996c218ada5c639c8c2f076756e059f5552fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maxmind/web-service-common-php/zipball/40c928bb0194c45088b369a17f9baef9c3fc7460",
-                "reference": "40c928bb0194c45088b369a17f9baef9c3fc7460",
+                "url": "https://api.github.com/repos/maxmind/web-service-common-php/zipball/74c996c218ada5c639c8c2f076756e059f5552fc",
+                "reference": "74c996c218ada5c639c8c2f076756e059f5552fc",
                 "shasum": ""
             },
             "require": {
@@ -3374,7 +3375,7 @@
             ],
             "description": "Internal MaxMind Web Service API",
             "homepage": "https://github.com/maxmind/web-service-common-php",
-            "time": "2019-12-12T15:56:05+00:00"
+            "time": "2020-05-06T14:07:26+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -5367,7 +5368,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Audit",
-                "reference": "257372eeeaae78a1d36a53a4173a9c91131f9164"
+                "reference": "1cf7b66312847754bb73d7ce8e1848231639ef1b"
             },
             "require": {
                 "kassner/log-parser": "*",
@@ -5507,7 +5508,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "79c914736550a4e2ec2d86cb137a91bf0bd2f17c"
+                "reference": "bc09acce7a07fc849e106c483ab81c2dfa14ca18"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -5552,7 +5553,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "9760361d88ba107aa2637d91720520f3544a3ee1"
+                "reference": "8b0356740cf3ad795e27dd1864ac8b97b98ad3cc"
             },
             "require": {
                 "cviebrock/eloquent-sluggable": "~4.0",
@@ -5661,7 +5662,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Population",
-                "reference": "b319bce9426b70e5c695c014b69bba628139cf54"
+                "reference": "79c5557d8a959cb495e0c2316d5410ce009a8c11"
             },
             "require": {
                 "sierratecnologia/informate": "dev-master",
