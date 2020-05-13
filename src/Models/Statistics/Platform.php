@@ -70,7 +70,7 @@ class Platform extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('tracking.statistics.tables.platforms'));
+        $this->setTable(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.platforms'));
     }
 
     /**
@@ -80,6 +80,6 @@ class Platform extends Model
      */
     public function requests(): HasMany
     {
-        return $this->hasMany(config('tracking.statistics.models.request'), 'platform_id', 'id');
+        return $this->hasMany(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.request'), 'platform_id', 'id');
     }
 }

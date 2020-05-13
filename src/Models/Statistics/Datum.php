@@ -92,7 +92,7 @@ class Datum extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('tracking.statistics.tables.data'));
+        $this->setTable(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.data'));
     }
 
     /**

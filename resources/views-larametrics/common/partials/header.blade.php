@@ -11,17 +11,17 @@
                     <li class="nav-item">
                         <a href="{{ route('larametrics::metrics.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'larametrics::metrics.index') ? ' active' : '' }}"><i class="fe fe-home"></i> Home</a>
                     </li>
-                    @if(config('larametrics.logsWatched') || !config('larametrics.hideUnwatchedMenuItems'))
+                    @if(\Illuminate\Support\Facades\Config::get('larametrics.logsWatched') || !\Illuminate\Support\Facades\Config::get('larametrics.hideUnwatchedMenuItems'))
                         <li class="nav-item">
                             <a href="{{ route('larametrics::logs.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'larametrics::logs') ? ' active' : '' }}"><i class="fe fe-file-text"></i> Logs</a>
                         </li>
                     @endif
-                    @if(count(config('larametrics.modelsWatched')) || !config('larametrics.hideUnwatchedMenuItems'))
+                    @if(count(\Illuminate\Support\Facades\Config::get('larametrics.modelsWatched')) || !\Illuminate\Support\Facades\Config::get('larametrics.hideUnwatchedMenuItems'))
                         <li class="nav-item">
                             <a href="{{ route('larametrics::models.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'larametrics::models') ? ' active' : '' }}"><i class="fe fe-database"></i> Models</a>
                         </li>
                     @endif
-                    @if(config('larametrics.requestsWatched') || !config('larametrics.hideUnwatchedMenuItems'))
+                    @if(\Illuminate\Support\Facades\Config::get('larametrics.requestsWatched') || !\Illuminate\Support\Facades\Config::get('larametrics.hideUnwatchedMenuItems'))
                         <li class="nav-item">
                             <a href="{{ route('larametrics::performance.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'larametrics::performance') ? ' active' : '' }}"><i class="fe fe-bar-chart-2"></i> Performance</a>
                         </li>

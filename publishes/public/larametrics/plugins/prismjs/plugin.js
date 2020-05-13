@@ -1,4 +1,4 @@
-require.config({
+require.\Illuminate\Support\Facades\Config::get({
     paths: {
         'prismjs': 'assets/plugins/prismjs/js/prism.pack',
     },

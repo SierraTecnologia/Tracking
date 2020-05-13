@@ -79,7 +79,7 @@ class Route extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('tracking.statistics.tables.routes'));
+        $this->setTable(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.routes'));
     }
 
     /**
@@ -89,6 +89,6 @@ class Route extends Model
      */
     public function requests(): HasMany
     {
-        return $this->hasMany(config('tracking.statistics.models.request'), 'route_id', 'id');
+        return $this->hasMany(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.request'), 'route_id', 'id');
     }
 }

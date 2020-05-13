@@ -126,7 +126,7 @@ class Request extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('tracking.statistics.tables.requests'));
+        $this->setTable(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.requests'));
     }
 
     /**
@@ -153,7 +153,7 @@ class Request extends Model
      */
     public function route(): BelongsTo
     {
-        return $this->belongsTo(config('tracking.statistics.models.route'), 'route_id', 'id');
+        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.route'), 'route_id', 'id');
     }
 
     /**
@@ -163,7 +163,7 @@ class Request extends Model
      */
     public function path(): BelongsTo
     {
-        return $this->belongsTo(config('tracking.statistics.models.path'), 'path_id', 'id');
+        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.path'), 'path_id', 'id');
     }
 
     /**
@@ -173,7 +173,7 @@ class Request extends Model
      */
     public function agent(): BelongsTo
     {
-        return $this->belongsTo(config('tracking.statistics.models.agent'), 'agent_id', 'id');
+        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.agent'), 'agent_id', 'id');
     }
 
     /**
@@ -183,7 +183,7 @@ class Request extends Model
      */
     public function geoip(): BelongsTo
     {
-        return $this->belongsTo(config('tracking.statistics.models.geoip'), 'geoip_id', 'id');
+        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.geoip'), 'geoip_id', 'id');
     }
 
     /**
@@ -193,7 +193,7 @@ class Request extends Model
      */
     public function device(): BelongsTo
     {
-        return $this->belongsTo(config('tracking.statistics.models.device'), 'device_id', 'id');
+        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.device'), 'device_id', 'id');
     }
 
     /**
@@ -203,7 +203,7 @@ class Request extends Model
      */
     public function platform(): BelongsTo
     {
-        return $this->belongsTo(config('tracking.statistics.models.platform'), 'platform_id', 'id');
+        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.platform'), 'platform_id', 'id');
     }
 
     /**

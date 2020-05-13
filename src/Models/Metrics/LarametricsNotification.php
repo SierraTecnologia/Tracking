@@ -14,11 +14,11 @@ class LarametricsNotification extends Model
 
     public function routeNotificationForMail($notification = null)
     {
-        return config('larametrics.notificationMethods')['email'];
+        return \Illuminate\Support\Facades\Config::get('larametrics.notificationMethods')['email'];
     }
     
     public function routeNotificationForSlack($notification = null)
     {
-        return config('larametrics.notificationMethods')['slack'];
+        return \Illuminate\Support\Facades\Config::get('larametrics.notificationMethods')['slack'];
     }
 }

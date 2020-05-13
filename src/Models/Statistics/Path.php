@@ -79,7 +79,7 @@ class Path extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('tracking.statistics.tables.paths'));
+        $this->setTable(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.paths'));
     }
 
     /**
@@ -89,6 +89,6 @@ class Path extends Model
      */
     public function requests(): HasMany
     {
-        return $this->hasMany(config('tracking.statistics.models.request'), 'path_id', 'id');
+        return $this->hasMany(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.request'), 'path_id', 'id');
     }
 }

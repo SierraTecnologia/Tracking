@@ -1,4 +1,4 @@
-require.config({
+require.\Illuminate\Support\Facades\Config::get({
 shim: {
 'bootstrap': ['jquery'],
 'sparkline': ['jquery'],

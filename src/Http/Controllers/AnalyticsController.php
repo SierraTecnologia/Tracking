@@ -20,7 +20,7 @@ class AnalyticsController extends Controller
 
     public function index()
     {
-        if (!is_null(config('tracking.analytics.view_id')) && config('tracking.conf.analytics') == 'google') {
+        if (!is_null(\Illuminate\Support\Facades\Config::get('tracking.analytics.view_id')) && \Illuminate\Support\Facades\Config::get('tracking.conf.analytics') == 'google') {
             $period = Period::days(7);
 
             foreach (app(Analytics::class)->fetchVisitorsAndPageViews($period) as $view) {
@@ -30,7 +30,7 @@ class AnalyticsController extends Controller
             }
 
             return view('tracking::analytics.google', compact('visitStats', 'period'));
-        } elseif (is_null(config('tracking.analytics.conf')) || config('tracking.conf.analytics') == 'internal') {
+        } elseif (is_null(\Illuminate\Support\Facades\Config::get('tracking.analytics.conf')) || \Illuminate\Support\Facades\Config::get('tracking.conf.analytics') == 'internal') {
             if (Schema::hasTable('analytics')) {
                 return view('tracking::analytics.internal')
                     ->with('stats', $this->service->getDays(15))

@@ -76,7 +76,7 @@ class Agent extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('tracking.statistics.tables.agents'));
+        $this->setTable(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.agents'));
     }
 
     /**
@@ -86,6 +86,6 @@ class Agent extends Model
      */
     public function requests(): HasMany
     {
-        return $this->hasMany(config('tracking.statistics.models.request'), 'agent_id', 'id');
+        return $this->hasMany(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.request'), 'agent_id', 'id');
     }
 }

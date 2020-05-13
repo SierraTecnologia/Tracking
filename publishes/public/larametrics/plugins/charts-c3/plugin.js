@@ -1,4 +1,4 @@
-require.config({
+require.\Illuminate\Support\Facades\Config::get({
     shim: {
         'c3': ['d3', 'core'],
         'd3': ['core'],

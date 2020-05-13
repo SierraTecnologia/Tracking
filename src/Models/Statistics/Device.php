@@ -73,7 +73,7 @@ class Device extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('tracking.statistics.tables.devices'));
+        $this->setTable(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.devices'));
     }
 
     /**
@@ -83,6 +83,6 @@ class Device extends Model
      */
     public function requests(): HasMany
     {
-        return $this->hasMany(config('tracking.statistics.models.request'), 'device_id', 'id');
+        return $this->hasMany(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.request'), 'device_id', 'id');
     }
 }

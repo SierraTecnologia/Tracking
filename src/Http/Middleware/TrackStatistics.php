@@ -68,7 +68,7 @@ class TrackStatistics
     //  */
     // protected function configHitsLottery(): bool
     // {
-    //     $config = config('tracking.statistics.lottery');
+    //     $config = \Illuminate\Support\Facades\Config::get('tracking.statistics.lottery');
 
     //     return $config ? random_int(1, $config[1]) <= $config[0] : false;
     // }

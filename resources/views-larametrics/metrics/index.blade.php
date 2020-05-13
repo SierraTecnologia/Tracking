@@ -2,7 +2,7 @@
 @section('content')
 <div class="row row-cards">
     <div class="col-12">
-        @if(config('larametrics.requestsWatched') || !config('larametrics.hideUnwatchedMenuItems'))
+        @if(\Illuminate\Support\Facades\Config::get('larametrics.requestsWatched') || !\Illuminate\Support\Facades\Config::get('larametrics.hideUnwatchedMenuItems'))
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Latest Requests</h3>
@@ -46,7 +46,7 @@
                 </div>
             </div>
         @endif
-        @if(config('larametrics.logsWatched') || !config('larametrics.hideUnwatchedMenuItems'))
+        @if(\Illuminate\Support\Facades\Config::get('larametrics.logsWatched') || !\Illuminate\Support\Facades\Config::get('larametrics.hideUnwatchedMenuItems'))
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Latest Logs</h3>
@@ -88,7 +88,7 @@
                 </div>
             </div>
         @endif
-        @if(count(config('larametrics.modelsWatched')) || !config('larametrics.hideUnwatchedMenuItems'))
+        @if(count(\Illuminate\Support\Facades\Config::get('larametrics.modelsWatched')) || !\Illuminate\Support\Facades\Config::get('larametrics.hideUnwatchedMenuItems'))
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Latest Model Changes</h3>

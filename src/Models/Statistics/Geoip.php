@@ -94,7 +94,7 @@ class Geoip extends Model
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('tracking.statistics.tables.geoips'));
+        $this->setTable(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.geoips'));
     }
 
     /**
@@ -104,6 +104,6 @@ class Geoip extends Model
      */
     public function requests(): HasMany
     {
-        return $this->hasMany(config('tracking.statistics.models.request'), 'geoip_id', 'id');
+        return $this->hasMany(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.request'), 'geoip_id', 'id');
     }
 }

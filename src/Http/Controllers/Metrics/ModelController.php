@@ -24,7 +24,7 @@ class ModelController extends Controller
         $earliestModel = LarametricsModel::orderBy('created_at', 'desc')
             ->first();
 
-        foreach(config('larametrics.modelsWatched') as $model) {
+        foreach(\Illuminate\Support\Facades\Config::get('larametrics.modelsWatched') as $model) {
             $modelsAmounts[$model] = array(
                 'count' => $model::count(),
                 'changes' => isset($modelChanges[$model]) ? $modelChanges[$model]['total'] : 0

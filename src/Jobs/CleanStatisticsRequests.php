@@ -21,6 +21,6 @@ class CleanStatisticsRequests implements ShouldQueue
      */
     public function handle(): void
     {
-        ! config('tracking.statistics.lifetime') || app('tracking.statistics.request')->where('created_at', '<=', now()->subDays(config('tracking.statistics.lifetime')))->delete();
+        ! \Illuminate\Support\Facades\Config::get('tracking.statistics.lifetime') || app('tracking.statistics.request')->where('created_at', '<=', now()->subDays(\Illuminate\Support\Facades\Config::get('tracking.statistics.lifetime')))->delete();
     }
 }
