@@ -26,7 +26,7 @@ class AnalyticsService
             'time' => $request->server('REQUEST_TIME', null),
         ]);
 
-        if (Schema::hasTable(config('cms.db-prefix', '').'analytics')) {
+        if (Schema::hasTable('analytics')) {
             $this->model->create([
                 'data' => $requestData,
             ]);

@@ -31,7 +31,7 @@ class AnalyticsController extends Controller
 
             return view('tracking::analytics.google', compact('visitStats', 'period'));
         } elseif (is_null(config('tracking.analytics.conf')) || config('tracking.conf.analytics') == 'internal') {
-            if (Schema::hasTable(config('app.db-prefix', '').'analytics')) {
+            if (Schema::hasTable('analytics')) {
                 return view('tracking::analytics.internal')
                     ->with('stats', $this->service->getDays(15))
                     ->with('topReferers', $this->service->topReferers(15))

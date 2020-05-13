@@ -15,7 +15,7 @@ class CreateMetricsAnalysersTables extends Migration
     {
         // @todo Falta fazer aqui 
         
-		Schema::create(config('app.db-prefix', '').'metric_result_types', function (Blueprint $table) {
+		Schema::create('metric_result_types', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->string('name', 255)->nullable();
@@ -32,7 +32,7 @@ class CreateMetricsAnalysersTables extends Migration
          * 
          */
         
-		Schema::create(config('app.db-prefix', '').'metrics', function (Blueprint $table) {
+		Schema::create('metrics', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->longText('text')->nullable();
@@ -42,7 +42,7 @@ class CreateMetricsAnalysersTables extends Migration
             $table->softDeletes();
         });
 
-		Schema::create(config('app.db-prefix', '').'metric_analyses', function (Blueprint $table) {
+		Schema::create('metric_analyses', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->longText('text')->nullable();
@@ -52,7 +52,7 @@ class CreateMetricsAnalysersTables extends Migration
             $table->softDeletes();
         });
         
-		Schema::create(config('app.db-prefix', '').'metric_analyse_results', function (Blueprint $table) {
+		Schema::create('metric_analyse_results', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->longText('text')->nullable();
