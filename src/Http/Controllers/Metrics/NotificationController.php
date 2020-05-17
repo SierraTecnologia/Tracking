@@ -13,10 +13,12 @@ class NotificationController extends Controller
     {
         $notifications = LarametricsNotification::all();
         
-        return view('larametrics::notifications.index', [
+        return view(
+            'larametrics::notifications.index', [
             'notifications' => $notifications,
             'pageTitle' => 'Notifications'
-        ]);
+            ]
+        );
     }
 
     public function update(Request $request)
@@ -31,7 +33,8 @@ class NotificationController extends Controller
             );
             try {
                 LarametricsNotification::create($notificationData);
-            } catch(\Exception $e) {}
+            } catch(\Exception $e) {
+            }
         }
 
         return redirect()->route('larametrics::notifications.index');

@@ -8,6 +8,7 @@ use Finder\Models\Digital\Internet\ComputerFile;
 
 /**
  * Outputs events information to the console.
+ *
  * @see TriggerableInterface
  */
 trait MetricManagerTrait

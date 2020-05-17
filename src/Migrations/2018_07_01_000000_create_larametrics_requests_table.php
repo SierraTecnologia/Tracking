@@ -13,16 +13,18 @@ class CreateLarametricsRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('larametrics_requests', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('method');
-            $table->text('uri');
-            $table->string('ip')->nullable();
-            $table->text('headers')->nullable();
-            $table->float('start_time', 16, 4)->nullable();
-            $table->float('end_time', 16, 4)->nullable();
-            $table->timestamps();
-        });
+        Schema::create(
+            'larametrics_requests', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('method');
+                $table->text('uri');
+                $table->string('ip')->nullable();
+                $table->text('headers')->nullable();
+                $table->float('start_time', 16, 4)->nullable();
+                $table->float('end_time', 16, 4)->nullable();
+                $table->timestamps();
+            }
+        );
     }
 
     /**

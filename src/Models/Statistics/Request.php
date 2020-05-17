@@ -136,14 +136,16 @@ class Request extends Model
     {
         parent::boot();
 
-        static::saved(function (self $request) {
-            $request->path()->increment('count');
-            $request->route()->increment('count');
-            $request->geoip()->increment('count');
-            $request->agent()->increment('count');
-            $request->device()->increment('count');
-            $request->platform()->increment('count');
-        });
+        static::saved(
+            function (self $request) {
+                $request->path()->increment('count');
+                $request->route()->increment('count');
+                $request->geoip()->increment('count');
+                $request->agent()->increment('count');
+                $request->device()->increment('count');
+                $request->platform()->increment('count');
+            }
+        );
     }
 
     /**

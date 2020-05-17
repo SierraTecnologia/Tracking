@@ -13,15 +13,17 @@ class CreateLarametricsModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('larametrics_models', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('model');
-            $table->integer('model_id');
-            $table->string('method');
-            $table->text('original')->nullable();
-            $table->text('changes')->nullable();
-            $table->timestamps();
-        });
+        Schema::create(
+            'larametrics_models', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('model');
+                $table->integer('model_id');
+                $table->string('method');
+                $table->text('original')->nullable();
+                $table->text('changes')->nullable();
+                $table->timestamps();
+            }
+        );
     }
 
     /**

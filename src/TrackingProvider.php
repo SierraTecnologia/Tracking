@@ -145,19 +145,21 @@ class TrackingProvider extends ServiceProvider
         }
 
         Route::middleware(['nova', Authorize::class])
-                ->prefix('nova-vendor/beyondcode/tinker-tool')
-                ->group(__DIR__.'/Routes/api.php');
+            ->prefix('nova-vendor/beyondcode/tinker-tool')
+            ->group(__DIR__.'/Routes/api.php');
 
 
         /**
          * Facilitador Routes
          */
         // $router->middleware('siravel-analytics', Analytics::class);
-        Route::group([
+        Route::group(
+            [
             'namespace' => '\Tracking\Http\Controllers',
-        ], function ($router) {
-            require __DIR__.'/Routes/web.php';
-        });
+            ], function ($router) {
+                include __DIR__.'/Routes/web.php';
+            }
+        );
     }
 
     /**
@@ -237,29 +239,37 @@ class TrackingProvider extends ServiceProvider
         }
 
         // This group is used by public tracking routes
-        $this->app['router']->middlewareGroup('tracking.public', [
+        $this->app['router']->middlewareGroup(
+            'tracking.public', [
             'web',
-        ]);
+            ]
+        );
 
         // The is the starndard auth protected group
-        $this->app['router']->middlewareGroup('tracking.protected', [
+        $this->app['router']->middlewareGroup(
+            'tracking.protected', [
             'web',
             'tracking.auth',
             'tracking.save-redirect',
             'tracking.edit-redirect',
-        ]);
+            ]
+        );
 
         // Require a logged in admin session but no CSRF token
-        $this->app['router']->middlewareGroup('tracking.protected_endpoint', [
+        $this->app['router']->middlewareGroup(
+            'tracking.protected_endpoint', [
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Session\Middleware\StartSession::class,
             'tracking.auth',
-        ]);
+            ]
+        );
 
         // An open endpoint, like used by Zendcoder
-        $this->app['router']->middlewareGroup('tracking.endpoint', [
+        $this->app['router']->middlewareGroup(
+            'tracking.endpoint', [
             'api'
-        ]);
+            ]
+        );
     }
     /**
      * Register configs, migrations, etc
@@ -274,7 +284,8 @@ class TrackingProvider extends ServiceProvider
         // ! $this->app->runningInConsole() || $this->publishesMigrations('sierratecnologia/laravel-statistics');
 
         // Publish config files
-        $this->publishes([
+        $this->publishes(
+            [
             // Paths
             $this->getPublishesPath('config/tracking') => config_path('tracking'),
             // Files
@@ -282,14 +293,17 @@ class TrackingProvider extends ServiceProvider
             $this->getPublishesPath('config/larametrics.php') => config_path('larametrics.php'),
             $this->getPublishesPath('config/slow-query-logger.php') => config_path('slow-query-logger.php'),
             $this->getPublishesPath('config/stats.php') => config_path('stats.php')
-        ], ['config',  'sitec', 'sitec-config']);
+            ], ['config',  'sitec', 'sitec-config']
+        );
 
         // Publish tracking css and js to public directory
-        $this->publishes([
+        $this->publishes(
+            [
             $this->getDistPath() => public_path('assets/tracking'),
             $this->getPublishesPath('public/horizon') => public_path('vendor/horizon'),
             $this->getPublishesPath('public/larametrics') => public_path('vendor/larametrics')
-        ], ['public',  'sitec', 'sitec-public']);
+            ], ['public',  'sitec', 'sitec-public']
+        );
 
 
         $this->loadViews();
@@ -302,15 +316,19 @@ class TrackingProvider extends ServiceProvider
         // View namespace
         $viewsPath = $this->getResourcesPath('views');
         $this->loadViewsFrom($viewsPath, 'tracking');
-        $this->publishes([
+        $this->publishes(
+            [
             $viewsPath => base_path('resources/views/vendor/tracking'),
-        ], ['views',  'sitec', 'sitec-views', 'tracking-views']);
+            ], ['views',  'sitec', 'sitec-views', 'tracking-views']
+        );
 
         $viewsPath = $this->getResourcesPath('views-larametrics');
         $this->loadViewsFrom($viewsPath, 'larametrics');
-        $this->publishes([
+        $this->publishes(
+            [
             $viewsPath => base_path('resources/views/vendor/larametrics'),
-        ], ['views',  'sitec', 'sitec-views', 'tracking-views']);
+            ], ['views',  'sitec', 'sitec-views', 'tracking-views']
+        );
 
 
         // // Publish lanaguage files
@@ -355,17 +373,21 @@ class TrackingProvider extends ServiceProvider
     private function setProviders()
     {
         $this->setDependencesAlias();
-        (new Collection(self::$providers))->map(function ($provider) {
-            if (class_exists($provider)) {
-                $this->app->register($provider);
+        (new Collection(self::$providers))->map(
+            function ($provider) {
+                if (class_exists($provider)) {
+                    $this->app->register($provider);
+                }
             }
-        });
+        );
     }
     private function setDependencesAlias()
     {
         $loader = AliasLoader::getInstance();
-        (new Collection(self::$aliasProviders))->map(function ($class, $alias) use ($loader) {
-            $loader->alias($alias, $class);
-        });
+        (new Collection(self::$aliasProviders))->map(
+            function ($class, $alias) use ($loader) {
+                $loader->alias($alias, $class);
+            }
+        );
     }
 }

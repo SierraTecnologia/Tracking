@@ -14,18 +14,22 @@ class RequestController extends Controller
         $requests = LarametricsRequest::orderBy('created_at', 'desc')
             ->get();
             
-        return view('larametrics::requests.index', [
+        return view(
+            'larametrics::requests.index', [
             'requests' => $requests,
             'pageTitle' => 'Laravel Requests'
-        ]);
+            ]
+        );
     }
 
     public function show(LarametricsRequest $request)
     {
-        return view('larametrics::requests.show', [
+        return view(
+            'larametrics::requests.show', [
             'request' => $request,
             'pageTitle' => 'Viewing Request #' . $request->id
-        ]);
+            ]
+        );
     }
 
 }

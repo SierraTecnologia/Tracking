@@ -5,6 +5,7 @@ use Tracking\Traits\MetricManagerTrait;
 
 /**
  * Outputs events information to the console.
+ *
  * @see TriggerableInterface
  */
 abstract class MetricManager

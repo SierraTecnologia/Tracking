@@ -13,15 +13,17 @@ class CreateLarametricsNotificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('larametrics_notifications', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('action');
-            $table->string('filter')->nullable();
-            $table->text('meta')->nullable();
-            $table->string('notify_by')->default('email');
-            $table->timestamp('last_fired_at')->nullable();
-            $table->timestamps();
-        });
+        Schema::create(
+            'larametrics_notifications', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('action');
+                $table->string('filter')->nullable();
+                $table->text('meta')->nullable();
+                $table->string('notify_by')->default('email');
+                $table->timestamp('last_fired_at')->nullable();
+                $table->timestamps();
+            }
+        );
     }
 
     /**

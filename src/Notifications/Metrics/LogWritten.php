@@ -57,20 +57,20 @@ class LogWritten extends Notification implements ShouldQueue
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function via($notifiable)
     {
         switch($notifiable->notify_by) {
-            case 'email':
-                return ['mail'];
+        case 'email':
+            return ['mail'];
             break;
-            case 'slack':
-                return ['slack'];
+        case 'slack':
+            return ['slack'];
             break;
-            case 'email_slack':
-                return ['mail', 'slack'];
+        case 'email_slack':
+            return ['mail', 'slack'];
             break;
         }
     }
@@ -78,7 +78,7 @@ class LogWritten extends Notification implements ShouldQueue
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
@@ -117,11 +117,13 @@ class LogWritten extends Notification implements ShouldQueue
         return (new MailMessage)
             ->subject(env('LARAMETRICS_LOG_SUBJECT', '[Larametrics Alert] The application log has been written to'))
             ->from(env('LARAMETRICS_FROM_EMAIL', 'alerts@larametrics.com'), env('LARAMETRICS_FROM_NAME', 'Larametrics Alerts'))
-            ->view('larametrics::emails.log-written', [
+            ->view(
+                'larametrics::emails.log-written', [
                 'requestInfo' => $this->requestInfo,
                 'content' => $content,
                 'alertColor' => $statusColors[$status]
-            ]);
+                ]
+            );
     }
 
     public function toSlack($notifiable)
@@ -155,17 +157,19 @@ class LogWritten extends Notification implements ShouldQueue
 
         return (new SlackMessage)
             ->{ $status }()
-            ->attachment(function($attachment) use($requestInfo, $fields, $content) {
-                $attachment->title('Log #' . $requestInfo['id'], route('larametrics::logs.show', $requestInfo['id']))
-                    ->content($content)
-                    ->fields($fields);
-            });
+            ->attachment(
+                function ($attachment) use ($requestInfo, $fields, $content) {
+                    $attachment->title('Log #' . $requestInfo['id'], route('larametrics::logs.show', $requestInfo['id']))
+                        ->content($content)
+                        ->fields($fields);
+                }
+            );
     }
 
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function toArray($notifiable)

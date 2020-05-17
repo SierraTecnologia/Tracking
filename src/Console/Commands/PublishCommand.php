@@ -32,16 +32,16 @@ class PublishCommand extends Command
         $this->alert($this->description);
 
         switch ($this->option('resource')) {
-            case 'config':
-                $this->call('vendor:publish', ['--tag' => 'sierratecnologia-statistics-config', '--force' => $this->option('force')]);
-                break;
-            case 'migrations':
-                $this->call('vendor:publish', ['--tag' => 'sierratecnologia-statistics-migrations', '--force' => $this->option('force')]);
-                break;
-            default:
-                $this->call('vendor:publish', ['--tag' => 'sierratecnologia-statistics-config', '--force' => $this->option('force')]);
-                $this->call('vendor:publish', ['--tag' => 'sierratecnologia-statistics-migrations', '--force' => $this->option('force')]);
-                break;
+        case 'config':
+            $this->call('vendor:publish', ['--tag' => 'sierratecnologia-statistics-config', '--force' => $this->option('force')]);
+            break;
+        case 'migrations':
+            $this->call('vendor:publish', ['--tag' => 'sierratecnologia-statistics-migrations', '--force' => $this->option('force')]);
+            break;
+        default:
+            $this->call('vendor:publish', ['--tag' => 'sierratecnologia-statistics-config', '--force' => $this->option('force')]);
+            $this->call('vendor:publish', ['--tag' => 'sierratecnologia-statistics-migrations', '--force' => $this->option('force')]);
+            break;
         }
 
         $this->line('');

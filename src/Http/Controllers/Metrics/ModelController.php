@@ -31,12 +31,14 @@ class ModelController extends Controller
             );
         }
 
-        return view('larametrics::models.index', [
+        return view(
+            'larametrics::models.index', [
             'modelsAmounts' => $modelsAmounts,
             'pageTitle' => 'Database Models',
             'pageSubtitle' => 'Data shown is only by models being watched by Larametrics',
             'watchLength' => $earliestModel ? $earliestModel->created_at->diffInDays(Carbon::now()) : 0
-        ]);
+            ]
+        );
     }
 
     public function show($model)
@@ -46,11 +48,13 @@ class ModelController extends Controller
 
             $modelPrimaryKey = (new $larametricsModel->model)->getKeyName();
 
-            return view('larametrics::models.show', [
+            return view(
+                'larametrics::models.show', [
                 'model' => $larametricsModel,
                 'pageTitle' => $larametricsModel->model,
                 'modelPrimaryKey' => $modelPrimaryKey
-            ]);
+                ]
+            );
         } else {
             $appModel = str_replace('+', '\\', $model);
             
@@ -63,12 +67,14 @@ class ModelController extends Controller
 
             $modelPrimaryKey = (new $appModel)->getKeyName();
 
-            return view('larametrics::models.model', [
+            return view(
+                'larametrics::models.model', [
                 'models' => $models,
                 'pageTitle' => $appModel,
                 'watchLength' => $earliestModel ? $earliestModel->created_at->diffInDays(Carbon::now()) : 0,
                 'modelPrimaryKey' => $modelPrimaryKey
-            ]);
+                ]
+            );
         }
     }
 

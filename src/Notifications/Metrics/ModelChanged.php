@@ -28,20 +28,20 @@ class ModelChanged extends Notification implements ShouldQueue
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function via($notifiable)
     {
         switch($notifiable->notify_by) {
-            case 'email':
-                return ['mail'];
+        case 'email':
+            return ['mail'];
             break;
-            case 'slack':
-                return ['slack'];
+        case 'slack':
+            return ['slack'];
             break;
-            case 'email_slack':
-                return ['mail', 'slack'];
+        case 'email_slack':
+            return ['mail', 'slack'];
             break;
         }
     }
@@ -49,7 +49,7 @@ class ModelChanged extends Notification implements ShouldQueue
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
@@ -63,21 +63,23 @@ class ModelChanged extends Notification implements ShouldQueue
         );
         $alertColor = '#ff9f00';
         switch($this->larametricsModel->method) {
-            case 'created':
-                $alertColor = '#00B945';
+        case 'created':
+            $alertColor = '#00B945';
             break;
-            case 'deleted':
-                $alertColor = '#BC001A';
+        case 'deleted':
+            $alertColor = '#BC001A';
             break;
         }
 
         return (new MailMessage)
             ->subject(env('LARAMETRICS_MODEL_SUBJECT', '[Larametrics Alert] A model has been ' . $modelInfo['method']))
             ->from(env('LARAMETRICS_FROM_EMAIL', 'alerts@larametrics.com'), env('LARAMETRICS_FROM_NAME', 'Larametrics Alerts'))
-            ->view('larametrics::emails.model-changed', [
+            ->view(
+                'larametrics::emails.model-changed', [
                 'modelInfo' => $modelInfo,
                 'alertColor' => $alertColor
-            ]);
+                ]
+            );
     }
 
     public function toSlack($notifiable)
@@ -90,10 +92,11 @@ class ModelChanged extends Notification implements ShouldQueue
         );
         
         switch($this->larametricsModel->method) {
-            case 'updated':
-                return (new SlackMessage)
-                    ->warning()
-                    ->attachment(function($attachment) use($modelInfo) {
+        case 'updated':
+            return (new SlackMessage)
+                ->warning()
+                ->attachment(
+                    function ($attachment) use ($modelInfo) {
                         $columnsChanged = '';
                         foreach(array_keys($modelInfo['changes']) as $changedColumn) {
                             $columnsChanged .= '    • ' . $changedColumn . "\r\n";
@@ -101,23 +104,28 @@ class ModelChanged extends Notification implements ShouldQueue
                         $attachment->title($modelInfo['model'] . ' #' . $modelInfo['original']['id'], route('larametrics::models.show', $modelInfo['id']))
                             ->content('A model on ' . url('/') . ' has been updated. The following columns have changed:' . "\r\n" . $columnsChanged)
                             ->markdown(['text']);
-                    });
+                    }
+                );
             break;
-            case 'created':
-                    return (new SlackMessage)
-                        ->success()
-                        ->attachment(function($attachment) use($modelInfo) {
-                            $attachment->title($modelInfo['model'] . ' #' . $modelInfo['original']['id'], route('larametrics::models.show', $modelInfo['id']))
-                                ->content('A model on ' . url('/') . ' has been created.');
-                        });
+        case 'created':
+            return (new SlackMessage)
+                ->success()
+                ->attachment(
+                    function ($attachment) use ($modelInfo) {
+                        $attachment->title($modelInfo['model'] . ' #' . $modelInfo['original']['id'], route('larametrics::models.show', $modelInfo['id']))
+                            ->content('A model on ' . url('/') . ' has been created.');
+                    }
+                );
             break;
-            case 'deleted':
-                    return (new SlackMessage)
-                        ->error()
-                        ->attachment(function($attachment) use($modelInfo) {
-                            $attachment->title($modelInfo['model'] . ' #' . $modelInfo['original']['id'], route('larametrics::models.show', $modelInfo['id']))
-                                ->content('A model on ' . url('/') . ' has been deleted.');
-                        });
+        case 'deleted':
+            return (new SlackMessage)
+                ->error()
+                ->attachment(
+                    function ($attachment) use ($modelInfo) {
+                        $attachment->title($modelInfo['model'] . ' #' . $modelInfo['original']['id'], route('larametrics::models.show', $modelInfo['id']))
+                            ->content('A model on ' . url('/') . ' has been deleted.');
+                    }
+                );
             break;
         }
     }
@@ -125,7 +133,7 @@ class ModelChanged extends Notification implements ShouldQueue
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param  mixed $notifiable
      * @return array
      */
     public function toArray($notifiable)

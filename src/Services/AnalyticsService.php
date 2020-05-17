@@ -15,7 +15,8 @@ class AnalyticsService
 
     public function log($request)
     {
-        $requestData = json_encode([
+        $requestData = json_encode(
+            [
             'referer' => $request->server('HTTP_REFERER', null),
             'user_agent' => $request->server('HTTP_USER_AGENT', null),
             'host' => $request->server('HTTP_HOST', null),
@@ -24,12 +25,15 @@ class AnalyticsService
             'method' => $request->server('REQUEST_METHOD', null),
             'query' => $request->server('QUERY_STRING', null),
             'time' => $request->server('REQUEST_TIME', null),
-        ]);
+            ]
+        );
 
         if (Schema::hasTable('analytics')) {
-            $this->model->create([
+            $this->model->create(
+                [
                 'data' => $requestData,
-            ]);
+                ]
+            );
         }
     }
 
@@ -109,9 +113,11 @@ class AnalyticsService
 
             $visitCollection = collect($visits);
         } else {
-            $visitCollection = collect([
+            $visitCollection = collect(
+                [
                 Carbon::now()->format('Y-m-d') => 0,
-            ]);
+                ]
+            );
         }
 
         return [

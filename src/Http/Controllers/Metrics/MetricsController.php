@@ -26,12 +26,14 @@ class MetricsController extends Controller
             ->limit(10)
             ->get();
 
-        return view('larametrics::metrics.index', [
+        return view(
+            'larametrics::metrics.index', [
             'pageTitle' => 'Dashboard',
             'requests' => $requests,
             'logs' => $logs,
             'models' => $models
-        ]);
+            ]
+        );
     }
 
     public function logs()
@@ -47,10 +49,12 @@ class MetricsController extends Controller
             return abort(404);
         }
 
-        return view('larametrics::logs.show', [
+        return view(
+            'larametrics::logs.show', [
             'log' => $logArray[$index],
             'pageTitle' => 'Viewing Log'
-        ]);
+            ]
+        );
     }
 
 }

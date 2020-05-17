@@ -13,15 +13,17 @@ class CreateLarametricsLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('larametrics_logs', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('level');
-            $table->text('message');
-            $table->integer('user_id')->nullable();
-            $table->string('email')->nullable();
-            $table->text('trace');
-            $table->timestamps();
-        });
+        Schema::create(
+            'larametrics_logs', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('level');
+                $table->text('message');
+                $table->integer('user_id')->nullable();
+                $table->string('email')->nullable();
+                $table->text('trace');
+                $table->timestamps();
+            }
+        );
     }
 
     /**
