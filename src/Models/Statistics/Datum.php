@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Tracking\Models\Statistics;
 
 use Illuminate\Database\Eloquent\Model;
-use Support\Recursos\Cacheable\CacheableEloquent;
+use Muleta\Recursos\Cacheable\CacheableEloquent;
 use Illuminate\Database\Eloquent\Builder;
-use Support\Traits\Models\ValidatingTrait;
+use Muleta\Traits\Models\ValidatingTrait;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Datum extends Model

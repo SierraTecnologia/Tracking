@@ -19,7 +19,7 @@ use Tracking\Models\Statistics\Route as RouteBase;
 use Tracking\Models\Statistics\Device;
 use Tracking\Models\Statistics\Request;
 use Tracking\Models\Statistics\Platform;
-use Support\Traits\Providers\ConsoleTools;
+use Muleta\Traits\Providers\ConsoleTools;
 use Tracking\Console\Commands\MigrateCommand;
 use Tracking\Console\Commands\PublishCommand;
 use Tracking\Http\Middleware\TrackStatistics;
@@ -291,7 +291,7 @@ class TrackingProvider extends ServiceProvider
             // Files
             $this->getPublishesPath('config/horizon.php') => config_path('horizon.php'),
             $this->getPublishesPath('config/larametrics.php') => config_path('larametrics.php'),
-            $this->getPublishesPath('config/slow-query-logger.php') => config_path('slow-query-logger.php'),
+            // $this->getPublishesPath('config/slow-query-logger.php') => config_path('slow-query-logger.php'),
             $this->getPublishesPath('config/stats.php') => config_path('stats.php')
             ], ['config',  'sitec', 'sitec-config']
         );
