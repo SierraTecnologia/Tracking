@@ -78,7 +78,7 @@ class TrackingProvider extends ServiceProvider
      * Rotas do Menu
      */
     public static $menuItens = [
-        'System' => [
+        'Admin' => [
             'Metrics' => [
                 [
                     'text'        => 'Analytics',
