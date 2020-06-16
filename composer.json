@@ -30,8 +30,8 @@
         "markrogoyski/math-php": "*",
         "php-ai/php-ml": ">=0.8",
         "sierratecnologia/audit": "dev-master",
-        "aschmelyun/larametrics": "^1.0",
-        "wnx/laravel-stats": "^2.0|^1.0",
+        "ricardosierra/larametrics": "^1.2",
+        "wnx/laravel-stats": "^2.0",
         "laravel/horizon": "^3.0|^4.0",
         "spatie/laravel-analytics": "^3.0"
     },
