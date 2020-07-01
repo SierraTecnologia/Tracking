@@ -3,8 +3,8 @@ namespace Tracking\Traits;
 
 use Tracking\Abstracts\MetricManager;
 
-use Finder\Models\Digital\Midia\File;
-use Finder\Models\Digital\Internet\ComputerFile;
+use Artista\Models\Digital\Midia\File;
+use Artista\Models\Digital\Internet\ComputerFile;
 
 /**
  * Outputs events information to the console.
