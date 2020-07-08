@@ -3,8 +3,8 @@ namespace Tracking\Traits;
 
 use Tracking\Abstracts\MetricManager;
 
-use Artista\Models\File;
-use Artista\Models\Digital\Internet\ComputerFile;
+use Stalker\Models\File;
+use Stalker\Models\Digital\Internet\ComputerFile;
 
 /**
  * Outputs events information to the console.
