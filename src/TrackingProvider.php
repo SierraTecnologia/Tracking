@@ -156,6 +156,9 @@ class TrackingProvider extends ServiceProvider
         Route::group(
             [
             'namespace' => '\Tracking\Http\Controllers',
+            'prefix' => \Illuminate\Support\Facades\Config::get('application.routes.main'),
+            'as' => 'rica.',
+            // 'middleware' => 'rica',
             ], function ($router) {
                 include __DIR__.'/Routes/web.php';
             }

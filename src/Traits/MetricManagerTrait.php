@@ -3,7 +3,7 @@ namespace Tracking\Traits;
 
 use Tracking\Abstracts\MetricManager;
 
-use Artista\Models\Digital\Midia\File;
+use Artista\Models\File;
 use Artista\Models\Digital\Internet\ComputerFile;
 
 /**
