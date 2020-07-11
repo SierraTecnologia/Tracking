@@ -5,6 +5,7 @@ namespace Tracking\Services;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
 use Tracking\Models\Analytics;
+use function parse_user_agent;
 
 class AnalyticsService
 {

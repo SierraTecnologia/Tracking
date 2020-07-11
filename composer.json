@@ -20,6 +20,7 @@
         "illuminate/routing": "^5.8|^6.0|^7.0|^8.0",
         "illuminate/support": "^5.8|^6.0|^7.0|^8.0",
         "jenssegers/agent": "^2.0",
+        "donatj/phpuseragentparser": "*",
         "sierratecnologia/countries": "dev-master",
         "sierratecnologia/muleta": "dev-master",
         "symfony/http-foundation": ">=4.3",
