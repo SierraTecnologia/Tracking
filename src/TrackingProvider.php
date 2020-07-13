@@ -82,16 +82,7 @@ class TrackingProvider extends ServiceProvider
             'Metrics' => [
                 [
                     'text'        => 'Analytics',
-                    'route'       => 'tracking.analytics',
-                    'icon'        => 'dashboard',
-                    'icon_color'  => 'blue',
-                    'label_color' => 'success',
-                    'level'       => 2,
-                    // 'access' => \App\Models\Role::$ADMIN
-                ],
-                [
-                    'text'        => 'Metrics',
-                    'route'       => 'larametrics::metrics.index',
+                    'route'       => 'rica.tracking.analytics',
                     'icon'        => 'dashboard',
                     'icon_color'  => 'blue',
                     'label_color' => 'success',
@@ -148,7 +139,7 @@ class TrackingProvider extends ServiceProvider
 
         Route::middleware(['nova', Authorize::class])
             ->prefix('nova-vendor/beyondcode/tinker-tool')
-            ->group(__DIR__.'/Routes/api.php');
+            ->group(__DIR__.'/../routes/api.php');
 
 
         /**
@@ -162,7 +153,7 @@ class TrackingProvider extends ServiceProvider
             'as' => 'rica.',
             // 'middleware' => 'rica',
             ], function ($router) {
-                include __DIR__.'/Routes/web.php';
+                include __DIR__.'/../routes/web.php';
             }
         );
     }
@@ -184,7 +175,7 @@ class TrackingProvider extends ServiceProvider
         // Register external packages
         $this->setProviders();
         $this->routes();
-        $this->loadMigrationsFrom(__DIR__.'/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         // // Configs
         // $this->app->config->set('Tracking.modules.Tracking', include(__DIR__.'/config.php'));
