@@ -17,5 +17,5 @@ class Trackings extends ArchiveTrait
         'data',
     ];
 
-    public $rules = [];
+    public static $rules = [];
 }

@@ -86,6 +86,7 @@ class TrackingProvider extends ServiceProvider
                     'icon'        => 'dashboard',
                     'icon_color'  => 'blue',
                     'label_color' => 'success',
+                    'level'       => 2,
                     // 'access' => \App\Models\Role::$ADMIN
                 ],
                 [
@@ -94,6 +95,7 @@ class TrackingProvider extends ServiceProvider
                     'icon'        => 'dashboard',
                     'icon_color'  => 'blue',
                     'label_color' => 'success',
+                    'level'       => 2,
                     // 'access' => \App\Models\Role::$ADMIN
                 ],
             ],
