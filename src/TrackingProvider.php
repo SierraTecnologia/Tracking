@@ -79,6 +79,13 @@ class TrackingProvider extends ServiceProvider
      */
     public static $menuItens = [
         'Admin' => [
+            [
+                'text' => 'Metrics',
+                'icon' => 'fas fa-fw fa-search',
+                'icon_color' => "blue",
+                'label_color' => "success",
+                'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
+            ],
             'Metrics' => [
                 [
                     'text'        => 'Analytics',
