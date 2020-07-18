@@ -25,6 +25,7 @@ use Tracking\Console\Commands\PublishCommand;
 use Tracking\Http\Middleware\TrackStatistics;
 use Tracking\Http\Middleware\Analytics;
 use Tracking\Console\Commands\RollbackCommand;
+use Tracking\Services\TrackingService;
 
 class TrackingProvider extends ServiceProvider
 {
@@ -170,6 +171,8 @@ class TrackingProvider extends ServiceProvider
      */
     public function register()
     {
+
+
         // Merge own configs into user configs 
         $this->mergeConfigFrom($this->getPublishesPath('config/tracking/analytics.php'), 'tracking.analytics');
         $this->mergeConfigFrom($this->getPublishesPath('config/tracking/conf.php'), 'tracking.conf');
@@ -186,6 +189,13 @@ class TrackingProvider extends ServiceProvider
 
         // // Configs
         // $this->app->config->set('Tracking.modules.Tracking', include(__DIR__.'/config.php'));
+
+        $loader = AliasLoader::getInstance();
+        $loader->alias('TrackingService', \Tracking\Facades\TrackingServiceFacade::class);
+
+        $this->app->bind('TrackingService', function ($app) {
+            return new TrackingService();
+        });
 
         /*
         |--------------------------------------------------------------------------

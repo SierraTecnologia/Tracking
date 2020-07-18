@@ -1,7 +1,7 @@
 <?php
 
-Route::group(
-    ['middleware' => ['web', 'admin']], function () {  
+// Route::group(
+    // ['middleware' => ['web', 'admin']], function () {   @todo 
         // Route::group(['middleware' => ['siravel-analytics']], function () {
 
         Route::prefix('tracking')->group(
@@ -107,5 +107,5 @@ Route::group(
                 );
             }
         );
-    }
-);
+//     }
+// );
