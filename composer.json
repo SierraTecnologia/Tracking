@@ -1,11 +1,24 @@
 {
     "name": "sierratecnologia/tracking",
     "description": "Tracking",
+    "type": "library",
+    "keywords": [
+        "sierratecnologia",
+        "tracking"
+    ],
     "license": "MIT",
+    "homepage": "https://sierratecnologia.com/packages/tracking/",
+    "support": {
+        "email": "help@sierratecnologia.com",
+        "issues": "https://github.com/sierratecnologia/tracking/issues",
+        "source": "https://github.com/sierratecnologia/tracking",
+        "docs": "https://github.com/sierratecnologia/tracking/blob/master/README.md"
+    },
     "authors": [
         {
-            "name": "Ricardo Rebello Sierra",
-            "email": "contato@ricardosierra.com.br"
+            "name": "SierraTecnologia",
+            "homepage": "https://sierratecnologia.com.br",
+            "email": "help@sierratecnologia.com.br"
         }
     ],
     "require": {

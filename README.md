@@ -1,39 +1,39 @@
 Sitec Tracking
 ================================
-# SierraTecnologia Statistics
+# SierraTecnologia Tracking
 
-**SierraTecnologia Statistics** is a lightweight, yet detailed package for tracking and recording user visits across your Laravel application. With only one simple query per request, important data is being stored, and later a cronjob crush numbers to extract meaningful stories from within the haystack.
+**SierraTecnologia Tracking** is a lightweight, yet detailed package for tracking and recording user visits across your Laravel application. With only one simple query per request, important data is being stored, and later a cronjob crush numbers to extract meaningful stories from within the haystack.
 
 Unlike other tracking packages that seriously damage your project's performance (yes, I mean that package you know 😅), our package takes a different approach by just executing only one query at the end of each request after the response is being served to the user, through the `terminate` method of an automatically attached middleware, and then later on it uses the raw data previously inserted in the database to extract meaningfull numbers. This is done based on a random lottery request, or through a scheduled job (recommended) that could be queued to offload the heavy crunching work.
 
-**SierraTecnologia Statistics** tracks each -valid- request, meaning only requests that goes through routing pipeline, which also means that any wrong URL that results in `NotFoundHttpException` will not be tracked. If requested page has uncaught exceptions, it won't be tracked as well. It track user's logged in account (if any), session of all users and guests (if any), device (family, model, brand), platform (family, version), browser (agent, kind, family, version), path, route (action, middleware, parameters), host, protocol, ip address, language, status codes, and many more, and still we've plenty of awesome features planned for the future.
+**SierraTecnologia Tracking** tracks each -valid- request, meaning only requests that goes through routing pipeline, which also means that any wrong URL that results in `NotFoundHttpException` will not be tracked. If requested page has uncaught exceptions, it won't be tracked as well. It track user's logged in account (if any), session of all users and guests (if any), device (family, model, brand), platform (family, version), browser (agent, kind, family, version), path, route (action, middleware, parameters), host, protocol, ip address, language, status codes, and many more, and still we've plenty of awesome features planned for the future.
 
-With such a huge collected data, the `statistics_requests` database table will noticeably increase in size specially if you've a lot of visits, that's why it's recommended to clean it periodically. Other important data will stay still in their respective tables, normalized and without any performance issues, so only this table need to be cleaned. By default that will be done automatically every month.
+With such a huge collected data, the `trackings_requests` database table will noticeably increase in size specially if you've a lot of visits, that's why it's recommended to clean it periodically. Other important data will stay still in their respective tables, normalized and without any performance issues, so only this table need to be cleaned. By default that will be done automatically every month.
 
-The default implementation of **SierraTecnologia Statistics** comes with zero configuration out-of-the-box, which means it just works once installed. But it's recommended to change the defaults and disable the "Statistics Crunching Lottery" from config file, and replace it with a [Scheduled Tasks](https://laravel.com/docs/master/scheduling) for even better performance if you've large number of visits. See [Usage](#usage) for details.
+The default implementation of **SierraTecnologia Tracking** comes with zero configuration out-of-the-box, which means it just works once installed. But it's recommended to change the defaults and disable the "Tracking Crunching Lottery" from config file, and replace it with a [Scheduled Tasks](https://laravel.com/docs/master/scheduling) for even better performance if you've large number of visits. See [Usage](#usage) for details.
 
-[![Packagist](https://img.shields.io/packagist/v/sierratecnologia/laravel-statistics.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/sierratecnologia/laravel-statistics)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/sierratecnologia/laravel-statistics.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/sierratecnologia/laravel-statistics/)
-[![Travis](https://img.shields.io/travis/sierratecnologia/laravel-statistics.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/sierratecnologia/laravel-statistics)
+[![Packagist](https://img.shields.io/packagist/v/sierratecnologia/tracking.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/sierratecnologia/tracking)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/sierratecnologia/tracking.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/sierratecnologia/tracking/)
+[![Travis](https://img.shields.io/travis/sierratecnologia/tracking.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/sierratecnologia/tracking)
 [![StyleCI](https://styleci.io/repos/118045101/shield)](https://styleci.io/repos/118045101)
-[![License](https://img.shields.io/packagist/l/sierratecnologia/laravel-statistics.svg?label=License&style=flat-square)](https://github.com/sierratecnologia/laravel-statistics/blob/develop/LICENSE)
+[![License](https://img.shields.io/packagist/l/sierratecnologia/tracking.svg?label=License&style=flat-square)](https://github.com/sierratecnologia/tracking/blob/develop/LICENSE)
 
 
 ## Installation
 
 1. Install the package via composer:
     ```shell
-    composer require sierratecnologia/laravel-statistics
+    composer require sierratecnologia/tracking
     ```
 
 2. Publish resources (migrations and config files):
     ```shell
-    php artisan sierratecnologia:publish:statistics
+    php artisan sierratecnologia:publish:trackings
     ```
 
 3. Execute migrations via the following command:
     ```shell
-    php artisan sierratecnologia:migrate:statistics
+    php artisan sierratecnologia:migrate:trackings
     ```
 
 4. Done!
@@ -41,43 +41,43 @@ The default implementation of **SierraTecnologia Statistics** comes with zero co
 
 ## Usage
 
-Well, this is the fun part! **SierraTecnologia Statistics** has no usage instructions, because it just works! You install it and you are done! Seriously!!
+Well, this is the fun part! **SierraTecnologia Tracking** has no usage instructions, because it just works! You install it and you are done! Seriously!!
 
 Anyway, as a recommended performance tweak go ahead and do the following (optionally):
 
 1. Publish config file via the following command:
     ```
-    php artisan sierratecnologia:publish:statistics
+    php artisan sierratecnologia:publish:trackings
     ```
 
-2. Disable the "Statistics Crunching Lottery" from config file.
+2. Disable the "Tracking Crunching Lottery" from config file.
 
-3. Follow the default Laravel documentation about [Scheduled Tasks](https://laravel.com/docs/master/scheduling), then schedule both `\Tracking\Jobs\CrunchStatistics` and `\Tracking\Jobs\CleanStatisticsRequests` jobs at whatever intervals you see appropriate.
+3. Follow the default Laravel documentation about [Scheduled Tasks](https://laravel.com/docs/master/scheduling), then schedule both `\Tracking\Jobs\CrunchTracking` and `\Tracking\Jobs\CleanTrackingRequests` jobs at whatever intervals you see appropriate.
 
 4. Enjoy!
 
-> **Note:** **SierraTecnologia Statistics** has a `\Tracking\Http\Middleware\TrackStatistics` middleware that attach itself automatically to the `web` middleware group, that's how it works out-of-the-box with zero configuration.
+> **Note:** **SierraTecnologia Tracking** has a `\Tracking\Http\Middleware\TrackTracking` middleware that attach itself automatically to the `web` middleware group, that's how it works out-of-the-box with zero configuration.
 
 ### Data retrieval
 
-You may need to build your own frontend interface to browse statistics, and for that you can utilize any of the included eloquent models as you normally do with [Laravel Eloquent](https://laravel.com/docs/master/eloquent).
+You may need to build your own frontend interface to browse trackings, and for that you can utilize any of the included eloquent models as you normally do with [Laravel Eloquent](https://laravel.com/docs/master/eloquent).
 
 All eloquent models are self explainatory:
 
-- `\Tracking\Models\Statistics\Agent` browser agent model
-- `\Tracking\Models\Statistics\Datum` raw statistics data (to be crunched)
-- `\Tracking\Models\Statistics\Device` user device model
-- `\Tracking\Models\Statistics\Path` request path model
-- `\Tracking\Models\Statistics\Platform` user platform model
-- `\Tracking\Models\Statistics\Request` request data model (to be cleaned periodically)
-- `\Tracking\Models\Statistics\Route` request route details model
+- `\Tracking\Models\Tracking\Agent` browser agent model
+- `\Tracking\Models\Tracking\Datum` raw trackings data (to be crunched)
+- `\Tracking\Models\Tracking\Device` user device model
+- `\Tracking\Models\Tracking\Path` request path model
+- `\Tracking\Models\Tracking\Platform` user platform model
+- `\Tracking\Models\Tracking\Request` request data model (to be cleaned periodically)
+- `\Tracking\Models\Tracking\Route` request route details model
 
 All models are bound to the [Service Container](https://laravel.com/docs/master/container) so you can swap easily from anywhere in your application. In addition to the default normal way of using these models explicitely, you can use their respective service names as in the following example:
 
 ```php
 // Find first browser agent (any of these methods are valid and equivalent)
-app('tracking.statistics.agent')->first();
-new \Tracking\Models\Statistics\Agent::first();
+app('tracking.trackings.agent')->first();
+new \Tracking\Models\Tracking\Agent::first();
 app(\Tracking\Contracts\AgentContract::class)->first();
 ```
 
@@ -124,7 +124,7 @@ This means there's 12 visits to the admin dashboard roles management of the **te
 This table could be used as a visit counter for all your pages. To retrieve and display page views you can use the following code for example:
 
 ```php
-$pageViews = app('tracking.statistics.path')->where('path', request()->decodedPath())->first()->count;
+$pageViews = app('tracking.trackings.path')->where('path', request()->decodedPath())->first()->count;
 ```
 
 And simply use the `$pageViews` variable anywhere in your views or controllers, or anywhere else. That way you have automatic visit counter for all your project's pages, very useful and performant, ready at your fingertips. You can add `host` contraint in case you have wildcard subdomains enabled.
@@ -137,7 +137,7 @@ And simply use the `$pageViews` variable anywhere in your views or controllers, 
 
 This means there's 41 visits to the `adminarea.roles.edit` route, which has the `{locale}/adminarea/roles/{role}` raw path, and served through the `App\Http\Controllers\Adminarea\RolesController@form` controller action, and has the following middleware applied `["web","nohttpcache","can:access-adminarea","auth","can:update-roles,roles"]`, knowing the route accepts two parameters with the following regex requirements `{"role": "[a-z0-9-]+", "locale": "[a-z]{2}"}`.
 
-As you can see, this `statistics_routes` table beside the `statistics_paths` table are both complimentary, and could be used together to track which paths and routs are being accessed, how many times, and what controller actions serve it, and what parameters are required, with the actual parameter replacements used to access it. Think of routes as your raw links blueprint map, and of paths as the executed and actually used links by users.
+As you can see, this `trackings_routes` table beside the `trackings_paths` table are both complimentary, and could be used together to track which paths and routs are being accessed, how many times, and what controller actions serve it, and what parameters are required, with the actual parameter replacements used to access it. Think of routes as your raw links blueprint map, and of paths as the executed and actually used links by users.
 
 #### Geoips
 
@@ -157,8 +157,8 @@ This is the most comprehensive table that records every single request made to t
 
 > **Notes:**
 > - As a final note, this package is a data hord, and it doesn't actually do much of the math that could be done on such a valuable gathered data, so it's up to your imagination to utilize it however you see fits your goals. Implementation details is up to you.
-> - We didn't explain the `statistics_data` table since it's used for temporary raw data storage until it's being crunched and processed by the package, so you should **NOT** care or mess with that table. It's used internally by the package and has no real end-user usage.
-> - The `\Tracking\Models\Statistics\Request` model has relationships to all related data such as `agent`, `device`, `path`, `platform`, and `route`. So once you grab a request instance you can access any of it's relationships as you normaly do with [Eloquent Relationships](https://laravel.com/docs/master/eloquent-relationships) like so: `$statisticsRequest->agent->version` or `$statisticsRequest->platform->family`.
+> - We didn't explain the `trackings_data` table since it's used for temporary raw data storage until it's being crunched and processed by the package, so you should **NOT** care or mess with that table. It's used internally by the package and has no real end-user usage.
+> - The `\Tracking\Models\Tracking\Request` model has relationships to all related data such as `agent`, `device`, `path`, `platform`, and `route`. So once you grab a request instance you can access any of it's relationships as you normaly do with [Eloquent Relationships](https://laravel.com/docs/master/eloquent-relationships) like so: `$trackingsRequest->agent->version` or `$trackingsRequest->platform->family`.
 
 
 ## Changelog

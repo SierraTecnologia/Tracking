@@ -2,7 +2,7 @@
 
 namespace Tracking\Models;
 
-use Support\Traits\Models\ArchiveTrait;
+use Muleta\Traits\Models\ArchiveTrait;
 
 
 class Trackings extends ArchiveTrait
