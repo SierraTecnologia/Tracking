@@ -32,7 +32,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## [v1.0.0] - 2018-10-01
 - Enforce Consistency
 - Support Laravel 5.7+
-- Rename package to sierratecnologia/laravel-statistics
+- Rename package to sierratecnologia/tracking
 
 ## [v0.0.2] - 2018-09-21
 - Update travis php versions
@@ -49,11 +49,11 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v0.0.1 - 2018-02-18
 - Tag first release
 
-[v3.0.0]: https://github.com/sierratecnologia/laravel-statistics/compare/v2.1.1...v3.0.0
-[v2.1.1]: https://github.com/sierratecnologia/laravel-statistics/compare/v2.1.0...v2.1.1
-[v2.1.0]: https://github.com/sierratecnologia/laravel-statistics/compare/v2.0.0...v2.1.0
-[v2.0.0]: https://github.com/sierratecnologia/laravel-statistics/compare/v1.0.2...v2.0.0
-[v1.0.2]: https://github.com/sierratecnologia/laravel-statistics/compare/v1.0.1...v1.0.2
-[v1.0.1]: https://github.com/sierratecnologia/laravel-statistics/compare/v1.0.0...v1.0.1
-[v1.0.0]: https://github.com/sierratecnologia/laravel-statistics/compare/v0.0.2...v1.0.0
-[v0.0.2]: https://github.com/sierratecnologia/laravel-statistics/compare/v0.0.1...v0.0.2
+[v3.0.0]: https://github.com/sierratecnologia/tracking/compare/v2.1.1...v3.0.0
+[v2.1.1]: https://github.com/sierratecnologia/tracking/compare/v2.1.0...v2.1.1
+[v2.1.0]: https://github.com/sierratecnologia/tracking/compare/v2.0.0...v2.1.0
+[v2.0.0]: https://github.com/sierratecnologia/tracking/compare/v1.0.2...v2.0.0
+[v1.0.2]: https://github.com/sierratecnologia/tracking/compare/v1.0.1...v1.0.2
+[v1.0.1]: https://github.com/sierratecnologia/tracking/compare/v1.0.0...v1.0.1
+[v1.0.0]: https://github.com/sierratecnologia/tracking/compare/v0.0.2...v1.0.0
+[v0.0.2]: https://github.com/sierratecnologia/tracking/compare/v0.0.1...v0.0.2
