@@ -15,7 +15,7 @@ class LogController extends Controller
             ->get();
             
         return view(
-            'larametrics::logs.index', [
+            'rica.larametrics::logs.index', [
             'logs' => $logs,
             'pageTitle' => 'Laravel Logs'
             ]
@@ -25,7 +25,7 @@ class LogController extends Controller
     public function show(LarametricsLog $log)
     {
         return view(
-            'larametrics::logs.show', [
+            'rica.larametrics::logs.show', [
             'log' => $log,
             'pageTitle' => 'Viewing Log Details'
             ]

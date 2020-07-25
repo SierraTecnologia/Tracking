@@ -32,7 +32,7 @@ class ModelController extends Controller
         }
 
         return view(
-            'larametrics::models.index', [
+            'rica.larametrics::models.index', [
             'modelsAmounts' => $modelsAmounts,
             'pageTitle' => 'Database Models',
             'pageSubtitle' => 'Data shown is only by models being watched by Larametrics',
@@ -49,7 +49,7 @@ class ModelController extends Controller
             $modelPrimaryKey = (new $larametricsModel->model)->getKeyName();
 
             return view(
-                'larametrics::models.show', [
+                'rica.larametrics::models.show', [
                 'model' => $larametricsModel,
                 'pageTitle' => $larametricsModel->model,
                 'modelPrimaryKey' => $modelPrimaryKey
@@ -68,7 +68,7 @@ class ModelController extends Controller
             $modelPrimaryKey = (new $appModel)->getKeyName();
 
             return view(
-                'larametrics::models.model', [
+                'rica.larametrics::models.model', [
                 'models' => $models,
                 'pageTitle' => $appModel,
                 'watchLength' => $earliestModel ? $earliestModel->created_at->diffInDays(Carbon::now()) : 0,
@@ -103,7 +103,7 @@ class ModelController extends Controller
         
         }
 
-        return redirect()->route('larametrics::models.index');
+        return redirect()->route('rica.larametrics::models.index');
     }
 
 }

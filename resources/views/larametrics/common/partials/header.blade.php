@@ -11,17 +11,17 @@
                     <li class="nav-item">
                         <a href="{{ route('rica.larametrics::metrics.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'rica.larametrics::metrics.index') ? ' active' : '' }}"><i class="fe fe-home"></i> Home</a>
                     </li>
-                    @if(\Illuminate\Support\Facades\Config::get('larametrics.logsWatched') || !\Illuminate\Support\Facades\Config::get('larametrics.hideUnwatchedMenuItems'))
+                    @if(config('larametrics.logsWatched') || !config('larametrics.hideUnwatchedMenuItems'))
                         <li class="nav-item">
                             <a href="{{ route('rica.larametrics::logs.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'rica.larametrics::logs') ? ' active' : '' }}"><i class="fe fe-file-text"></i> Logs</a>
                         </li>
                     @endif
-                    @if(count(\Illuminate\Support\Facades\Config::get('larametrics.modelsWatched')) || !\Illuminate\Support\Facades\Config::get('larametrics.hideUnwatchedMenuItems'))
+                    @if(count(config('larametrics.modelsWatched')) || !config('larametrics.hideUnwatchedMenuItems'))
                         <li class="nav-item">
                             <a href="{{ route('rica.larametrics::models.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'rica.larametrics::models') ? ' active' : '' }}"><i class="fe fe-database"></i> Models</a>
                         </li>
                     @endif
-                    @if(\Illuminate\Support\Facades\Config::get('larametrics.requestsWatched') || !\Illuminate\Support\Facades\Config::get('larametrics.hideUnwatchedMenuItems'))
+                    @if(config('larametrics.requestsWatched') || !config('larametrics.hideUnwatchedMenuItems'))
                         <li class="nav-item">
                             <a href="{{ route('rica.larametrics::performance.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'rica.larametrics::performance') ? ' active' : '' }}"><i class="fe fe-bar-chart-2"></i> Performance</a>
                         </li>

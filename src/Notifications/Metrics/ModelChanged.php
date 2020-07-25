@@ -75,7 +75,7 @@ class ModelChanged extends Notification implements ShouldQueue
             ->subject(env('LARAMETRICS_MODEL_SUBJECT', '[Larametrics Alert] A model has been ' . $modelInfo['method']))
             ->from(env('LARAMETRICS_FROM_EMAIL', 'alerts@larametrics.com'), env('LARAMETRICS_FROM_NAME', 'Larametrics Alerts'))
             ->view(
-                'larametrics::emails.model-changed', [
+                'rica.larametrics::emails.model-changed', [
                 'modelInfo' => $modelInfo,
                 'alertColor' => $alertColor
                 ]
@@ -101,7 +101,7 @@ class ModelChanged extends Notification implements ShouldQueue
                         foreach(array_keys($modelInfo['changes']) as $changedColumn) {
                             $columnsChanged .= '    • ' . $changedColumn . "\r\n";
                         }
-                        $attachment->title($modelInfo['model'] . ' #' . $modelInfo['original']['id'], route('larametrics::models.show', $modelInfo['id']))
+                        $attachment->title($modelInfo['model'] . ' #' . $modelInfo['original']['id'], route('rica.larametrics::models.show', $modelInfo['id']))
                             ->content('A model on ' . url('/') . ' has been updated. The following columns have changed:' . "\r\n" . $columnsChanged)
                             ->markdown(['text']);
                     }
@@ -112,7 +112,7 @@ class ModelChanged extends Notification implements ShouldQueue
                 ->success()
                 ->attachment(
                     function ($attachment) use ($modelInfo) {
-                        $attachment->title($modelInfo['model'] . ' #' . $modelInfo['original']['id'], route('larametrics::models.show', $modelInfo['id']))
+                        $attachment->title($modelInfo['model'] . ' #' . $modelInfo['original']['id'], route('rica.larametrics::models.show', $modelInfo['id']))
                             ->content('A model on ' . url('/') . ' has been created.');
                     }
                 );
@@ -122,7 +122,7 @@ class ModelChanged extends Notification implements ShouldQueue
                 ->error()
                 ->attachment(
                     function ($attachment) use ($modelInfo) {
-                        $attachment->title($modelInfo['model'] . ' #' . $modelInfo['original']['id'], route('larametrics::models.show', $modelInfo['id']))
+                        $attachment->title($modelInfo['model'] . ' #' . $modelInfo['original']['id'], route('rica.larametrics::models.show', $modelInfo['id']))
                             ->content('A model on ' . url('/') . ' has been deleted.');
                     }
                 );

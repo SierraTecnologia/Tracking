@@ -32,7 +32,7 @@
                             </span>
                             <select name="filter" id="filter" class="form-control custom-select" v-model="notification.filter" aria-label="and the model is" aria-describedby="filter-addon">
                                 <option value="*">Any Model</option>
-                                @foreach(\Illuminate\Support\Facades\Config::get('larametrics.modelsWatched') as $model)
+                                @foreach(config('larametrics.modelsWatched') as $model)
                                     <option value="{{ $model }}">{{ $model }}</option>
                                 @endforeach
                             </select>

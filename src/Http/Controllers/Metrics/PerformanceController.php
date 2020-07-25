@@ -30,7 +30,7 @@ class PerformanceController extends Controller
         );
 
         return view(
-            'larametrics::performance.index', [
+            'rica.larametrics::performance.index', [
             'latestRequests' => $latestRequests,
             'requestsByResponseTime' => array_slice($requests, 0, 10),
             'pageTitle' => 'App Performance'

@@ -82,7 +82,7 @@ class RouteRequested extends Notification implements ShouldQueue
             ->subject(env('LARAMETRICS_ROUTE_SUBJECT', '[Larametrics Alert] A route has been requested'))
             ->from(env('LARAMETRICS_FROM_EMAIL', 'alerts@larametrics.com'), env('LARAMETRICS_FROM_NAME', 'Larametrics Alerts'))
             ->view(
-                'larametrics::emails.route-requested', [
+                'rica.larametrics::emails.route-requested', [
                 'requestInfo' => $this->requestInfo,
                 'content' => $content,
                 'alertColor' => $alertColor
@@ -112,7 +112,7 @@ class RouteRequested extends Notification implements ShouldQueue
             ->{ $status }()
             ->attachment(
                 function ($attachment) use ($requestInfo, $content) {
-                    $attachment->title('Request #' . $requestInfo['id'], route('larametrics::requests.show', $requestInfo['id']))
+                    $attachment->title('Request #' . $requestInfo['id'], route('rica.larametrics::requests.show', $requestInfo['id']))
                         ->content($content)
                         ->fields(
                             [

@@ -1,25 +1,11 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-@section('css')
-    <!-- Dashboard Core -->
-    <link href="/vendor/larametrics/css/tabler.css" rel="stylesheet" />
-@stop
+<head>
+    @include('tracking::larametrics.common.partials.head')
+</head>
 
-@section('js')
-    @parent
-    
-<script src="https://cdn.jsdelivr.net/npm/d3@5.5.0/dist/d3.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/c3@0.6.6/c3.min.js"></script>
-
-    <!-- Vue.js -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-
-    @stack('javascript')
-    @yield('javascript')
-@stop
-
-@section('content')
-
+<body class="larametrics">
     <div class="page">
         <div class="page-main">
             @include('tracking::larametrics.common.partials.header')
@@ -37,4 +23,6 @@
         </div>
         @include('tracking::larametrics.common.partials.footer')
     </div>
-@endsection
+</body>
+
+</html>
