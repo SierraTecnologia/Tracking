@@ -54,7 +54,7 @@ class Route extends Model
      *
      * @var array
      */
-    protected $rules = [
+    public $rules = [
         'name' => 'required|string',
         'action' => 'required|string',
         'middleware' => 'nullable|array',

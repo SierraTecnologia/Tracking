@@ -54,7 +54,7 @@ class Path extends Model
      *
      * @var array
      */
-    protected $rules = [
+    public $rules = [
         'host' => 'required|string',
         'locale' => 'required|string',
         'path' => 'required|string',

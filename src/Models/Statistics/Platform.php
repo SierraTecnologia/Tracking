@@ -48,7 +48,7 @@ class Platform extends Model
      *
      * @var array
      */
-    protected $rules = [
+    public $rules = [
         'family' => 'required|string',
         'version' => 'nullable|string',
     ];

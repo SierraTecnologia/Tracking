@@ -63,7 +63,7 @@ class Datum extends Model
      *
      * @var array
      */
-    protected $rules = [
+    public $rules = [
         'session_id' => 'required|string',
         'user_id' => 'nullable|integer',
         'user_type' => 'nullable|string',

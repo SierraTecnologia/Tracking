@@ -50,7 +50,7 @@ class Device extends Model
      *
      * @var array
      */
-    protected $rules = [
+    public $rules = [
         'family' => 'required|string',
         'model' => 'nullable|string',
         'brand' => 'nullable|string',

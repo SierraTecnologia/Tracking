@@ -64,7 +64,7 @@ class Geoip extends Model
      *
      * @var array
      */
-    protected $rules = [
+    public $rules = [
         'client_ip' => 'required|string',
         'latitude' => 'required|string',
         'longitude' => 'required|string',

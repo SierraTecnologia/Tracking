@@ -86,7 +86,7 @@ class Request extends Model
      *
      * @var array
      */
-    protected $rules = [
+    public $rules = [
         'route_id' => 'required|integer',
         'agent_id' => 'required|integer',
         'device_id' => 'required|integer',
