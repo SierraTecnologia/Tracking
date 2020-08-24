@@ -30,10 +30,15 @@ class AnalyticsService
         );
 
         if (Schema::hasTable('analytics')) {
-            $this->model->create(
-                [
+            $data = [
                 'data' => $requestData,
-                ]
+            ];
+            if (Schema::hasColumn($this->model->getTable(), 'business_code')) // || Business::isToIgnore())
+            {
+                $data['business_code'] = \Business::getCode();
+            }
+            $this->model->create(
+                $data
             );
         }
     }

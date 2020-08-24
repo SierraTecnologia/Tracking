@@ -12,6 +12,7 @@ class Analytics extends Model
     public $fillable = [
         'token',
         'data',
+        'business_code'
     ];
 
     public $rules = [];
