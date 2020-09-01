@@ -3,15 +3,14 @@
 namespace Tracking\Http\Controllers\Metrics;
 
 use Illuminate\Http\Request;
-use Tracking\Providers\Metrics\LogParser;
+use Tracking\Http\Controllers\Controller as Controller;
 use Tracking\Models\Metrics\LarametricsLog;
 use Tracking\Models\Metrics\LarametricsModel;
 use Tracking\Models\Metrics\LarametricsRequest;
-use Facilitador\Http\Controllers\Admin\Base as Controller;
+use Tracking\Providers\Metrics\LogParser;
 
 class MetricsController extends Controller
 {
-    
     public function index()
     {
         $requests = LarametricsRequest::orderBy('created_at', 'desc')
@@ -27,7 +26,8 @@ class MetricsController extends Controller
             ->get();
 
         return $this->populateView(
-            'tracking::larametrics.metrics.index', [
+            'tracking::larametrics.metrics.index',
+            [
             'pageTitle' => 'Dashboard',
             'requests' => $requests,
             'logs' => $logs,
@@ -45,16 +45,16 @@ class MetricsController extends Controller
     {
         $logArray = LogParser::all();
 
-        if(!isset($logArray[$index])) {
+        if (!isset($logArray[$index])) {
             return abort(404);
         }
 
         return $this->populateView(
-            'tracking::larametrics.logs.show', [
+            'tracking::larametrics.logs.show',
+            [
             'log' => $logArray[$index],
             'pageTitle' => 'Viewing Log'
             ]
         );
     }
-
 }
