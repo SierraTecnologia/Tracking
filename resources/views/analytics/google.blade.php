@@ -71,5 +71,39 @@
         var options = {};
     </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
-    <script type="text/javascript" src="{!! Facilitador::asset('js/dashboard-chart.js', 'application/javascript') !!}"></script>
+    <script type="text/javascript">
+        /*
+        |--------------------------------------------------------------------------
+        | Charts
+        |--------------------------------------------------------------------------
+        */
+
+        $(function () {
+
+        var _chartDataConfig = {
+            type: 'line',
+            data: {
+                labels: _chartData._labels,
+                datasets: [{
+                    label: "Visits",
+                    backgroundColor: [
+                        "#36A2EB"
+                    ],
+                    hoverBackgroundColor: [
+                        "#36A2EB"
+                    ],
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: _chartData._visits
+                }]
+            }
+        }
+
+        var ctx = $("#dashboardChart").get(0).getContext("2d");
+        window.dashboard = new Chart(ctx, _chartDataConfig);
+
+        });
+
+    </script>
 @stop
