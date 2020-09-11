@@ -1398,7 +1398,7 @@
             },
             "require": {
                 "ext-json": "*",
-                "laravel/framework": "^6.0|^7.0",
+                "laravel/framework": "^7.0|^8.0",
                 "moontoast/math": "^1.1",
                 "php": "^7.2",
                 "symfony/var-dumper": "^4.4|^5.0"
@@ -3663,7 +3663,7 @@
                 "reference": "52606956722f6ac59acbd392fc926adbc85a1d69"
             },
             "require": {
-                "illuminate/support": "^6.0|^7.0",
+                "illuminate/support": "^7.0|^8.0",
                 "php": ">=5.6.4",
                 "ramsey/uuid": ">=3.8"
             },
@@ -3818,9 +3818,9 @@
                 "shasum": ""
             },
             "require": {
-                "illuminate/config": "^6.0|^7.0",
-                "illuminate/database": "^6.0|^7.0",
-                "illuminate/support": "^6.0|^7.0",
+                "illuminate/config": "^7.0|^8.0",
+                "illuminate/database": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
                 "php": "^7.2"
             },
             "require-dev": {
@@ -3905,7 +3905,7 @@
             },
             "require": {
                 "google/apiclient": "^2.0",
-                "laravel/framework": "^6.0|^7.0",
+                "laravel/framework": "^7.0|^8.0",
                 "nesbot/carbon": "^2.0",
                 "php": "^7.2",
                 "symfony/cache": "^4.3|^5.0"
@@ -6512,8 +6512,8 @@
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "^6.0|^7.0",
-                "illuminate/support": "^6.0|^7.0",
+                "illuminate/console": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
                 "php": "^7.2"
             },
             "require-dev": {
