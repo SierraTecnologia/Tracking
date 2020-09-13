@@ -43,7 +43,7 @@
         "sierratecnologia/audit": "dev-master",
         "ricardosierra/larametrics": "^1.2.4",
         "wnx/laravel-stats": "^2.0",
-        "guzzlehttp/guzzle": "^7.0",
+        "guzzlehttp/guzzle": "^6.0 || ^7.0",
         "laravel/horizon": "^4.0|^5.0",
         "spatie/laravel-analytics": "^3.0"
     },
