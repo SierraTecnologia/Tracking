@@ -187,9 +187,11 @@ class TrackingProvider extends ServiceProvider
         $loader = AliasLoader::getInstance();
         $loader->alias('TrackingService', \Tracking\Facades\TrackingServiceFacade::class);
 
-        $this->app->bind('TrackingService', function ($app) {
-            return new TrackingService();
-        });
+        $this->app->bind(
+            'TrackingService', function ($app) {
+                return new TrackingService();
+            }
+        );
 
         /*
         |--------------------------------------------------------------------------
