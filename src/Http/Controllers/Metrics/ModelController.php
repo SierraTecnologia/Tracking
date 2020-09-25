@@ -12,7 +12,7 @@ use Carbon\Carbon;
 class ModelController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
         $modelChanges = LarametricsModel::groupBy('model')
             ->select('model', DB::raw('count(*) as total'))

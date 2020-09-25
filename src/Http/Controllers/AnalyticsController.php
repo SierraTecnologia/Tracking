@@ -18,7 +18,7 @@ class AnalyticsController extends Controller
         $this->service = $service;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         if (!is_null(\Illuminate\Support\Facades\Config::get('tracking.analytics.view_id')) && \Illuminate\Support\Facades\Config::get('tracking.conf.analytics') == 'google') {
             $period = Period::days(7);

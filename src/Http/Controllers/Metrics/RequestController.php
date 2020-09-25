@@ -9,7 +9,7 @@ use Tracking\Models\Metrics\LarametricsRequest;
 class RequestController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
         $requests = LarametricsRequest::orderBy('created_at', 'desc')
             ->get();

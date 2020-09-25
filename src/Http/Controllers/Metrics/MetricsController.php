@@ -11,7 +11,7 @@ use Tracking\Providers\Metrics\LogParser;
 
 class MetricsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $requests = LarametricsRequest::orderBy('created_at', 'desc')
             ->limit(10)

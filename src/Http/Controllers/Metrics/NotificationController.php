@@ -9,7 +9,7 @@ use Tracking\Models\Metrics\LarametricsNotification;
 class NotificationController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
         $notifications = LarametricsNotification::all();
         

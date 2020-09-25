@@ -10,7 +10,7 @@ use Carbon\Carbon;
 class PerformanceController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
         $latestRequests = LarametricsRequest::orderBy('created_at', 'desc')
             ->limit(200)
