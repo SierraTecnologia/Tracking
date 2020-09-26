@@ -9034,8 +9034,8 @@
                         && isChrome
                     ) {
                         console[console.info ? 'info' : 'log'](
-                        'Download the Vue Devtools extension for a better development experience:\n' +
-                        'https://github.com/vuejs/vue-devtools'
+                            'Download the Vue Devtools extension for a better development experience:\n' +
+                            'https://github.com/vuejs/vue-devtools'
                         );
                     }
                 }
@@ -9045,9 +9045,9 @@
                     && typeof console !== 'undefined'
                 ) {
                     console[console.info ? 'info' : 'log'](
-                    "You are running Vue in development mode.\n" +
-                    "Make sure to turn on production mode when deploying for production.\n" +
-                    "See more tips at https://vuejs.org/guide/deployment.html"
+                        "You are running Vue in development mode.\n" +
+                        "Make sure to turn on production mode when deploying for production.\n" +
+                        "See more tips at https://vuejs.org/guide/deployment.html"
                     );
                 }
             }, 0
@@ -11462,21 +11462,21 @@
     // parser/optimizer/codegen, e.g the SSR optimizing compiler.
     // Here we just export a default compiler using the default parts.
     var createCompiler = createCompilerCreator(
-        function baseCompile(
-                template,
-                options
-            ) {
-            var ast = parse(template.trim(), options);
-            if (options.optimize !== false) {
-                optimize(ast, options);
-            }
-            var code = generate(ast, options);
-            return {
-                ast: ast,
-                render: code.render,
-                staticRenderFns: code.staticRenderFns
-            }
+    function baseCompile(
+            template,
+            options
+        ) {
+        var ast = parse(template.trim(), options);
+        if (options.optimize !== false) {
+            optimize(ast, options);
         }
+        var code = generate(ast, options);
+        return {
+            ast: ast,
+            render: code.render,
+            staticRenderFns: code.staticRenderFns
+        }
+    }
     );
 
     /*  */
