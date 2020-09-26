@@ -9,12 +9,9 @@ use function parse_user_agent;
 
 class AnalyticsService
 {
-    public function __construct(Analytics $model)
-    {
-        $this->model = $model;
-    }
 
-    public function log($request)
+
+    public function log(\Illuminate\Http\Request $request): void
     {
         $requestData = json_encode(
             [
@@ -59,7 +56,12 @@ class AnalyticsService
         return $this->convertDataToItems($data, 'uri');
     }
 
-    public function topBrowsers($count)
+    /**
+     * @return array
+     *
+     * @psalm-return array<string, mixed>
+     */
+    public function topBrowsers($count): array
     {
         $analytics = $this->model->where('created_at', '>', Carbon::now()->subDays($count))->get();
         $data = $analytics->pluck('data')->all();
@@ -74,7 +76,10 @@ class AnalyticsService
         return $browsers;
     }
 
-    public function convertDataToItems($data, $key, $conversions = [])
+    /**
+     * @param int[] $conversions
+     */
+    public function convertDataToItems($data, string $key, array $conversions = [])
     {
         if (!isset($conversions['unknown'])) {
             $conversions['unknown'] = 0;
@@ -103,10 +108,16 @@ class AnalyticsService
         return $conversions;
     }
 
-    public function getDays($count)
+    /**
+     * @return array[]
+     *
+     * @psalm-return array{dates: array, visits: array}
+     */
+    public function getDays($count): array
     {
         $analytics = $this->model->where('created_at', '>', Carbon::now()->subDays($count));
 
+        $visits = null;
         if ($analytics->first()) {
             $endDate = Carbon::now();
             $startDate = Carbon::parse($analytics->first()->created_at->format('Y-m-d'));
@@ -132,7 +143,12 @@ class AnalyticsService
         ];
     }
 
-    protected function getDateRange($startDate, $endDate)
+    /**
+     * @return array
+     *
+     * @psalm-return list<mixed>
+     */
+    protected function getDateRange(Carbon $startDate, Carbon $endDate): array
     {
         $dates = [];
 

@@ -59,62 +59,10 @@ class Datum extends Model
     ];
 
     /**
-     * The default rules that the model will validate against.
-     *
-     * @var array
-     */
-    public $rules = [
-        'session_id' => 'required|string',
-        'user_id' => 'nullable|integer',
-        'user_type' => 'nullable|string',
-        'status_code' => 'required|integer',
-        'uri' => 'required|string',
-        'method' => 'required|string',
-        'server' => 'required|array',
-        'input' => 'nullable|array',
-        'created_at' => 'required|date',
-    ];
-
-    /**
      * Whether the model should throw a
      * ValidationException if it fails validation.
      *
      * @var bool
      */
     protected $throwValidationExceptions = true;
-
-    /**
-     * Create a new Eloquent model instance.
-     *
-     * @param array $attributes
-     */
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
-
-        $this->setTable(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.data'));
-    }
-
-    /**
-     * Get the owning user.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
-     */
-    public function user(): MorphTo
-    {
-        return $this->morphTo('user', 'user_type', 'user_id');
-    }
-
-    /**
-     * Get bookings of the given user.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @param \Illuminate\Database\Eloquent\Model   $user
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeOfUser(Builder $builder, Model $user): Builder
-    {
-        return $builder->where('user_type', $user->getMorphClass())->where('user_id', $user->getKey());
-    }
 }

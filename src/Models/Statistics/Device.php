@@ -46,43 +46,10 @@ class Device extends Model
     ];
 
     /**
-     * The default rules that the model will validate against.
-     *
-     * @var array
-     */
-    public $rules = [
-        'family' => 'required|string',
-        'model' => 'nullable|string',
-        'brand' => 'nullable|string',
-    ];
-
-    /**
      * Whether the model should throw a
      * ValidationException if it fails validation.
      *
      * @var bool
      */
     protected $throwValidationExceptions = true;
-
-    /**
-     * Create a new Eloquent model instance.
-     *
-     * @param array $attributes
-     */
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
-
-        $this->setTable(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.devices'));
-    }
-
-    /**
-     * The device may have many requests.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function requests(): HasMany
-    {
-        return $this->hasMany(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.request'), 'device_id', 'id');
-    }
 }

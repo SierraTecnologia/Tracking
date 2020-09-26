@@ -50,45 +50,10 @@ class Route extends Model
     ];
 
     /**
-     * The default rules that the model will validate against.
-     *
-     * @var array
-     */
-    public $rules = [
-        'name' => 'required|string',
-        'action' => 'required|string',
-        'middleware' => 'nullable|array',
-        'path' => 'required|string',
-        'parameters' => 'nullable|array',
-    ];
-
-    /**
      * Whether the model should throw a
      * ValidationException if it fails validation.
      *
      * @var bool
      */
     protected $throwValidationExceptions = true;
-
-    /**
-     * Create a new Eloquent model instance.
-     *
-     * @param array $attributes
-     */
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
-
-        $this->setTable(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.routes'));
-    }
-
-    /**
-     * The route may have many requests.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function requests(): HasMany
-    {
-        return $this->hasMany(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.request'), 'route_id', 'id');
-    }
 }

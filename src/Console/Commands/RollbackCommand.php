@@ -21,28 +21,4 @@ class RollbackCommand extends Command
      * @var string
      */
     protected $description = 'Rollback SierraTecnologia Statistics Tables.';
-
-    /**
-     * Execute the console command.
-     *
-     * @return void
-     */
-    public function handle(): void
-    {
-        $this->alert($this->description);
-
-        if (file_exists($path = 'database/migrations/sierratecnologia/laravel-statistics')) {
-            $this->call(
-                'migrate:reset', [
-                '--step' => true,
-                '--path' => $path,
-                '--force' => $this->option('force'),
-                ]
-            );
-        } else {
-            $this->warn('No migrations found! Consider publish them first: <fg=green>php artisan sierratecnologia:publish:statistics</>');
-        }
-
-        $this->line('');
-    }
 }

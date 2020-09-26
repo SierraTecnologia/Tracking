@@ -11,18 +11,7 @@ use Tracking\Jobs\CleanStatisticsRequests;
 
 class TrackStatistics
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \Closure                 $next
-     *
-     * @return mixed
-     */
-    public function handle(Request $request, Closure $next)
-    {
-        return $next($request);
-    }
+
 
     // /**
     //  * Perform any final actions for the request lifecycle.

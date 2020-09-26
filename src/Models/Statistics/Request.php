@@ -82,52 +82,12 @@ class Request extends Model
     ];
 
     /**
-     * The default rules that the model will validate against.
-     *
-     * @var array
-     */
-    public $rules = [
-        'route_id' => 'required|integer',
-        'agent_id' => 'required|integer',
-        'device_id' => 'required|integer',
-        'platform_id' => 'required|integer',
-        'path_id' => 'required|integer',
-        'geoip_id' => 'required|integer',
-        'user_id' => 'nullable|integer',
-        'user_type' => 'nullable|string',
-        'session_id' => 'required|string',
-        'status_code' => 'required|integer',
-        'protocol_version' => 'nullable|string',
-        'referer' => 'nullable|string',
-        'language' => 'required|string',
-        'is_no_cache' => 'sometimes|boolean',
-        'wants_json' => 'sometimes|boolean',
-        'is_secure' => 'sometimes|boolean',
-        'is_json' => 'sometimes|boolean',
-        'is_ajax' => 'sometimes|boolean',
-        'is_pjax' => 'sometimes|boolean',
-        'created_at' => 'required|date',
-    ];
-
-    /**
      * Whether the model should throw a
      * ValidationException if it fails validation.
      *
      * @var bool
      */
     protected $throwValidationExceptions = true;
-
-    /**
-     * Create a new Eloquent model instance.
-     *
-     * @param array $attributes
-     */
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
-
-        $this->setTable(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.requests'));
-    }
 
     /**
      * {@inheritdoc}
@@ -146,88 +106,5 @@ class Request extends Model
                 $request->platform()->increment('count');
             }
         );
-    }
-
-    /**
-     * The request always belongs to a route.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function route(): BelongsTo
-    {
-        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.route'), 'route_id', 'id');
-    }
-
-    /**
-     * The request always belongs to a path.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function path(): BelongsTo
-    {
-        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.path'), 'path_id', 'id');
-    }
-
-    /**
-     * The request always belongs to an agent.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function agent(): BelongsTo
-    {
-        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.agent'), 'agent_id', 'id');
-    }
-
-    /**
-     * The request always belongs to an geoip.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function geoip(): BelongsTo
-    {
-        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.geoip'), 'geoip_id', 'id');
-    }
-
-    /**
-     * The request always belongs to a device.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function device(): BelongsTo
-    {
-        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.device'), 'device_id', 'id');
-    }
-
-    /**
-     * The request always belongs to a platform.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function platform(): BelongsTo
-    {
-        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('tracking.statistics.models.platform'), 'platform_id', 'id');
-    }
-
-    /**
-     * Get the owning user.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
-     */
-    public function user(): MorphTo
-    {
-        return $this->morphTo('user', 'user_type', 'user_id');
-    }
-
-    /**
-     * Get bookings of the given user.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @param \Illuminate\Database\Eloquent\Model   $user
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeOfUser(Builder $builder, Model $user): Builder
-    {
-        return $builder->where('user_type', $user->getMorphClass())->where('user_id', $user->getKey());
     }
 }

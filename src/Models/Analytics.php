@@ -5,15 +5,18 @@ namespace Tracking\Models;
 class Analytics extends Model
 {
     
-    public $table = 'analytics';
+    public string $table = 'analytics';
 
-    public $primaryKey = 'id';
+    public string $primaryKey = 'id';
 
-    public $fillable = [
+    /**
+     * @var string[]
+     *
+     * @psalm-var array{0: string, 1: string, 2: string}
+     */
+    public array $fillable = [
         'token',
         'data',
         'business_code'
     ];
-
-    public $rules = [];
 }

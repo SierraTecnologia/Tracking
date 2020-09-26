@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class LarametricsLog extends Model
 {
-    protected $table = 'larametrics_logs';
-    public $guarded = [];
+    protected string $table = 'larametrics_logs';
+
+    /**
+     * @var array
+     */
+    public array $guarded = [];
 }

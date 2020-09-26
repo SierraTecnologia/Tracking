@@ -21,29 +21,4 @@ class PublishCommand extends Command
      * @var string
      */
     protected $description = 'Publish SierraTecnologia Statistics Resources.';
-
-    /**
-     * Execute the console command.
-     *
-     * @return void
-     */
-    public function handle(): void
-    {
-        $this->alert($this->description);
-
-        switch ($this->option('resource')) {
-        case 'config':
-            $this->call('vendor:publish', ['--tag' => 'sierratecnologia-statistics-config', '--force' => $this->option('force')]);
-            break;
-        case 'migrations':
-            $this->call('vendor:publish', ['--tag' => 'sierratecnologia-statistics-migrations', '--force' => $this->option('force')]);
-            break;
-        default:
-            $this->call('vendor:publish', ['--tag' => 'sierratecnologia-statistics-config', '--force' => $this->option('force')]);
-            $this->call('vendor:publish', ['--tag' => 'sierratecnologia-statistics-migrations', '--force' => $this->option('force')]);
-            break;
-        }
-
-        $this->line('');
-    }
 }

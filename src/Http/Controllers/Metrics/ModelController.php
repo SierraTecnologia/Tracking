@@ -12,7 +12,7 @@ use Carbon\Carbon;
 class ModelController extends Controller
 {
     
-    public function index(Request $request)
+    public function index(Request $request): \Illuminate\View\View
     {
         $modelChanges = LarametricsModel::groupBy('model')
             ->select('model', DB::raw('count(*) as total'))
@@ -41,7 +41,7 @@ class ModelController extends Controller
         );
     }
 
-    public function show($model)
+    public function show($model): \Illuminate\View\View
     {
         if(is_numeric($model)) {
             $larametricsModel = LarametricsModel::find($model);
@@ -78,7 +78,7 @@ class ModelController extends Controller
         }
     }
 
-    public function revert(LarametricsModel $model)
+    public function revert(LarametricsModel $model): \Illuminate\Http\RedirectResponse
     {
         $original = json_decode($model->original, true);
         $revertModel = $model->model::find($original['id']);

@@ -9,7 +9,7 @@ use Tracking\Models\Metrics\LarametricsNotification;
 class NotificationController extends Controller
 {
     
-    public function index(Request $request)
+    public function index(Request $request): \Illuminate\View\View
     {
         $notifications = LarametricsNotification::all();
         
@@ -21,9 +21,8 @@ class NotificationController extends Controller
         );
     }
 
-    public function update(Request $request)
+    public function update(Request $request): \Illuminate\Http\RedirectResponse
     {
-        $notifications = '';
         LarametricsNotification::truncate();
         foreach(json_decode($request->input('notifications')) as $notification) {
             $notificationData = array(

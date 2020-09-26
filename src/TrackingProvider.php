@@ -31,7 +31,7 @@ class TrackingProvider extends ServiceProvider
 {
     use ConsoleTools;
 
-    public $packageName = 'tracking';
+    public string $packageName = 'tracking';
     const pathVendor = 'sierratecnologia/tracking';
 
     /**
@@ -45,7 +45,12 @@ class TrackingProvider extends ServiceProvider
         RollbackCommand::class => 'command.tracking.statistics.rollback',
     ];
 
-    public static $aliasProviders = [
+    /**
+     * @var \Barryvdh\Debugbar\Facade::class|\Laravel\Horizon\Horizon::class|\Sentry\Laravel\Facade::class|\Spatie\LaravelAnalytics\LaravelAnalyticsFacade::class[]
+     *
+     * @psalm-var array{Horizon: \Laravel\Horizon\Horizon::class, LaravelAnalytics: \Spatie\LaravelAnalytics\LaravelAnalyticsFacade::class, Sentry: \Sentry\Laravel\Facade::class, Debugbar: \Barryvdh\Debugbar\Facade::class}
+     */
+    public static array $aliasProviders = [
         'Horizon' => \Laravel\Horizon\Horizon::class,
 
         'LaravelAnalytics' => \Spatie\LaravelAnalytics\LaravelAnalyticsFacade::class,
@@ -58,7 +63,12 @@ class TrackingProvider extends ServiceProvider
         'Debugbar' => \Barryvdh\Debugbar\Facade::class,
     ];
 
-    public static $providers = [
+    /**
+     * @var Providers\HorizonServiceProvider::class|\Aschmelyun\Larametrics\LarametricsServiceProvider::class|\Audit\AuditProvider::class|\Laravel\Horizon\HorizonServiceProvider::class|\Spatie\Analytics\AnalyticsServiceProvider::class[]
+     *
+     * @psalm-var array{0: Providers\HorizonServiceProvider::class, 1: \Audit\AuditProvider::class, 2: \Spatie\Analytics\AnalyticsServiceProvider::class, 3: \Aschmelyun\Larametrics\LarametricsServiceProvider::class, 4: \Laravel\Horizon\HorizonServiceProvider::class}
+     */
+    public static array $providers = [
         /**
          * Configuracoes
          */
@@ -77,67 +87,6 @@ class TrackingProvider extends ServiceProvider
         \Aschmelyun\Larametrics\LarametricsServiceProvider::class,
         \Laravel\Horizon\HorizonServiceProvider::class,
     ];
-
-    /**
-     * Rotas do Menu
-     */
-    public static $menuItens = [
-        'Admin' => [
-            [
-                'text' => 'Metrics',
-                'icon' => 'fas fa-fw fa-search',
-                'icon_color' => "blue",
-                'label_color' => "success",
-                'section'   => 'admin',
-                'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
-            ],
-            'Metrics' => [
-                [
-                    'text'        => 'Analytics',
-                    'route'       => 'rica.tracking.analytics',
-                    'icon'        => 'dashboard',
-                    'icon_color'  => 'blue',
-                    'label_color' => 'success',
-                    'section'       => 'admin',
-                    'level'       => 2,
-                    // 'access' => \App\Models\Role::$ADMIN
-                ],
-            ],
-        ],
-    ];
-
-    /**
-     * Alias the services in the boot.
-     */
-    public function boot(Router $router)
-    {
-        // Push middleware to web group
-        $router->pushMiddlewareToGroup('web', TrackStatistics::class);
-        $router->pushMiddlewareToGroup('web', Analytics::class);
-
-
-        // Register configs, migrations, etc
-        $this->registerDirectories();
-
-        // // Wire up model event callbacks even if request is not for admin.  Do this
-        // // after the usingAdmin call so that the callbacks run after models are
-        // // mutated by Decoy logic.  This is important, in particular, so the
-        // // Validation observer can alter validation rules before the onValidation
-        // // callback runs.
-        // $this->app['events']->listen('eloquent.*',
-        //     'Tracking\Observers\ModelCallbacks');
-        // $this->app['events']->listen('tracking::model.*',
-        //     'Tracking\Observers\ModelCallbacks');
-        // // Log model change events after others in case they modified the record
-        // // before being saved.
-        // $this->app['events']->listen('eloquent.*',
-        //     'Tracking\Observers\Changes');
-
-        // // COloquei no register pq nao tava reconhecendo as rotas para o adminlte
-        // $this->app->booted(function () {
-        //     $this->routes();
-        // });
-    }
 
     /**
      * Register the tool's routes.
@@ -228,62 +177,6 @@ class TrackingProvider extends ServiceProvider
         ! $this->app->runningInConsole() || $this->registerCommands();
     }
 
-
-    /**
-     * Register middlewares
-     *
-     * @return void
-     */
-    protected function registerMiddlewares()
-    {
-
-        // Register middleware individually
-        foreach ([
-            'tracking.auth'          => \Tracking\Http\Middleware\Auth::class,
-            'tracking.edit-redirect' => \Tracking\Http\Middleware\EditRedirect::class,
-            'tracking.guest'         => \Tracking\Http\Middleware\Guest::class,
-            'tracking.save-redirect' => \Tracking\Http\Middleware\SaveRedirect::class,
-        ] as $key => $class) {
-            $this->app['router']->aliasMiddleware($key, $class);
-        }
-
-        // This group is used by public tracking routes
-        $this->app['router']->middlewareGroup(
-            'tracking.public',
-            [
-            'web',
-            ]
-        );
-
-        // The is the starndard auth protected group
-        $this->app['router']->middlewareGroup(
-            'tracking.protected',
-            [
-            'web',
-            'tracking.auth',
-            'tracking.save-redirect',
-            'tracking.edit-redirect',
-            ]
-        );
-
-        // Require a logged in admin session but no CSRF token
-        $this->app['router']->middlewareGroup(
-            'tracking.protected_endpoint',
-            [
-            \App\Http\Middleware\EncryptCookies::class,
-            \Illuminate\Session\Middleware\StartSession::class,
-            'tracking.auth',
-            ]
-        );
-
-        // An open endpoint, like used by Zendcoder
-        $this->app['router']->middlewareGroup(
-            'tracking.endpoint',
-            [
-            'api'
-            ]
-        );
-    }
     /**
      * Register configs, migrations, etc
      *
@@ -325,7 +218,7 @@ class TrackingProvider extends ServiceProvider
         $this->loadTranslations();
     }
 
-    private function loadViews()
+    private function loadViews(): void
     {
         // View namespace
         $viewsPath = $this->getResourcesPath('views');
@@ -356,7 +249,7 @@ class TrackingProvider extends ServiceProvider
         // $this->loadTranslationsFrom($this->getResourcesPath('lang'), 'tracking');
     }
     
-    private function loadTranslations()
+    private function loadTranslations(): void
     {
         // $translationsPath = $this->getResourcesPath('lang');
         // $this->loadTranslationsFrom($translationsPath, 'tracking');
@@ -367,26 +260,30 @@ class TrackingProvider extends ServiceProvider
 
     /**
      * Configs Paths
+     *
+     * @return string
      */
-    private function getResourcesPath($folder)
+    private function getResourcesPath(string $folder): string
     {
         return __DIR__.'/../resources/'.$folder;
     }
 
-    private function getPublishesPath($folder)
+    private function getPublishesPath(string $folder): string
     {
         return __DIR__.'/../publishes/'.$folder;
     }
 
-    private function getDistPath($folder = '')
+    private function getDistPath($folder = ''): string
     {
         return __DIR__.'/../dist/'.$folder;
     }
 
     /**
      * Load Alias and Providers
+     *
+     * @return void
      */
-    private function setProviders()
+    private function setProviders(): void
     {
         $this->setDependencesAlias();
         (new Collection(self::$providers))->map(
@@ -397,7 +294,7 @@ class TrackingProvider extends ServiceProvider
             }
         );
     }
-    private function setDependencesAlias()
+    private function setDependencesAlias(): void
     {
         $loader = AliasLoader::getInstance();
         (new Collection(self::$aliasProviders))->map(

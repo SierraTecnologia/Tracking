@@ -18,8 +18,10 @@ trait MetricManagerTrait
 
     /**
      * Lógica
+     *
+     * @return true
      */
-    protected function run()
+    protected function run(): bool
     {
         return true;
     }
@@ -39,7 +41,7 @@ trait MetricManagerTrait
 
         return $this->metrics[$type][$group] += $sum;
     }
-    public function mergeWith($mergeWith)
+    public function mergeWith($mergeWith): void
     {
         $this->metrics = $this->arrayMergeRecursive($this->metrics, $mergeWith);
     }

@@ -9,7 +9,7 @@ use Spatie\Analytics\Period;
 
 class AnalyticsController extends Controller
 {
-    protected $service;
+    protected AnalyticsService $service;
 
     public function __construct(AnalyticsService $service)
     {
@@ -18,8 +18,9 @@ class AnalyticsController extends Controller
         $this->service = $service;
     }
 
-    public function index(Request $request)
+    public function index(Request $request): \Illuminate\View\View
     {
+        $visitStats = null;
         if (!is_null(\Illuminate\Support\Facades\Config::get('tracking.analytics.view_id')) && \Illuminate\Support\Facades\Config::get('tracking.conf.analytics') == 'google') {
             $period = Period::days(7);
 
