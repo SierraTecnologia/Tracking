@@ -8,16 +8,16 @@ use Muleta\Traits\Models\ArchiveTrait;
 class Trackings extends ArchiveTrait
 {
     
-    public string $table = 'audits';
+    public $table = 'audits';
 
-    public string $primaryKey = 'id';
+    public $primaryKey = 'id';
 
     /**
      * @var string[]
      *
      * @psalm-var array{0: string, 1: string}
      */
-    public array $fillable = [
+    public $fillable = [
         'token',
         'data',
     ];

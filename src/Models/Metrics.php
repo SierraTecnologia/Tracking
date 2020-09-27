@@ -4,16 +4,16 @@ namespace Tracking\Models;
 
 class Metrics extends Model
 {
-    public string $table = 'metrics';
+    public $table = 'metrics';
 
-    public string $primaryKey = 'id';
+    public $primaryKey = 'id';
 
     /**
      * @var string[]
      *
      * @psalm-var array{0: string, 1: string}
      */
-    public array $fillable = [
+    public $fillable = [
         'token',
         'data',
     ];
