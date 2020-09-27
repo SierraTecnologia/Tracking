@@ -9,12 +9,12 @@ class LarametricsNotification extends Model
 {
     use Notifiable;
 
-    protected string $table = 'larametrics_notifications';
+    protected $table = 'larametrics_notifications';
 
     /**
      * @var array
      */
-    public array $guarded = [];
+    public $guarded = [];
 
     public function routeNotificationForMail($notification = null)
     {

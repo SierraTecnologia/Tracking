@@ -21,5 +21,5 @@ class Metrics extends Model
     /**
      * @var array
      */
-    public array $rules = [];
+    public $rules = [];
 }

@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class LarametricsLog extends Model
 {
-    protected string $table = 'larametrics_logs';
+    protected $table = 'larametrics_logs';
 
     /**
      * @var array
      */
-    public array $guarded = [];
+    public $guarded = [];
 }

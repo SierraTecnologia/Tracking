@@ -25,5 +25,5 @@ class Trackings extends ArchiveTrait
     /**
      * @var array
      */
-    public array $rules = [];
+    public $rules = [];
 }
