@@ -13,7 +13,7 @@ return [
     |
     */
     'modelsWatched' => [
-        \Illuminate\Support\Facades\Config::get('sitec.core.models.user', \App\Models\User::class)
+        \Illuminate\Support\Facades\Config::get('application.directorys.models.users', \App\Models\User::class)
     ],
 
     /*
