@@ -9,6 +9,12 @@ use function parse_user_agent;
 
 class AnalyticsService
 {
+    public $model;
+    
+    public function __construct(Analytics $model)
+    {
+        $this->model = $model;
+    }
 
 
     public function log(\Illuminate\Http\Request $request): void
@@ -30,8 +36,7 @@ class AnalyticsService
             $data = [
                 'data' => $requestData,
             ];
-            if (Schema::hasColumn($this->model->getTable(), 'business_code')) // || Business::isToIgnore())
-            {
+            if (Schema::hasColumn($this->model->getTable(), 'business_code')) { // || Business::isToIgnore())
                 $data['business_code'] = \Business::getCode();
             }
             $this->model->create(

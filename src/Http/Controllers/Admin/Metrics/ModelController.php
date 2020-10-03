@@ -1,6 +1,6 @@
 <?php
 
-namespace Tracking\Http\Controllers\Metrics;
+namespace Tracking\Http\Controllers\Admin\Metrics;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

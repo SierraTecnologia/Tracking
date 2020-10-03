@@ -1,11 +1,12 @@
 <?php
 
-namespace Tracking\Http\Controllers;
+namespace Tracking\Http\Controllers\Admin;
 
-use Tracking\Services\AnalyticsService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Spatie\Analytics\Analytics;
 use Spatie\Analytics\Period;
+use Tracking\Services\AnalyticsService;
 
 class AnalyticsController extends Controller
 {

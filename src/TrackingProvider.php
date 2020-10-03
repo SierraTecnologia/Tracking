@@ -89,6 +89,67 @@ class TrackingProvider extends ServiceProvider
     ];
 
     /**
+     * Rotas do Menu
+     */
+    public static $menuItens = [
+        'Admin' => [
+            [
+                'text' => 'Metrics',
+                'icon' => 'fas fa-fw fa-search',
+                'icon_color' => "blue",
+                'label_color' => "success",
+                'section'   => 'admin',
+                'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
+            ],
+            'Metrics' => [
+                [
+                    'text'        => 'Analytics',
+                    'route'       => 'admin.tracking.analytics',
+                    'icon'        => 'dashboard',
+                    'icon_color'  => 'blue',
+                    'label_color' => 'success',
+                    'section'       => 'admin',
+                    'level'       => 2,
+                    // 'access' => \App\Models\Role::$ADMIN
+                ],
+            ],
+        ],
+    ];
+
+    /**
+     * Alias the services in the boot.
+     */
+    public function boot(Router $router)
+    {
+        // Push middleware to web group
+        $router->pushMiddlewareToGroup('web', TrackStatistics::class);
+        $router->pushMiddlewareToGroup('web', Analytics::class);
+
+
+        // Register configs, migrations, etc
+        $this->registerDirectories();
+
+        // // Wire up model event callbacks even if request is not for admin.  Do this
+        // // after the usingAdmin call so that the callbacks run after models are
+        // // mutated by Decoy logic.  This is important, in particular, so the
+        // // Validation observer can alter validation rules before the onValidation
+        // // callback runs.
+        // $this->app['events']->listen('eloquent.*',
+        //     'Tracking\Observers\ModelCallbacks');
+        // $this->app['events']->listen('tracking::model.*',
+        //     'Tracking\Observers\ModelCallbacks');
+        // // Log model change events after others in case they modified the record
+        // // before being saved.
+        // $this->app['events']->listen('eloquent.*',
+        //     'Tracking\Observers\Changes');
+
+        // // COloquei no register pq nao tava reconhecendo as rotas para o adminlte
+        // $this->app->booted(function () {
+        //     $this->routes();
+        // });
+    }
+
+    /**
      * Register the tool's routes.
      *
      * @return void
@@ -137,7 +198,8 @@ class TrackingProvider extends ServiceProvider
         $loader->alias('TrackingService', \Tracking\Facades\TrackingServiceFacade::class);
 
         $this->app->bind(
-            'TrackingService', function ($app) {
+            'TrackingService',
+            function ($app) {
                 return new TrackingService();
             }
         );
