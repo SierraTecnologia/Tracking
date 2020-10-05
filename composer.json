@@ -67,15 +67,7 @@
         "check-style": "phpcs -p --standard=PSR12 src --extensions=php",
         "fix-style": "phpcbf -p --standard=PSR12 src --extensions=php"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../**",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
+    "repositories": [{"type": "path","url":"../**","options":{"symlink": true}}],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
