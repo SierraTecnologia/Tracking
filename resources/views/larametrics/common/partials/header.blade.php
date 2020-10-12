@@ -3,13 +3,13 @@
         <div class="row align-items-center">
             <div class="col-lg-3 order-lg-first">
                 <div class="logo">
-                    <a href="{{ route('rica.larametrics::metrics.index') }}"><img src="/vendor/larametrics/images/larametrics-logo.svg" height="24"></a>
+                    <a href="{{ route('admin.tracking.larametrics::metrics.index') }}"><img src="/vendor/larametrics/images/larametrics-logo.svg" height="24"></a>
                 </div>
             </div>
             <div class="col-lg">
                 <ul class="nav nav-tabs border-0 flex-column flex-lg-row justify-content-end">
                     <li class="nav-item">
-                        <a href="{{ route('rica.larametrics::metrics.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'rica.larametrics::metrics.index') ? ' active' : '' }}"><i class="fe fe-home"></i> Home</a>
+                        <a href="{{ route('admin.tracking.larametrics::metrics.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'admin.tracking.larametrics::metrics.index') ? ' active' : '' }}"><i class="fe fe-home"></i> Home</a>
                     </li>
                     @if(config('larametrics.logsWatched') || !config('larametrics.hideUnwatchedMenuItems'))
                         <li class="nav-item">
