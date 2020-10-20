@@ -31,7 +31,7 @@ class TrackingProvider extends ServiceProvider
 {
     use ConsoleTools;
 
-    public string $packageName = 'tracking';
+    public $packageName = 'tracking';
     const pathVendor = 'sierratecnologia/tracking';
 
     /**
@@ -50,7 +50,7 @@ class TrackingProvider extends ServiceProvider
      *
      * @psalm-var array{Horizon: \Laravel\Horizon\Horizon::class, LaravelAnalytics: \Spatie\LaravelAnalytics\LaravelAnalyticsFacade::class, Sentry: \Sentry\Laravel\Facade::class, Debugbar: \Barryvdh\Debugbar\Facade::class}
      */
-    public static array $aliasProviders = [
+    public static $aliasProviders = [
         'Horizon' => \Laravel\Horizon\Horizon::class,
 
         'LaravelAnalytics' => \Spatie\LaravelAnalytics\LaravelAnalyticsFacade::class,
@@ -68,7 +68,7 @@ class TrackingProvider extends ServiceProvider
      *
      * @psalm-var array{0: Providers\HorizonServiceProvider::class, 1: \Audit\AuditProvider::class, 2: \Spatie\Analytics\AnalyticsServiceProvider::class, 3: \Aschmelyun\Larametrics\LarametricsServiceProvider::class, 4: \Laravel\Horizon\HorizonServiceProvider::class}
      */
-    public static array $providers = [
+    public static $providers = [
         /**
          * Configuracoes
          */
