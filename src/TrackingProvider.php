@@ -189,7 +189,7 @@ class TrackingProvider extends ServiceProvider
         // Register external packages
         $this->setProviders();
         $this->routes();
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'database'.DIRECTORY_SEPARATOR.'migrations');
 
         // // Configs
         // $this->app->config->set('Tracking.modules.Tracking', include(__DIR__.'/config.php'));
