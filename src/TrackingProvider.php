@@ -167,7 +167,7 @@ class TrackingProvider extends ServiceProvider
         /**
          * Transmissor; Routes
          */
-        $this->loadRoutesForRiCa(__DIR__.'/../routes');
+        $this->loadRoutesForRiCa(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'routes');
     }
 
     /**
@@ -287,7 +287,7 @@ class TrackingProvider extends ServiceProvider
         $this->loadViewsFrom($viewsPath, 'tracking');
         $this->publishes(
             [
-            $viewsPath => base_path('resources/views/vendor/tracking'),
+            $viewsPath => base_path('resources'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'tracking'),
             ],
             ['views',  'sitec', 'sitec-views', 'tracking-views']
         );
@@ -296,7 +296,7 @@ class TrackingProvider extends ServiceProvider
         $this->loadViewsFrom($viewsPath, 'larametrics');
         $this->publishes(
             [
-            $viewsPath => base_path('resources/views/vendor/larametrics'),
+            $viewsPath => base_path('resources'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'larametrics'),
             ],
             ['views',  'sitec', 'sitec-views', 'tracking-views']
         );
@@ -304,7 +304,7 @@ class TrackingProvider extends ServiceProvider
 
         // // Publish lanaguage files
         // $this->publishes([
-        //     $this->getResourcesPath('lang') => resource_path('lang/vendor/tracking')
+        //     $this->getResourcesPath('lang') => resource_path('lang'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'tracking')
         // ], 'lang');
 
         // // Load translations
@@ -316,7 +316,7 @@ class TrackingProvider extends ServiceProvider
         // $translationsPath = $this->getResourcesPath('lang');
         // $this->loadTranslationsFrom($translationsPath, 'tracking');
         // $this->publishes([
-        //     $translationsPath => resource_path('lang/vendor/tracking'),
+        //     $translationsPath => resource_path('lang'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'tracking'),
         // ], 'translations');// @todo ou lang, verificar (invez de translations)
     }
 
