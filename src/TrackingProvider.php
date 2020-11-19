@@ -110,7 +110,7 @@ class TrackingProvider extends ServiceProvider
                     'label_color' => 'success',
                     'section'       => 'admin',
                     'level'       => 2,
-                    // 'access' => \App\Models\Role::$ADMIN
+                    // 'access' => \Porteiro\Models\Role::$ADMIN
                 ],
             ],
         ],
