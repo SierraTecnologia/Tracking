@@ -92,26 +92,24 @@ class TrackingProvider extends ServiceProvider
      * Rotas do Menu
      */
     public static $menuItens = [
-        'Admin' => [
+        [
+            'text' => 'Analitycs',
+            'icon' => 'fas fa-fw fa-search',
+            'icon_color' => "blue",
+            'label_color' => "success",
+            'section'   => 'admin',
+            'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
+        ],
+        'Analitycs' => [
             [
-                'text' => 'Metrics',
-                'icon' => 'fas fa-fw fa-search',
-                'icon_color' => "blue",
-                'label_color' => "success",
-                'section'   => 'admin',
-                'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
-            ],
-            'Metrics' => [
-                [
-                    'text'        => 'Analytics',
-                    'route'       => 'admin.tracking.analytics',
-                    'icon'        => 'dashboard',
-                    'icon_color'  => 'blue',
-                    'label_color' => 'success',
-                    'section'       => 'admin',
-                    'level'       => 2,
-                    // 'access' => \Porteiro\Models\Role::$ADMIN
-                ],
+                'text'        => 'Analytics',
+                'route'       => 'admin.tracking.analytics',
+                'icon'        => 'dashboard',
+                'icon_color'  => 'blue',
+                'label_color' => 'success',
+                'section'       => 'admin',
+                'level'       => 2,
+                // 'access' => \Porteiro\Models\Role::$ADMIN
             ],
         ],
     ];
