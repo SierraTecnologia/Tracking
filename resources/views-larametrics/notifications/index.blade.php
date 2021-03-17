@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="card-footer text-right">
-                <form action="{{ route('rica.larametrics::notifications.update') }}" method="post">
+                <form action="{{ route('admin.tracking.larametrics::notifications.update') }}" method="post">
                     {{ csrf_field() }}
                     <input type="hidden" name="notifications" id="notifications" :value="JSON.stringify(notifications)">
                     <button type="submit" class="btn btn-primary">Save Notifications</button>

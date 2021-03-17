@@ -81,7 +81,7 @@
                                         <pre style="white-space: pre-wrap;line-height:1.5rem">@foreach($changeArray as $column => $numbers){{ $column }} <span class="text-danger">-{{ $numbers['subtracted'] }}</span> <span class="text-success">+{{ $numbers['added'] }}</span><br>@endforeach</pre>
                                     @endif
                                 </td>
-                                <td class="text-right"><a href="{{ route('rica.larametrics::models.show', $model->id) }}" class="btn btn-secondary btn-sm">View Details</a></td>
+                                <td class="text-right"><a href="{{ route('admin.tracking.larametrics::models.show', $model->id) }}" class="btn btn-secondary btn-sm">View Details</a></td>
                             </tr>
                         @endforeach
                     </tbody>

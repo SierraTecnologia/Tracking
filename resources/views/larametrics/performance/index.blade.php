@@ -50,7 +50,7 @@
                                 <td>{{ $request['created_at'] }}</td>
                                 <td>{{ $request['uri'] }}</td>
                                 <td>{{ $request['ip'] }}</td>
-                                <td><a href="{{ route('rica.larametrics::requests.show', $request['id']) }}" class="btn btn-secondary btn-sm">View Details</a></td>
+                                <td><a href="{{ route('admin.tracking.larametrics::requests.show', $request['id']) }}" class="btn btn-secondary btn-sm">View Details</a></td>
                             </tr>
                         @endforeach
                     </tbody>

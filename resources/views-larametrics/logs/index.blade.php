@@ -41,7 +41,7 @@
         </div>
     </div>
 </div>
-@php $logsRoute = route('rica.larametrics::logs.index'); @endphp
+@php $logsRoute = route('admin.tracking.larametrics::logs.index'); @endphp
 <script>
     var app = new Vue({
         el: '#larametricsLogs',

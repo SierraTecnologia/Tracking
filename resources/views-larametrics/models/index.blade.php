@@ -10,7 +10,7 @@
                     </span>
                     <div>
                         <h4 class="m-0">
-                            <a href="{{ route('rica.larametrics::models.show', str_replace('\\', '+', $model)) }}"><small>{{ $model }}</small></a>
+                            <a href="{{ route('admin.tracking.larametrics::models.show', str_replace('\\', '+', $model)) }}"><small>{{ $model }}</small></a>
                         </h4>
                         <small class="text-muted">{{ $info['changes'] }} change{{ $info['changes'] !== 1 ? 's' : '' }} in {{ $watchLength }} day{{ $watchLength !== 1 ? 's' : '' }}</small>
                     </div>

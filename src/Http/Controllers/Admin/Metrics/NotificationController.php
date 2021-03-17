@@ -14,7 +14,7 @@ class NotificationController extends Controller
         $notifications = LarametricsNotification::all();
         
         return view(
-            'rica.larametrics::notifications.index', [
+            'admin.tracking.larametrics::notifications.index', [
             'notifications' => $notifications,
             'pageTitle' => 'Notifications'
             ]
@@ -36,7 +36,7 @@ class NotificationController extends Controller
             }
         }
 
-        return redirect()->route('rica.larametrics::notifications.index');
+        return redirect()->route('admin.tracking.larametrics::notifications.index');
     }
 
 }

@@ -15,7 +15,7 @@ class RequestController extends Controller
             ->get();
             
         return view(
-            'rica.larametrics::requests.index', [
+            'admin.tracking.larametrics::requests.index', [
             'requests' => $requests,
             'pageTitle' => 'Laravel Requests'
             ]
@@ -25,7 +25,7 @@ class RequestController extends Controller
     public function show(LarametricsRequest $request): \Illuminate\View\View
     {
         return view(
-            'rica.larametrics::requests.show', [
+            'admin.tracking.larametrics::requests.show', [
             'request' => $request,
             'pageTitle' => 'Viewing Request #' . $request->id
             ]

@@ -65,7 +65,7 @@
                     @endforeach
                     <div class="row mt-4">
                         <div class="col-sm-12">
-                            <a href="{{ route('rica.larametrics::models.revert', $model->id) }}" class="btn btn-secondary btn-sm">Revert Change</a>
+                            <a href="{{ route('admin.tracking.larametrics::models.revert', $model->id) }}" class="btn btn-secondary btn-sm">Revert Change</a>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                     @endforeach
                     <div class="row mt-4">
                         <div class="col-sm-12">
-                            <a href="{{ route('rica.larametrics::models.revert', $model->id) }}" class="btn btn-secondary btn-sm">Revert Change</a>
+                            <a href="{{ route('admin.tracking.larametrics::models.revert', $model->id) }}" class="btn btn-secondary btn-sm">Revert Change</a>
                         </div>
                     </div>
                 </div>

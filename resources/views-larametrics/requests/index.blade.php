@@ -43,7 +43,7 @@
         </div>
     </div>
 </div>
-@php $requestsRoute = route('rica.larametrics::requests.index'); @endphp
+@php $requestsRoute = route('admin.tracking.larametrics::requests.index'); @endphp
 <script>
     var app = new Vue({
         el: '#larametricsRequests',

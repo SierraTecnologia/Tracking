@@ -38,7 +38,7 @@
                                     <td>{{ $request->created_at }}</td>
                                     <td><strong>{{ $request->uri }}</strong></td>
                                     <td>{{ $request->ip }}</td>
-                                    <td><a href="{{ route('rica.larametrics::requests.show', $request->id) }}" class="btn btn-secondary btn-sm">View Details</a></td>
+                                    <td><a href="{{ route('admin.tracking.larametrics::requests.show', $request->id) }}" class="btn btn-secondary btn-sm">View Details</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -80,7 +80,7 @@
                                     <td>{{ ucwords($log->level) }}</td>
                                     <td>{{ $log->created_at }}</td>
                                     <td><strong>{{ substr($log->message, 0, 96) . '...' }}</strong></td>
-                                    <td><a href="{{ route('rica.larametrics::logs.show', $log->id) }}" class="btn btn-secondary btn-sm">View Details</a></td>
+                                    <td><a href="{{ route('admin.tracking.larametrics::logs.show', $log->id) }}" class="btn btn-secondary btn-sm">View Details</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -160,7 +160,7 @@
                                             <pre style="white-space: pre-wrap;line-height:1.5rem">@foreach($changeArray as $column => $numbers){{ $column }} <span class="text-danger">-{{ $numbers['subtracted'] }}</span> <span class="text-success">+{{ $numbers['added'] }}</span><br>@endforeach</pre>
                                         @endif
                                     </td>
-                                    <td class="text-right"><a href="{{ route('rica.larametrics::models.show', $model->id) }}" class="btn btn-secondary btn-sm">View Details</a></td>
+                                    <td class="text-right"><a href="{{ route('admin.tracking.larametrics::models.show', $model->id) }}" class="btn btn-secondary btn-sm">View Details</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

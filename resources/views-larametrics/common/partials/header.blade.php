@@ -23,14 +23,14 @@
                     @endif
                     @if(\Illuminate\Support\Facades\Config::get('larametrics.requestsWatched') || !\Illuminate\Support\Facades\Config::get('larametrics.hideUnwatchedMenuItems'))
                         <li class="nav-item">
-                            <a href="{{ route('admin.tracking.larametrics::performance.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'rica.larametrics::performance') ? ' active' : '' }}"><i class="fe fe-bar-chart-2"></i> Performance</a>
+                            <a href="{{ route('admin.tracking.larametrics::performance.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'admin.tracking.larametrics::performance') ? ' active' : '' }}"><i class="fe fe-bar-chart-2"></i> Performance</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.tracking.larametrics::requests.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'rica.larametrics::requests') ? ' active' : '' }}"><i class="fe fe-package"></i> Requests</a>
+                            <a href="{{ route('admin.tracking.larametrics::requests.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'admin.tracking.larametrics::requests') ? ' active' : '' }}"><i class="fe fe-package"></i> Requests</a>
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a href="{{ route('admin.tracking.larametrics::notifications.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'rica.larametrics::notifications') ? ' active' : '' }}"><i class="fe fe-bell"></i> Notifications</a>
+                        <a href="{{ route('admin.tracking.larametrics::notifications.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'admin.tracking.larametrics::notifications') ? ' active' : '' }}"><i class="fe fe-bell"></i> Notifications</a>
                     </li>
                 </ul>
             </div>

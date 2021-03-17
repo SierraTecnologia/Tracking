@@ -13,24 +13,24 @@
                     </li>
                     @if(config('larametrics.logsWatched') || !config('larametrics.hideUnwatchedMenuItems'))
                         <li class="nav-item">
-                            <a href="{{ route('rica.larametrics::logs.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'rica.larametrics::logs') ? ' active' : '' }}"><i class="fe fe-file-text"></i> Logs</a>
+                            <a href="{{ route('admin.tracking.larametrics::logs.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'admin.tracking.larametrics::logs') ? ' active' : '' }}"><i class="fe fe-file-text"></i> Logs</a>
                         </li>
                     @endif
                     @if(count(config('larametrics.modelsWatched')) || !config('larametrics.hideUnwatchedMenuItems'))
                         <li class="nav-item">
-                            <a href="{{ route('rica.larametrics::models.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'rica.larametrics::models') ? ' active' : '' }}"><i class="fe fe-database"></i> Models</a>
+                            <a href="{{ route('admin.tracking.larametrics::models.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'admin.tracking.larametrics::models') ? ' active' : '' }}"><i class="fe fe-database"></i> Models</a>
                         </li>
                     @endif
                     @if(config('larametrics.requestsWatched') || !config('larametrics.hideUnwatchedMenuItems'))
                         <li class="nav-item">
-                            <a href="{{ route('rica.larametrics::performance.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'rica.larametrics::performance') ? ' active' : '' }}"><i class="fe fe-bar-chart-2"></i> Performance</a>
+                            <a href="{{ route('admin.tracking.larametrics::performance.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'admin.tracking.larametrics::performance') ? ' active' : '' }}"><i class="fe fe-bar-chart-2"></i> Performance</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('rica.larametrics::requests.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'rica.larametrics::requests') ? ' active' : '' }}"><i class="fe fe-package"></i> Requests</a>
+                            <a href="{{ route('admin.tracking.larametrics::requests.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'admin.tracking.larametrics::requests') ? ' active' : '' }}"><i class="fe fe-package"></i> Requests</a>
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a href="{{ route('rica.larametrics::notifications.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'rica.larametrics::notifications') ? ' active' : '' }}"><i class="fe fe-bell"></i> Notifications</a>
+                        <a href="{{ route('admin.tracking.larametrics::notifications.index') }}" class="nav-link{{ str_contains(Request::route()->getName(), 'admin.tracking.larametrics::notifications') ? ' active' : '' }}"><i class="fe fe-bell"></i> Notifications</a>
                     </li>
                 </ul>
             </div>
