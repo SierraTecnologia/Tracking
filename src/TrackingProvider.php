@@ -98,6 +98,7 @@ class TrackingProvider extends ServiceProvider
             'icon_color' => "blue",
             'label_color' => "success",
             'section'   => 'admin',
+            'feature' => 'writelabel',
             'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
         ],
         'Analitycs' => [
@@ -108,6 +109,7 @@ class TrackingProvider extends ServiceProvider
                 'icon_color'  => 'blue',
                 'label_color' => 'success',
                 'section'       => 'admin',
+                'feature' => 'writelabel',
                 'level'       => 2,
                 // 'access' => \Porteiro\Models\Role::$ADMIN
             ],

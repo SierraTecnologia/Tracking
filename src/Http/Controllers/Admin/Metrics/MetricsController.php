@@ -3,7 +3,7 @@
 namespace Tracking\Http\Controllers\Admin\Metrics;
 
 use Illuminate\Http\Request;
-use Tracking\Http\Controllers\Controller as Controller;
+use Tracking\Http\Controllers\Admin\Controller as Controller;
 use Tracking\Models\Metrics\LarametricsLog;
 use Tracking\Models\Metrics\LarametricsModel;
 use Tracking\Models\Metrics\LarametricsRequest;
