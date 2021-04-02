@@ -97,6 +97,7 @@ class TrackingProvider extends ServiceProvider
             'icon' => 'fas fa-fw fa-search',
             'icon_color' => "blue",
             'label_color' => "success",
+            'order' => 2850,
             'section'   => 'admin',
             'feature' => 'writelabel',
             'level'       => 2, // 0 (Public), 1, 2 (Admin) , 3 (Root)
@@ -108,6 +109,7 @@ class TrackingProvider extends ServiceProvider
                 'icon'        => 'dashboard',
                 'icon_color'  => 'blue',
                 'label_color' => 'success',
+                'order' => 2850,
                 'section'       => 'admin',
                 'feature' => 'writelabel',
                 'level'       => 2,
@@ -340,29 +342,4 @@ class TrackingProvider extends ServiceProvider
         return __DIR__.'/../dist/'.$folder;
     }
 
-    /**
-     * Load Alias and Providers
-     *
-     * @return void
-     */
-    private function setProviders(): void
-    {
-        $this->setDependencesAlias();
-        (new Collection(self::$providers))->map(
-            function ($provider) {
-                if (class_exists($provider)) {
-                    $this->app->register($provider);
-                }
-            }
-        );
-    }
-    private function setDependencesAlias(): void
-    {
-        $loader = AliasLoader::getInstance();
-        (new Collection(self::$aliasProviders))->map(
-            function ($class, $alias) use ($loader) {
-                $loader->alias($alias, $class);
-            }
-        );
-    }
 }
