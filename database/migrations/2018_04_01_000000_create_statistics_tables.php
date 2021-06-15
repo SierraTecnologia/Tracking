@@ -16,7 +16,7 @@ class CreateStatisticsTables extends Migration
     public function up(): void
     {
         Schema::create(
-            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.data'), function (Blueprint $table) {
+            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.data', 'statistics_data'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
                 $table->string('session_id');
@@ -30,7 +30,7 @@ class CreateStatisticsTables extends Migration
             }
         );
         Schema::create(
-            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.routes'), function (Blueprint $table) {
+            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.routes', 'statistics_routes'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
                 $table->string('name');
@@ -45,7 +45,7 @@ class CreateStatisticsTables extends Migration
             }
         );
         Schema::create(
-            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.paths'), function (Blueprint $table) {
+            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.paths', 'statistics_paths'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
                 $table->string('host');
@@ -60,7 +60,7 @@ class CreateStatisticsTables extends Migration
             }
         );
         Schema::create(
-            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.agents'), function (Blueprint $table) {
+            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.agents', 'statistics_agents'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
                 $table->string('name');
@@ -71,7 +71,7 @@ class CreateStatisticsTables extends Migration
             }
         );
         Schema::create(
-            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.devices'), function (Blueprint $table) {
+            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.devices', 'statistics_devices'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
                 $table->string('family');
@@ -81,7 +81,7 @@ class CreateStatisticsTables extends Migration
             }
         );
         Schema::create(
-            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.platforms'), function (Blueprint $table) {
+            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.platforms', 'statistics_platforms'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
                 $table->string('family');
@@ -90,7 +90,7 @@ class CreateStatisticsTables extends Migration
             }
         );
         Schema::create(
-            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.geoips'), function (Blueprint $table) {
+            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.geoips', 'statistics_geoips'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
                 $table->string('client_ip');
@@ -110,7 +110,7 @@ class CreateStatisticsTables extends Migration
             }
         );
         Schema::create(
-            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.requests'), function (Blueprint $table) {
+            \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.requests', 'statistics_requests'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
                 $table->integer('route_id')->unsigned();
@@ -134,17 +134,17 @@ class CreateStatisticsTables extends Migration
                 $table->timestamp('created_at')->nullable();
 
                 // Indexes
-                $table->foreign('route_id')->references('id')->on(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.routes'))
+                $table->foreign('route_id')->references('id')->on(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.routes', 'statistics_routes'))
                     ->onDelete('cascade')->onUpdate('cascade');
-                $table->foreign('agent_id')->references('id')->on(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.agents'))
+                $table->foreign('agent_id')->references('id')->on(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.agents', 'statistics_agents'))
                     ->onDelete('cascade')->onUpdate('cascade');
-                $table->foreign('device_id')->references('id')->on(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.devices'))
+                $table->foreign('device_id')->references('id')->on(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.devices', 'statistics_devices'))
                     ->onDelete('cascade')->onUpdate('cascade');
-                $table->foreign('platform_id')->references('id')->on(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.platforms'))
+                $table->foreign('platform_id')->references('id')->on(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.platforms', 'statistics_platforms'))
                     ->onDelete('cascade')->onUpdate('cascade');
-                $table->foreign('path_id')->references('id')->on(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.paths'))
+                $table->foreign('path_id')->references('id')->on(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.paths',  'statistics_paths'))
                     ->onDelete('cascade')->onUpdate('cascade');
-                $table->foreign('geoip_id')->references('id')->on(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.geoips'))
+                $table->foreign('geoip_id')->references('id')->on(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.geoips', 'statistics_geoips'))
                     ->onDelete('cascade')->onUpdate('cascade');
             }
         );
@@ -157,21 +157,21 @@ class CreateStatisticsTables extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.requests'));
+        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.requests', 'statistics_requests'));
 
 
 
 
 
-        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.geoips'));
-        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.platforms'));
-        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.devices'));
+        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.geoips', 'statistics_geoips'));
+        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.platforms', 'statistics_platforms'));
+        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.devices', 'statistics_devices'));
 
 
-        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.agents'));
-        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.paths'));
-        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.routes'));
-        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.data'));
+        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.agents', 'statistics_agents'));
+        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.paths', 'statistics_paths'));
+        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.routes', 'statistics_routes'));
+        Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.data', 'statistics_data'));
     }
 
     /**
