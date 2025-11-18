@@ -1,6 +1,19 @@
 includes:
-- ./vendor/nunomaduro/larastan/extension.neon
+    - ./vendor/nunomaduro/larastan/extension.neon
+
 parameters:
-  level: 5
-  paths:
-  - src
+    level: 6
+    paths:
+        - src
+    tmpDir: build/phpstan
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    reportUnmatchedIgnoredErrors: false
+
+    ignoreErrors:
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Model::#'
+        - '#Access to an undefined property Illuminate\\Database\\Eloquent\\Model::#'
+        - '#Call to an undefined method Illuminate\\Database\\Query\\Builder::#'
+
+    excludePaths:
+        - src/Console/Commands/*

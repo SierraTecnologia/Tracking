@@ -22,16 +22,16 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^8.0",
         "geoip2/geoip2": "^2.0",
-        "illuminate/bus": "^7.0 || ^8.0",
-        "illuminate/console": "^7.0 || ^8.0",
-        "illuminate/contracts": "^7.0 || ^8.0",
-        "illuminate/database": "^7.0 || ^8.0",
-        "illuminate/http": "^7.0 || ^8.0",
-        "illuminate/queue": "^7.0 || ^8.0",
-        "illuminate/routing": "^7.0 || ^8.0",
-        "illuminate/support": "^7.0 || ^8.0",
+        "illuminate/bus": "^8.0 || ^9.0 || ^10.0",
+        "illuminate/console": "^8.0 || ^9.0 || ^10.0",
+        "illuminate/contracts": "^8.0 || ^9.0 || ^10.0",
+        "illuminate/database": "^8.0 || ^9.0 || ^10.0",
+        "illuminate/http": "^8.0 || ^9.0 || ^10.0",
+        "illuminate/queue": "^8.0 || ^9.0 || ^10.0",
+        "illuminate/routing": "^8.0 || ^9.0 || ^10.0",
+        "illuminate/support": "^8.0 || ^9.0 || ^10.0",
         "jenssegers/agent": "^2.0",
         "donatj/phpuseragentparser": "*",
         "sierratecnologia/countries": "dev-master",
@@ -44,28 +44,36 @@
         "ricardosierra/larametrics": "^1.2.4",
         "wnx/laravel-stats": "^2.0",
         "guzzlehttp/guzzle": "^6.0 || ^7.0",
-        "laravel/horizon": "^4.0|^5.0",
+        "laravel/horizon": "^5.0",
         "spatie/laravel-analytics": "^3.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.16",
-        "orchestra/testbench": "^5.0",
-        "phpunit/phpunit": "^9.3",
-        "psalm/plugin-laravel": "^1.2",
-        "vimeo/psalm": "^3.11"
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "nunomaduro/larastan": "^2.0",
+        "orchestra/testbench": "^6.0|^7.0|^8.0",
+        "phpunit/phpunit": "^9.5|^10.0",
+        "squizlabs/php_codesniffer": "^3.7"
     },
     "autoload": {
         "psr-4": {
             "Tracking\\": "src/"
         }
     },
-     "scripts": {
-        "psalm": "vendor/bin/psalm",
+    "scripts": {
         "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "test-coverage": "vendor/bin/phpunit --coverage-html build/coverage",
+        "phpstan": "vendor/bin/phpstan analyse",
+        "phpcs": "vendor/bin/phpcs --standard=phpcs.xml",
+        "phpcbf": "vendor/bin/phpcbf --standard=phpcs.xml",
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
-        "check-style": "phpcs -p --standard=PSR12 src --extensions=php",
-        "fix-style": "phpcbf -p --standard=PSR12 src --extensions=php"
+        "analyse": [
+            "@phpstan",
+            "@phpcs"
+        ],
+        "check": [
+            "@analyse",
+            "@test"
+        ]
     },
     "repositories": [{"type": "path","url":"../**","options":{"symlink": true}}],
     "minimum-stability": "dev",
