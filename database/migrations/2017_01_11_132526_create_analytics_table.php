@@ -11,8 +11,7 @@ class CreateAnalyticsTable extends Migration
      */
     public function up()
     {
-        Schema::create(
-            'analytics', function (Blueprint $table) {
+        Schema::hasTable('analytics') || Schema::create('analytics', function (Blueprint $table) {
                 $table->increments('id');
                 $table->text('data')->nullable();
                 $table->nullableTimestamps();

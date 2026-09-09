@@ -11,7 +11,7 @@ class CreateEstatisticasTable extends Migration
      */
     public function up()
     {
-        Schema::create('estatisticas', function (Blueprint $table) {
+        Schema::hasTable('estatisticas') || Schema::create('estatisticas', function (Blueprint $table) {
 
             // Set the storage engine and primary key
             $table->engine = 'InnoDB';

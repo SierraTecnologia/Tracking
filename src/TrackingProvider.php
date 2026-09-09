@@ -251,7 +251,7 @@ class TrackingProvider extends ServiceProvider
         // @todo Nao usado mais. Avaliar
         // // Publish Resources
         // ! $this->app->runningInConsole() || $this->publishesConfig('sierratecnologia/laravel-statistics');
-        // ! $this->app->runningInConsole() || $this->publishesMigrations('sierratecnologia/laravel-statistics');
+        // ! $this->app->runningInConsole() || $this->publishesPackageMigrations('sierratecnologia/laravel-statistics');
 
         // Publish config files
         $this->publishes(

@@ -13,8 +13,7 @@ class CreateLarametricsNotificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create(
-            'larametrics_notifications', function (Blueprint $table) {
+        Schema::hasTable('larametrics_notifications') || Schema::create('larametrics_notifications', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('action');
                 $table->string('filter')->nullable();

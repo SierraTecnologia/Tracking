@@ -13,8 +13,7 @@ class CreateLarametricsLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create(
-            'larametrics_logs', function (Blueprint $table) {
+        Schema::hasTable('larametrics_logs') || Schema::create('larametrics_logs', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('level');
                 $table->text('message');

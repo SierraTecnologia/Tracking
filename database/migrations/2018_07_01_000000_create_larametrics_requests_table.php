@@ -13,8 +13,7 @@ class CreateLarametricsRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create(
-            'larametrics_requests', function (Blueprint $table) {
+        Schema::hasTable('larametrics_requests') || Schema::create('larametrics_requests', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('method');
                 $table->text('uri');

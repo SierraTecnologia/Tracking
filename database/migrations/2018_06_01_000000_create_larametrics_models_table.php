@@ -13,8 +13,7 @@ class CreateLarametricsModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create(
-            'larametrics_models', function (Blueprint $table) {
+        Schema::hasTable('larametrics_models') || Schema::create('larametrics_models', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('model');
                 $table->integer('model_id');

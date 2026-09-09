@@ -22,44 +22,41 @@
         }
     ],
     "require": {
-        "php": "^7.2|^8.0",
-        "geoip2/geoip2": "^2.0",
-        "illuminate/bus": "^7.0 || ^8.0",
-        "illuminate/console": "^7.0 || ^8.0",
-        "illuminate/contracts": "^7.0 || ^8.0",
-        "illuminate/database": "^7.0 || ^8.0",
-        "illuminate/http": "^7.0 || ^8.0",
-        "illuminate/queue": "^7.0 || ^8.0",
-        "illuminate/routing": "^7.0 || ^8.0",
-        "illuminate/support": "^7.0 || ^8.0",
-        "jenssegers/agent": "^2.0",
-        "donatj/phpuseragentparser": "*",
-        "sierratecnologia/countries": "dev-master",
-        "sierratecnologia/muleta": "dev-master",
-        "symfony/http-foundation": ">=4.3",
-        "torann/geoip": "^1.0|^3.0",
-        "ua-parser/uap-php": "^3.8",
-        "phpmetrics/phpmetrics": "*",
-        "sierratecnologia/audit": "dev-master",
-        "ricardosierra/larametrics": "^1.2.4",
-        "wnx/laravel-stats": "^2.0",
-        "guzzlehttp/guzzle": "^6.0 || ^7.0",
-        "laravel/horizon": "^4.0|^5.0",
-        "spatie/laravel-analytics": "^3.0"
+        "php": "^8.3",
+        "geoip2/geoip2": "^3.4",
+        "illuminate/bus": "^13.0",
+        "illuminate/console": "^13.0",
+        "illuminate/contracts": "^13.0",
+        "illuminate/database": "^13.0",
+        "illuminate/http": "^13.0",
+        "illuminate/queue": "^13.0",
+        "illuminate/routing": "^13.0",
+        "illuminate/support": "^13.0",
+        "jenssegers/agent": "^2.6",
+        "donatj/phpuseragentparser": "^1.11",
+        "sierratecnologia/countries": "^2.0",
+        "sierratecnologia/muleta": "^2.0",
+        "symfony/http-foundation": "^7.2",
+        "torann/geoip": "^3.0",
+        "ua-parser/uap-php": "^3.10",
+        "sierratecnologia/audit": "^2.0",
+        "ricardosierra/larametrics": "^2.0",
+        "wnx/laravel-stats": "^2.20",
+        "guzzlehttp/guzzle": "^7.10",
+        "laravel/horizon": "^5.49",
+        "spatie/laravel-analytics": "^5.7"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.16",
-        "orchestra/testbench": "^5.0",
-        "phpunit/phpunit": "^9.3",
-        "psalm/plugin-laravel": "^1.2",
-        "vimeo/psalm": "^4.0"
+        "friendsofphp/php-cs-fixer": "^3.68",
+        "orchestra/testbench": "^11.0",
+        "phpunit/phpunit": "^12.0"
     },
     "autoload": {
         "psr-4": {
             "Tracking\\": "src/"
         }
     },
-     "scripts": {
+    "scripts": {
         "psalm": "vendor/bin/psalm",
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
@@ -67,7 +64,15 @@
         "check-style": "phpcs -p --standard=PSR12 src --extensions=php",
         "fix-style": "phpcbf -p --standard=PSR12 src --extensions=php"
     },
-    "repositories": [{"type": "path","url":"../**","options":{"symlink": true}}],
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../**",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
@@ -76,5 +81,6 @@
                 "Tracking\\TrackingProvider"
             ]
         }
-    }
+    },
+    "version": "2.0.0"
 }

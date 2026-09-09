@@ -15,8 +15,7 @@ class CreateMetricsAnalysersTables extends Migration
     {
         // @todo Falta fazer aqui 
         
-        Schema::create(
-            'metric_result_types', function (Blueprint $table) {
+        Schema::hasTable('metric_result_types') || Schema::create('metric_result_types', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->increments('id')->unsigned();
                 $table->string('name', 255)->nullable();
@@ -34,8 +33,7 @@ class CreateMetricsAnalysersTables extends Migration
          * 
          */
         
-        Schema::create(
-            'metrics', function (Blueprint $table) {
+        Schema::hasTable('metrics') || Schema::create('metrics', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->increments('id')->unsigned();
                 $table->longText('text')->nullable();
@@ -46,8 +44,7 @@ class CreateMetricsAnalysersTables extends Migration
             }
         );
 
-        Schema::create(
-            'metric_analyses', function (Blueprint $table) {
+        Schema::hasTable('metric_analyses') || Schema::create('metric_analyses', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->increments('id')->unsigned();
                 $table->longText('text')->nullable();
@@ -58,8 +55,7 @@ class CreateMetricsAnalysersTables extends Migration
             }
         );
         
-        Schema::create(
-            'metric_analyse_results', function (Blueprint $table) {
+        Schema::hasTable('metric_analyse_results') || Schema::create('metric_analyse_results', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->increments('id')->unsigned();
                 $table->longText('text')->nullable();
@@ -82,8 +78,7 @@ class CreateMetricsAnalysersTables extends Migration
         //   ]
           
 
-        Schema::create(
-            'analyser_results', function (Blueprint $table) {
+        Schema::hasTable('analyser_results') || Schema::create('analyser_results', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name');
                 $table->string('md5_name');
