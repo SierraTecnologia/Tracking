@@ -66,4 +66,16 @@ class Geoip extends Model
      * @var bool
      */
     protected $throwValidationExceptions = true;
+
+    protected $rules = [];
+
+    public function getTable()
+    {
+        return config('tracking.statistics.tables.geoips', 'statistics_geoips');
+    }
+
+    public function requests(): HasMany
+    {
+        return $this->hasMany(Request::class);
+    }
 }

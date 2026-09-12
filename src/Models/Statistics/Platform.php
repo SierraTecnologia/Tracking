@@ -50,4 +50,16 @@ class Platform extends Model
      * @var bool
      */
     protected $throwValidationExceptions = true;
+
+    protected $rules = [];
+
+    public function getTable()
+    {
+        return config('tracking.statistics.tables.platforms', 'statistics_platforms');
+    }
+
+    public function requests(): HasMany
+    {
+        return $this->hasMany(Request::class);
+    }
 }

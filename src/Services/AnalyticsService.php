@@ -36,7 +36,7 @@ class AnalyticsService
             $data = [
                 'data' => $requestData,
             ];
-            if (Schema::hasColumn($this->model->getTable(), 'business_code')) { // || Business::isToIgnore())
+            if (Schema::hasColumn($this->model->getTable(), 'business_code') && class_exists(\Business::class)) {
                 $data['business_code'] = \Business::getCode();
             }
             $this->model->create(

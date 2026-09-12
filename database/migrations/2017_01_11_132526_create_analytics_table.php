@@ -13,6 +13,8 @@ class CreateAnalyticsTable extends Migration
     {
         Schema::hasTable('analytics') || Schema::create('analytics', function (Blueprint $table) {
                 $table->increments('id');
+                $table->string('token')->nullable();
+                $table->string('business_code')->nullable();
                 $table->text('data')->nullable();
                 $table->nullableTimestamps();
             }

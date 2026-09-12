@@ -65,4 +65,16 @@ class Datum extends Model
      * @var bool
      */
     protected $throwValidationExceptions = true;
+
+    protected $rules = [];
+
+    public function getTable()
+    {
+        return config('tracking.statistics.tables.data', 'statistics_data');
+    }
+
+    public function user(): MorphTo
+    {
+        return $this->morphTo();
+    }
 }

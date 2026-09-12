@@ -52,4 +52,16 @@ class Device extends Model
      * @var bool
      */
     protected $throwValidationExceptions = true;
+
+    protected $rules = [];
+
+    public function getTable()
+    {
+        return config('tracking.statistics.tables.devices', 'statistics_devices');
+    }
+
+    public function requests(): HasMany
+    {
+        return $this->hasMany(Request::class);
+    }
 }

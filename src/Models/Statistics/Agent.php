@@ -54,4 +54,16 @@ class Agent extends Model
      * @var bool
      */
     protected $throwValidationExceptions = true;
+
+    protected $rules = [];
+
+    public function getTable()
+    {
+        return config('tracking.statistics.tables.agents', 'statistics_agents');
+    }
+
+    public function requests(): HasMany
+    {
+        return $this->hasMany(Request::class);
+    }
 }

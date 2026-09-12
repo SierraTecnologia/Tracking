@@ -89,6 +89,13 @@ class Request extends Model
      */
     protected $throwValidationExceptions = true;
 
+    protected $rules = [];
+
+    public function getTable()
+    {
+        return config('tracking.statistics.tables.requests', 'statistics_requests');
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -106,5 +113,40 @@ class Request extends Model
                 $request->platform()->increment('count');
             }
         );
+    }
+
+    public function route(): BelongsTo
+    {
+        return $this->belongsTo(Route::class);
+    }
+
+    public function agent(): BelongsTo
+    {
+        return $this->belongsTo(Agent::class);
+    }
+
+    public function device(): BelongsTo
+    {
+        return $this->belongsTo(Device::class);
+    }
+
+    public function platform(): BelongsTo
+    {
+        return $this->belongsTo(Platform::class);
+    }
+
+    public function path(): BelongsTo
+    {
+        return $this->belongsTo(Path::class);
+    }
+
+    public function geoip(): BelongsTo
+    {
+        return $this->belongsTo(Geoip::class);
+    }
+
+    public function user(): MorphTo
+    {
+        return $this->morphTo();
     }
 }

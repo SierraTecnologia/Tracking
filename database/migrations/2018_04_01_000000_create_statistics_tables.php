@@ -15,7 +15,7 @@ class CreateStatisticsTables extends Migration
      */
     public function up(): void
     {
-        Schema::create(
+        $this->createTableIfMissing(
             \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.data', 'statistics_data'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
@@ -29,7 +29,7 @@ class CreateStatisticsTables extends Migration
                 $table->timestamp('created_at')->nullable();
             }
         );
-        Schema::create(
+        $this->createTableIfMissing(
             \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.routes', 'statistics_routes'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
@@ -44,7 +44,7 @@ class CreateStatisticsTables extends Migration
                 $table->unique('name');
             }
         );
-        Schema::create(
+        $this->createTableIfMissing(
             \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.paths', 'statistics_paths'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
@@ -59,7 +59,7 @@ class CreateStatisticsTables extends Migration
                 $table->unique(['host', 'path', 'method', 'locale']);
             }
         );
-        Schema::create(
+        $this->createTableIfMissing(
             \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.agents', 'statistics_agents'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
@@ -70,7 +70,7 @@ class CreateStatisticsTables extends Migration
                 $table->integer('count')->unsigned()->default(0);
             }
         );
-        Schema::create(
+        $this->createTableIfMissing(
             \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.devices', 'statistics_devices'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
@@ -80,7 +80,7 @@ class CreateStatisticsTables extends Migration
                 $table->integer('count')->unsigned()->default(0);
             }
         );
-        Schema::create(
+        $this->createTableIfMissing(
             \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.platforms', 'statistics_platforms'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
@@ -89,7 +89,7 @@ class CreateStatisticsTables extends Migration
                 $table->integer('count')->unsigned()->default(0);
             }
         );
-        Schema::create(
+        $this->createTableIfMissing(
             \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.geoips', 'statistics_geoips'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
@@ -109,7 +109,7 @@ class CreateStatisticsTables extends Migration
                 $table->unique(['client_ip', 'latitude', 'longitude']);
             }
         );
-        Schema::create(
+        $this->createTableIfMissing(
             \Illuminate\Support\Facades\Config::get('tracking.statistics.tables.requests', 'statistics_requests'), function (Blueprint $table) {
                 // Columns
                 $table->increments('id');
@@ -172,6 +172,13 @@ class CreateStatisticsTables extends Migration
         Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.paths', 'statistics_paths'));
         Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.routes', 'statistics_routes'));
         Schema::dropIfExists(\Illuminate\Support\Facades\Config::get('tracking.statistics.tables.data', 'statistics_data'));
+    }
+
+    protected function createTableIfMissing(string $tableName, \Closure $callback): void
+    {
+        if (! Schema::hasTable($tableName)) {
+            Schema::create($tableName, $callback);
+        }
     }
 
     /**

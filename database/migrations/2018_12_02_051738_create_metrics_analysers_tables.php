@@ -36,6 +36,8 @@ class CreateMetricsAnalysersTables extends Migration
         Schema::hasTable('metrics') || Schema::create('metrics', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->increments('id')->unsigned();
+                $table->string('token')->nullable();
+                $table->longText('data')->nullable();
                 $table->longText('text')->nullable();
                 // $table->string('tatuageable_id');
                 // $table->string('tatuageable_type', 255);

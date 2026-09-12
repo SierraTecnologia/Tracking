@@ -8,7 +8,7 @@ use ReflectionClass;
 use PHPUnit\Framework\TestCase;
 use Illuminate\Container\Container;
 use Illuminate\Support\ServiceProvider;
-use Tracking\Providers\StatisticsServiceProvider;
+use Tracking\TrackingProvider;
 
 class ServiceProviderTest extends TestCase
 {
@@ -17,13 +17,13 @@ class ServiceProviderTest extends TestCase
      */
     protected function getServiceProviderClass(): string
     {
-        return StatisticsServiceProvider::class;
+        return TrackingProvider::class;
     }
 
     /**
      * @test 
      */
-    public function it_is_a_service_provider()
+    public function test_it_is_a_service_provider()
     {
         $class = $this->getServiceProviderClass();
 
@@ -39,16 +39,11 @@ class ServiceProviderTest extends TestCase
     /**
      * @test 
      */
-    public function it_has_provides_method()
+    public function test_it_has_package_name()
     {
         $class = $this->getServiceProviderClass();
-        $reflection = new ReflectionClass($class);
+        $provider = new $class(new Container());
 
-        $method = $reflection->getMethod('provides');
-        $method->setAccessible(true);
-
-        $msg = "Expected class '{$class}' to provide a valid list of services.";
-
-        $this->assertIsArray($method->invoke(new $class(new Container())), $msg);
+        $this->assertSame('tracking', $provider->packageName);
     }
 }
