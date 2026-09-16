@@ -6,10 +6,7 @@
          stopOnFailure="false"
          cacheDirectory=".phpunit.cache">
     <testsuites>
-        <testsuite name="SierraTecnologia Statistics Unit Test Suite">
-            <directory suffix="Test.php">./tests/Unit</directory>
-        </testsuite>
-        <testsuite name="SierraTecnologia Statistics Feature Test Suite">
+        <testsuite name="Tracking">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
     </testsuites>

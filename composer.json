@@ -1,10 +1,15 @@
 {
     "name": "sierratecnologia/tracking",
-    "description": "Tracking",
+    "description": "Rastreio comportamental de visitantes e leads para Laravel: tracker.js universal, ingestão por beacon, jornada e engajamento prontos para o CRM.",
     "type": "library",
     "keywords": [
         "sierratecnologia",
-        "tracking"
+        "tracking",
+        "behavioral",
+        "lead-tracking",
+        "journey",
+        "analytics",
+        "laravel"
     ],
     "license": "MIT",
     "homepage": "https://sierratecnologia.com/packages/tracking/",
@@ -23,33 +28,17 @@
     ],
     "require": {
         "php": "^8.3",
-        "geoip2/geoip2": "^3.4",
-        "illuminate/bus": "^13.0",
-        "illuminate/console": "^13.0",
-        "illuminate/contracts": "^13.0",
-        "illuminate/database": "^13.0",
-        "illuminate/http": "^13.0",
-        "illuminate/queue": "^13.0",
-        "illuminate/routing": "^13.0",
-        "illuminate/support": "^13.0",
-        "jenssegers/agent": "^2.6",
-        "donatj/phpuseragentparser": "^1.11",
-        "sierratecnologia/countries": "^2.0",
-        "sierratecnologia/muleta": "^2.0",
-        "symfony/http-foundation": "^7.2",
-        "torann/geoip": "^3.0",
-        "ua-parser/uap-php": "^3.10",
-        "sierratecnologia/audit": "^2.0",
-        "ricardosierra/larametrics": "^2.0",
-        "wnx/laravel-stats": "^2.20",
-        "guzzlehttp/guzzle": "^7.10",
-        "laravel/horizon": "^5.49",
-        "spatie/laravel-analytics": "^5.7"
+        "illuminate/console": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/contracts": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/database": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/events": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/http": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/routing": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/support": "^11.0 || ^12.0 || ^13.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.68",
-        "orchestra/testbench": "^11.0",
-        "phpunit/phpunit": "^13.0"
+        "orchestra/testbench": "^9.0 || ^10.0 || ^11.0",
+        "phpunit/phpunit": "^11.0 || ^12.0 || ^13.0"
     },
     "autoload": {
         "psr-4": {
@@ -62,30 +51,22 @@
         }
     },
     "scripts": {
-        "psalm": "vendor/bin/psalm",
-        "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
-        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
-        "check-style": "phpcs -p --standard=PSR12 src --extensions=php",
-        "fix-style": "phpcbf -p --standard=PSR12 src --extensions=php"
+        "test": "vendor/bin/phpunit"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../**",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
+    "config": {
+        "sort-packages": true
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
         "laravel": {
             "providers": [
                 "Tracking\\TrackingProvider"
-            ]
+            ],
+            "aliases": {
+                "Tracking": "Tracking\\Facades\\Tracking"
+            }
         }
     },
-    "version": "2.2.1"
+    "version": "2.3.0"
 }

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tracking\Tests;
 
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Tracking\TrackingProvider;
 
@@ -11,9 +13,7 @@ abstract class TestCase extends OrchestraTestCase
 {
     protected function getPackageProviders($app)
     {
-        return [
-            TrackingProvider::class,
-        ];
+        return [TrackingProvider::class];
     }
 
     protected function defineEnvironment($app)
@@ -24,21 +24,35 @@ abstract class TestCase extends OrchestraTestCase
             'database' => ':memory:',
             'prefix' => '',
         ]);
-
-        $app['config']->set('tracking.statistics.enabled', true);
-        $app['config']->set('tracking.statistics.tables.data', 'statistics_data');
-        $app['config']->set('tracking.statistics.tables.routes', 'statistics_routes');
-        $app['config']->set('tracking.statistics.tables.paths', 'statistics_paths');
-        $app['config']->set('tracking.statistics.tables.devices', 'statistics_devices');
-        $app['config']->set('tracking.statistics.tables.agents', 'statistics_agents');
-        $app['config']->set('tracking.statistics.tables.platforms', 'statistics_platforms');
-        $app['config']->set('tracking.statistics.tables.geoips', 'statistics_geoips');
-        $app['config']->set('tracking.statistics.tables.requests', 'statistics_requests');
     }
 
     protected function defineDatabaseMigrations()
     {
-        $this->loadLaravelMigrations();
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
+        // Alvo com a trait (morph) — um "Contact" de CRM qualquer.
+        Schema::create('contacts', function (Blueprint $table): void {
+            $table->id();
+            $table->uuid('uuid')->unique();
+            $table->string('name');
+            $table->timestamps();
+        });
+
+        // Alvo com a própria tabela de eventos — o Lead da Central.
+        Schema::create('leads', function (Blueprint $table): void {
+            $table->id();
+            $table->uuid('uuid')->unique();
+            $table->string('name');
+            $table->timestamps();
+        });
+
+        Schema::create('lead_events', function (Blueprint $table): void {
+            $table->id();
+            $table->foreignId('lead_id');
+            $table->string('type', 50);
+            $table->text('description')->nullable();
+            $table->json('meta')->nullable();
+            $table->timestamps();
+        });
     }
 }

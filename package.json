@@ -1,9 +1,0 @@
-{
-    "private": true,
-    "scripts": {},
-    "dependencies": {
-        "codemirror": "^5.39.2",
-        "prismjs": "^1.15.0",
-        "vue": "^2.5.0"
-    }
-}
